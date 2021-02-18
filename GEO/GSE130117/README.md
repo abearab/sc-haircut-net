@@ -1,7 +1,7 @@
 # Repair feautres
 
 To measure DNA repair activities in single cell, we add polyadenylated DNA
-hairpins that contain a single type of DNA lesion to a 10x Genomics 3?
+hairpins that contain a single type of DNA lesion to a 10x Genomics 3'
 gene expression experiment. Within the droplets active DNA repair
 proteins released from single cells recognize and initiate repair on the
 DNA hairpin substrates. This results in a strand incision event. These
