@@ -13,10 +13,10 @@ source="reference_sources"
 mkdir -p "$source"
 
 
-fasta_url="http://ftp.ensembl.org/pub/release-98/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
+fasta_url="http://ftp.ensembl.org/pub/release-100/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
 fasta_in="${source}/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-gtf_url="http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz"
-gtf_in="${source}/gencode.v32.primary_assembly.annotation.gtf"
+gtf_url="http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_37/gencode.v37.primary_assembly.annotation.gtf.gz"
+gtf_in="${source}/gencode.v37.primary_assembly.annotation.gtf"
 
 
 if [ ! -f "$fasta_in" ]; then
