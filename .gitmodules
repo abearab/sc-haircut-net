@@ -1,3 +1,6 @@
 [submodule "sc-haircut"]
 	path = sc-haircut
 	url = https://github.com/hesselberthlab/sc-haircut.git
+[submodule "scrunchy"]
+	path = scrunchy
+	url = https://github.com/hesselberthlab/scrunchy.git
