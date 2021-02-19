@@ -1,11 +1,13 @@
 # https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/algorithms/overview
 # Genome metadata
+genome="GRCh38"
 version="2021-A"
-build="~/Projects/sc-haircut-net/genome"
+
+build="/rumi/shams/abe/Projects/sc-haircut-net/genome"
 mkdir -p ${build}
 
 # Download source files if they do not exist in reference_sources/ folder
-source="~/genomes/hg38/"
+source="/rumi/shams/abe/genomes/hg38"
 
 fasta_url="http://ftp.ensembl.org/pub/release-100/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
 fasta_in="${source}/GRCh38.100/Homo_sapiens.GRCh38.dna.primary_assembly.fa"

@@ -1,0 +1,54 @@
+Fri Feb 19 02:35:49 UTC 2021
+Modify and filter genome files
+Run cellranger mkref
+cellranger mkref ()
+Copyright (c) 2019 10x Genomics, Inc.  All rights reserved.
+-------------------------------------------------------------------------------
+
+Feb 19 02:55:15 ..... started STAR run
+Feb 19 02:55:15 ... starting to generate Genome files
+Feb 19 02:56:44 ..... processing annotations GTF
+Feb 19 02:57:22 ... starting to sort Suffix Array. This may take a long time...
+Feb 19 02:57:36 ... sorting Suffix Array chunks and saving them to disk...
+Feb 19 04:17:09 ... loading chunks from disk, packing SA...
+Feb 19 04:18:33 ... finished generating suffix array
+Feb 19 04:18:33 ... generating Suffix Array index
+Feb 19 04:21:54 ... completed Suffix Array index
+Feb 19 04:21:56 ..... inserting junctions into the genome indices
+Feb 19 04:33:47 ... writing Genome to disk ...
+Feb 19 04:33:54 ... writing Suffix Array to disk ...
+Feb 19 04:34:11 ... writing SAindex to disk
+Feb 19 04:34:13 ..... finished successfully
+Creating new reference folder at /rumi/shams/abe/Projects/sc-haircut-net/GRCh38
+...done
+
+Writing genome FASTA file into reference folder...
+...done
+
+Computing hash of genome FASTA file...
+...done
+
+Indexing genome FASTA file...
+...done
+
+Writing genes GTF file into reference folder...
+...done
+
+Computing hash of genes GTF file...
+...done
+
+Writing genes index file into reference folder (may take over 10 minutes for a 3Gb genome)...
+...done
+
+Writing genome metadata JSON file into reference folder...
+...done
+
+Generating STAR genome index (may take over 8 core hours for a 3Gb genome)...
+...done.
+
+>>> Reference successfully created! <<<
+
+You can now specify this reference on the command line:
+cellranger --transcriptome=/rumi/shams/abe/Projects/sc-haircut-net/GRCh38 ...
+All Done!
+Fri Feb 19 04:34:15 UTC 2021
