@@ -1,31 +1,35 @@
+# https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/algorithms/overview
 # Genome metadata
-genome="GRCh38"
-version="2020-A"
-
-
-# Set up source and build directories
-build="GRCh38-2020-A_build"
-mkdir -p "$build"
-
+version="2021-A"
+build="~/Projects/sc-haircut-net/genome"
+mkdir -p ${build}
 
 # Download source files if they do not exist in reference_sources/ folder
-source="reference_sources"
-mkdir -p "$source"
-
+source="~/genomes/hg38/"
 
 fasta_url="http://ftp.ensembl.org/pub/release-100/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
-fasta_in="${source}/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
+fasta_in="${source}/GRCh38.100/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 gtf_url="http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_37/gencode.v37.primary_assembly.annotation.gtf.gz"
-gtf_in="${source}/gencode.v37.primary_assembly.annotation.gtf"
+gtf_in="${source}/gencode.v37/gencode.v37.primary_assembly.annotation.gtf"
 
+echo `date`
 
+# Download script 
 if [ ! -f "$fasta_in" ]; then
+    echo 'Downloading fasta'
     curl -sS "$fasta_url" | zcat > "$fasta_in"
+    echo 'Done!'
+    echo `date`
 fi
 if [ ! -f "$gtf_in" ]; then
+    echo 'Downloading gtf'
     curl -sS "$gtf_url" | zcat > "$gtf_in"
+    echo 'Done!'
+    echo `date`
+
 fi
 
+echo 'Modify and filter genome files'
 
 # Modify sequence headers in the Ensembl FASTA to match the file
 # "GRCh38.primary_assembly.genome.fa" from GENCODE. Unplaced and unlocalized
@@ -36,7 +40,7 @@ fi
 #
 # Output FASTA:
 #   >chr1 1
-fasta_modified="$build/$(basename "$fasta_in").modified"
+fasta_modified="${build}/$(basename "$fasta_in").modified"
 # sed commands:
 # 1. Replace metadata after space with original contig name, as in GENCODE
 # 2. Add "chr" to names of autosomes and sex chromosomes
@@ -47,7 +51,6 @@ cat "$fasta_in" \
     | sed -E 's/^>MT />chrM /' \
     > "$fasta_modified"
 
-
 # Remove version suffix from transcript, gene, and exon IDs in order to match
 # previous Cell Ranger reference packages
 #
@@ -55,7 +58,8 @@ cat "$fasta_in" \
 #     ... gene_id "ENSG00000223972.5"; ...
 # Output GTF:
 #     ... gene_id "ENSG00000223972"; gene_version "5"; ...
-gtf_modified="$build/$(basename "$gtf_in").modified"
+
+gtf_modified="${build}/$(basename "$gtf_in").modified"
 # Pattern matches Ensembl gene, transcript, and exon IDs for human or mouse:
 ID="(ENS(MUS)?[GTE][0-9]+)\.([0-9]+)"
 cat "$gtf_in" \
@@ -118,8 +122,12 @@ grep -Ff "${build}/gene_allowlist" "$gtf_modified" \
     >> "$gtf_filtered"
 
 
+echo 'Run cellranger mkref'
+
 # Create reference package
 cellranger mkref --ref-version="$version" \
     --genome="$genome" --fasta="$fasta_modified" --genes="$gtf_filtered"
 
 
+echo 'All Done!'
+echo `date`
