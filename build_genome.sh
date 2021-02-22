@@ -1,4 +1,4 @@
-# https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/algorithms/overview
+# https://support.10xgenomics.com/single-cell-gene-expression/software/release-notes/build#GRCh38_2020A
 # Genome metadata
 genome="GRCh38"
 version="2021-A"
