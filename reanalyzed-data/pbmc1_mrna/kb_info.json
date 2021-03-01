@@ -1,0 +1,31 @@
+{
+    "version": "0.25.1",
+    "start_time": "2021-03-01T17:40:21.714118",
+    "end_time": "2021-03-01T17:44:11.588656",
+    "elapsed": 229.874538,
+    "call": "/rumi/shams/abe/anaconda3/envs/alignment/bin/kb count --verbose --h5ad --cellranger --report -o pbmc1_mrna -t 8 fastq/SRR8949480_S1_L001_R1_001.fastq fastq/SRR8949480_S1_L001_R2_001.fastq -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -x 10xv2",
+    "commands": [
+        "kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o pbmc1_mrna -x 10xv2 -t 8 fastq/SRR8949480_S1_L001_R1_001.fastq fastq/SRR8949480_S1_L001_R2_001.fastq",
+        "bustools inspect pbmc1_mrna/output.bus",
+        "bustools sort -o pbmc1_mrna/tmp/output.s.bus -T pbmc1_mrna/tmp -t 8 -m 4G pbmc1_mrna/output.bus",
+        "bustools inspect pbmc1_mrna/tmp/output.s.bus",
+        "bustools inspect -o pbmc1_mrna/inspect.json -w pbmc1_mrna/10xv2_whitelist.txt -e pbmc1_mrna/matrix.ec pbmc1_mrna/tmp/output.s.bus",
+        "bustools correct -o pbmc1_mrna/tmp/output.s.c.bus -w pbmc1_mrna/10xv2_whitelist.txt pbmc1_mrna/tmp/output.s.bus",
+        "bustools inspect pbmc1_mrna/tmp/output.s.c.bus",
+        "bustools sort -o pbmc1_mrna/output.unfiltered.bus -T pbmc1_mrna/tmp -t 8 -m 4G pbmc1_mrna/tmp/output.s.c.bus",
+        "bustools inspect pbmc1_mrna/output.unfiltered.bus",
+        "bustools count -o pbmc1_mrna/counts_unfiltered/cells_x_genes -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -e pbmc1_mrna/matrix.ec -t pbmc1_mrna/transcripts.txt --genecounts pbmc1_mrna/output.unfiltered.bus"
+    ],
+    "runtimes": [
+        181.44172835350037,
+        3.9561758041381836,
+        8.235413551330566,
+        0.7611546516418457,
+        3.6658458709716797,
+        1.710331678390503,
+        0.7926316261291504,
+        5.921884059906006,
+        0.8050401210784912,
+        5.597251892089844
+    ]
+}

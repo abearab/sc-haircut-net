@@ -1,0 +1,31 @@
+{
+    "version": "0.25.1",
+    "start_time": "2021-03-01T18:11:02.625461",
+    "end_time": "2021-03-01T18:15:18.241092",
+    "elapsed": 255.615631,
+    "call": "/rumi/shams/abe/anaconda3/envs/alignment/bin/kb count --verbose --h5ad --cellranger --report -o mix60_mrna -t 8 fastq/SRR11549026_S1_L001_R1_001.fastq fastq/SRR11549026_S1_L001_R2_001.fastq -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -x 10xv2",
+    "commands": [
+        "kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o mix60_mrna -x 10xv2 -t 8 fastq/SRR11549026_S1_L001_R1_001.fastq fastq/SRR11549026_S1_L001_R2_001.fastq",
+        "bustools inspect mix60_mrna/output.bus",
+        "bustools sort -o mix60_mrna/tmp/output.s.bus -T mix60_mrna/tmp -t 8 -m 4G mix60_mrna/output.bus",
+        "bustools inspect mix60_mrna/tmp/output.s.bus",
+        "bustools inspect -o mix60_mrna/inspect.json -w mix60_mrna/10xv2_whitelist.txt -e mix60_mrna/matrix.ec mix60_mrna/tmp/output.s.bus",
+        "bustools correct -o mix60_mrna/tmp/output.s.c.bus -w mix60_mrna/10xv2_whitelist.txt mix60_mrna/tmp/output.s.bus",
+        "bustools inspect mix60_mrna/tmp/output.s.c.bus",
+        "bustools sort -o mix60_mrna/output.unfiltered.bus -T mix60_mrna/tmp -t 8 -m 4G mix60_mrna/tmp/output.s.c.bus",
+        "bustools inspect mix60_mrna/output.unfiltered.bus",
+        "bustools count -o mix60_mrna/counts_unfiltered/cells_x_genes -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -e mix60_mrna/matrix.ec -t mix60_mrna/transcripts.txt --genecounts mix60_mrna/output.unfiltered.bus"
+    ],
+    "runtimes": [
+        147.84912037849426,
+        7.865948438644409,
+        14.203098773956299,
+        2.5889322757720947,
+        9.111438512802124,
+        4.859925270080566,
+        2.1628005504608154,
+        11.214672565460205,
+        1.8643183708190918,
+        9.572482824325562
+    ]
+}

@@ -1,0 +1,21 @@
+{
+	"numRecords": 4557406,
+	"numReads": 4967531,
+	"numBarcodes": 172899,
+	"medianReadsPerBarcode": 1.000000,
+	"meanReadsPerBarcode": 28.730826,
+	"numUMIs": 982573,
+	"numBarcodeUMIs": 4307566,
+	"medianUMIsPerBarcode": 1.000000,
+	"meanUMIsPerBarcode": 24.913770,
+	"gtRecords": 3890320,
+	"numTargets": 124085,
+	"medianTargetsPerSet": 4.000000,
+	"meanTargetsPerSet": 4.706301,
+	"numSingleton": 930240,
+	"gtTargets": 12055,
+	"numBarcodesOnWhitelist": 42301,
+	"percentageBarcodesOnWhitelist": 24.465729,
+	"numReadsOnWhitelist": 4718083,
+	"percentageReadsOnWhitelist": 94.978431
+}

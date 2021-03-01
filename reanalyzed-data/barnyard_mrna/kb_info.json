@@ -1,0 +1,31 @@
+{
+    "version": "0.25.1",
+    "start_time": "2021-03-01T17:20:18.738194",
+    "end_time": "2021-03-01T17:22:27.826909",
+    "elapsed": 129.088715,
+    "call": "/rumi/shams/abe/anaconda3/envs/alignment/bin/kb count --verbose --h5ad --cellranger --report -o barnyard_mrna -t 8 fastq/SRR8949478_S1_L001_R1_001.fastq fastq/SRR8949478_S1_L001_R2_001.fastq -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -x 10xv2",
+    "commands": [
+        "kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o barnyard_mrna -x 10xv2 -t 8 fastq/SRR8949478_S1_L001_R1_001.fastq fastq/SRR8949478_S1_L001_R2_001.fastq",
+        "bustools inspect barnyard_mrna/output.bus",
+        "bustools sort -o barnyard_mrna/tmp/output.s.bus -T barnyard_mrna/tmp -t 8 -m 4G barnyard_mrna/output.bus",
+        "bustools inspect barnyard_mrna/tmp/output.s.bus",
+        "bustools inspect -o barnyard_mrna/inspect.json -w barnyard_mrna/10xv2_whitelist.txt -e barnyard_mrna/matrix.ec barnyard_mrna/tmp/output.s.bus",
+        "bustools correct -o barnyard_mrna/tmp/output.s.c.bus -w barnyard_mrna/10xv2_whitelist.txt barnyard_mrna/tmp/output.s.bus",
+        "bustools inspect barnyard_mrna/tmp/output.s.c.bus",
+        "bustools sort -o barnyard_mrna/output.unfiltered.bus -T barnyard_mrna/tmp -t 8 -m 4G barnyard_mrna/tmp/output.s.c.bus",
+        "bustools inspect barnyard_mrna/output.unfiltered.bus",
+        "bustools count -o barnyard_mrna/counts_unfiltered/cells_x_genes -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -e barnyard_mrna/matrix.ec -t barnyard_mrna/transcripts.txt --genecounts barnyard_mrna/output.unfiltered.bus"
+    ],
+    "runtimes": [
+        67.73954772949219,
+        2.7674574851989746,
+        7.371888160705566,
+        1.0436112880706787,
+        4.394958734512329,
+        2.206571340560913,
+        1.1770811080932617,
+        5.547497749328613,
+        0.9742910861968994,
+        6.839495420455933
+    ]
+}

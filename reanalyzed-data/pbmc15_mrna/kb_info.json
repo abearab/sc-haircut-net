@@ -1,0 +1,31 @@
+{
+    "version": "0.25.1",
+    "start_time": "2021-03-01T18:28:01.985671",
+    "end_time": "2021-03-01T18:29:14.929511",
+    "elapsed": 72.94384,
+    "call": "/rumi/shams/abe/anaconda3/envs/alignment/bin/kb count --verbose --h5ad --cellranger --report -o pbmc15_mrna -t 8 fastq/SRR11549016_S1_L001_R1_001.fastq fastq/SRR11549016_S1_L001_R2_001.fastq -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -x 10xv2",
+    "commands": [
+        "kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o pbmc15_mrna -x 10xv2 -t 8 fastq/SRR11549016_S1_L001_R1_001.fastq fastq/SRR11549016_S1_L001_R2_001.fastq",
+        "bustools inspect pbmc15_mrna/output.bus",
+        "bustools sort -o pbmc15_mrna/tmp/output.s.bus -T pbmc15_mrna/tmp -t 8 -m 4G pbmc15_mrna/output.bus",
+        "bustools inspect pbmc15_mrna/tmp/output.s.bus",
+        "bustools inspect -o pbmc15_mrna/inspect.json -w pbmc15_mrna/10xv2_whitelist.txt -e pbmc15_mrna/matrix.ec pbmc15_mrna/tmp/output.s.bus",
+        "bustools correct -o pbmc15_mrna/tmp/output.s.c.bus -w pbmc15_mrna/10xv2_whitelist.txt pbmc15_mrna/tmp/output.s.bus",
+        "bustools inspect pbmc15_mrna/tmp/output.s.c.bus",
+        "bustools sort -o pbmc15_mrna/output.unfiltered.bus -T pbmc15_mrna/tmp -t 8 -m 4G pbmc15_mrna/tmp/output.s.c.bus",
+        "bustools inspect pbmc15_mrna/output.unfiltered.bus",
+        "bustools count -o pbmc15_mrna/counts_unfiltered/cells_x_genes -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -e pbmc15_mrna/matrix.ec -t pbmc15_mrna/transcripts.txt --genecounts pbmc15_mrna/output.unfiltered.bus"
+    ],
+    "runtimes": [
+        49.551926374435425,
+        1.6668012142181396,
+        4.194892883300781,
+        0.3411214351654053,
+        2.2972006797790527,
+        0.8270227909088135,
+        0.40563511848449707,
+        3.1629602909088135,
+        0.3406856060028076,
+        3.55375337600708
+    ]
+}

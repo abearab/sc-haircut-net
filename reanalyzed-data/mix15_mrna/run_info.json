@@ -1,0 +1,13 @@
+{
+	"n_targets": 0,
+	"n_bootstraps": 0,
+	"n_processed": 5918931,
+	"n_pseudoaligned": 4087933,
+	"n_unique": 783469,
+	"p_pseudoaligned": 69.1,
+	"p_unique": 13.2,
+	"kallisto_version": "0.46.2",
+	"index_version": 0,
+	"start_time": "Mon Mar  1 18:10:00 2021",
+	"call": "/rumi/shams/abe/anaconda3/envs/alignment/lib/python3.6/site-packages/kb_python/bins/linux/kallisto/kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o mix15_mrna -x 10xv2 -t 8 fastq/SRR11549022_S1_L001_R1_001.fastq fastq/SRR11549022_S1_L001_R2_001.fastq"
+}

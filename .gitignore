@@ -1,5 +1,5 @@
 GSE130117/
 raw-qc/
 mutiqc-raw-qc_data/
-reanalyzed-data/
+reanalyzed-data/*/*.bus
 

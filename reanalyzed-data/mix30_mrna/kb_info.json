@@ -1,0 +1,31 @@
+{
+    "version": "0.25.1",
+    "start_time": "2021-03-01T18:10:00.472247",
+    "end_time": "2021-03-01T18:11:24.965197",
+    "elapsed": 84.49295,
+    "call": "/rumi/shams/abe/anaconda3/envs/alignment/bin/kb count --verbose --h5ad --cellranger --report -o mix30_mrna -t 8 fastq/SRR11549024_S1_L001_R1_001.fastq fastq/SRR11549024_S1_L001_R2_001.fastq -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -x 10xv2",
+    "commands": [
+        "kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o mix30_mrna -x 10xv2 -t 8 fastq/SRR11549024_S1_L001_R1_001.fastq fastq/SRR11549024_S1_L001_R2_001.fastq",
+        "bustools inspect mix30_mrna/output.bus",
+        "bustools sort -o mix30_mrna/tmp/output.s.bus -T mix30_mrna/tmp -t 8 -m 4G mix30_mrna/output.bus",
+        "bustools inspect mix30_mrna/tmp/output.s.bus",
+        "bustools inspect -o mix30_mrna/inspect.json -w mix30_mrna/10xv2_whitelist.txt -e mix30_mrna/matrix.ec mix30_mrna/tmp/output.s.bus",
+        "bustools correct -o mix30_mrna/tmp/output.s.c.bus -w mix30_mrna/10xv2_whitelist.txt mix30_mrna/tmp/output.s.bus",
+        "bustools inspect mix30_mrna/tmp/output.s.c.bus",
+        "bustools sort -o mix30_mrna/output.unfiltered.bus -T mix30_mrna/tmp -t 8 -m 4G mix30_mrna/tmp/output.s.c.bus",
+        "bustools inspect mix30_mrna/output.unfiltered.bus",
+        "bustools count -o mix30_mrna/counts_unfiltered/cells_x_genes -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -e mix30_mrna/matrix.ec -t mix30_mrna/transcripts.txt --genecounts mix30_mrna/output.unfiltered.bus"
+    ],
+    "runtimes": [
+        48.34938073158264,
+        1.3221180438995361,
+        5.003443717956543,
+        0.693300724029541,
+        3.446568012237549,
+        1.355405569076538,
+        0.6794626712799072,
+        4.349109649658203,
+        0.7262711524963379,
+        5.2943806648254395
+    ]
+}

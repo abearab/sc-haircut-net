@@ -1,0 +1,31 @@
+{
+    "version": "0.25.1",
+    "start_time": "2021-03-01T18:10:00.472965",
+    "end_time": "2021-03-01T18:11:22.250657",
+    "elapsed": 81.777692,
+    "call": "/rumi/shams/abe/anaconda3/envs/alignment/bin/kb count --verbose --h5ad --cellranger --report -o mix15_mrna -t 8 fastq/SRR11549022_S1_L001_R1_001.fastq fastq/SRR11549022_S1_L001_R2_001.fastq -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -x 10xv2",
+    "commands": [
+        "kallisto bus -i /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcriptome.idx -o mix15_mrna -x 10xv2 -t 8 fastq/SRR11549022_S1_L001_R1_001.fastq fastq/SRR11549022_S1_L001_R2_001.fastq",
+        "bustools inspect mix15_mrna/output.bus",
+        "bustools sort -o mix15_mrna/tmp/output.s.bus -T mix15_mrna/tmp -t 8 -m 4G mix15_mrna/output.bus",
+        "bustools inspect mix15_mrna/tmp/output.s.bus",
+        "bustools inspect -o mix15_mrna/inspect.json -w mix15_mrna/10xv2_whitelist.txt -e mix15_mrna/matrix.ec mix15_mrna/tmp/output.s.bus",
+        "bustools correct -o mix15_mrna/tmp/output.s.c.bus -w mix15_mrna/10xv2_whitelist.txt mix15_mrna/tmp/output.s.bus",
+        "bustools inspect mix15_mrna/tmp/output.s.c.bus",
+        "bustools sort -o mix15_mrna/output.unfiltered.bus -T mix15_mrna/tmp -t 8 -m 4G mix15_mrna/tmp/output.s.c.bus",
+        "bustools inspect mix15_mrna/output.unfiltered.bus",
+        "bustools count -o mix15_mrna/counts_unfiltered/cells_x_genes -g /rumi/shams/abe/genomes/hg38/GRCh38.100-gencode.v37-modified/transcripts_to_genes.txt -e mix15_mrna/matrix.ec -t mix15_mrna/transcripts.txt --genecounts mix15_mrna/output.unfiltered.bus"
+    ],
+    "runtimes": [
+        46.06235074996948,
+        1.5095350742340088,
+        4.69214391708374,
+        0.6605856418609619,
+        3.3985540866851807,
+        1.228332757949829,
+        0.6946098804473877,
+        4.421172142028809,
+        0.7579340934753418,
+        5.382504224777222
+    ]
+}
