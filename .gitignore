@@ -1,3 +1,4 @@
+*.DS_Store
 GSE130117/
 raw-qc/
 mutiqc-raw-qc_data/
