@@ -1,6 +1,8 @@
 *.DS_Store
+*.h5ad 
 GSE130117/
 raw-qc/
 mutiqc-raw-qc_data/
 reanalyzed-data/*/*.bus
 .Rproj.user
+*.ipynb_checkpoints/
