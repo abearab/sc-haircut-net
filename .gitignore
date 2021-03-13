@@ -5,4 +5,5 @@ raw-qc/
 mutiqc-raw-qc_data/
 reanalyzed-data/*/*.bus
 .Rproj.user
+.Rhistory
 *.ipynb_checkpoints/
