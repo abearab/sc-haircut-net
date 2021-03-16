@@ -1,3 +1,9 @@
+# Download raw data
+I'm selecting SRA accession numbers and putting them into `SraAccList.txt` file. Then, I'm using `fastq-dump` command from SRA Toolkits library to download FASTQ file. 
+```bash
+nohup cat SraAccList.txt | while read line; do fastq-dump --split-files --O raw-data $line; done &> raw-data.log&
+```
+
 # Repair feautres
 
 To measure DNA repair activities in single cell, we add polyadenylated DNA
