@@ -47,3 +47,9 @@ incision site is dependent upon Pst1 digestion._
 | hmU | AATCGATGAGCTAGAGACGTCGAATTGCAGTAATGCAATTCGA[hmU]GTCTCTAGCTCATCGATTAAAAAAAAAAAAAAAAAAAA |  44 | 45  | phosphoramidites from Glen Research |
 | Uracil\_biotin |  /5Biosg/GCTTGCCTTGTCGATCACAAGTATGTCAGGTAACTGACATACTUGTGATCGACAAGGCAAGCAAAAAAAAAAAAAAAAAAAA | 44  | 45  | IDT |
    
+## Prepare 
+[Here](https://github.com/hesselberthlab/sc-haircut/issues/3), I asked for the `hairpin.fa` file. Afterward, I need that in `.csv` format to continue with _kite_. Therefore, I'm using my `fatools` python module to convert fasta to csv.
+```bash
+python kite/fatools.py -i sc-haircut/data -m fa2csv -f hairpin.fa
+```
+
