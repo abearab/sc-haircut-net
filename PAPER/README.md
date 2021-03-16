@@ -1,4 +1,4 @@
-# Simultaneous measurement of biochemical phenotypes and gene expression in single cells | [DOI] (https://doi.org/10.1093/nar/gkaa240)
+# Simultaneous measurement of biochemical phenotypes and gene expression in single cells | [DOI](https://doi.org/10.1093/nar/gkaa240)
 
 To measure DNA repair activities in single cell, we add polyadenylated DNA
 hairpins that contain a single type of DNA lesion to a 10x Genomics 3'
