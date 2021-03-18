@@ -1,5 +1,3 @@
-shell.executable("/bin/bash")
-shell.prefix("source ~/.bash_profile; ")
 import os 
 
 """ Snakefile for running 10x pipeline """

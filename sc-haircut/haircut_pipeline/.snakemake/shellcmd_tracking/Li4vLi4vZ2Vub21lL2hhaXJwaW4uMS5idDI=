@@ -1,3 +1,0 @@
-
-      bowtie2-build         --threads 12         ../../genome/hairpin.fa         ../../genome/hairpin 
-      

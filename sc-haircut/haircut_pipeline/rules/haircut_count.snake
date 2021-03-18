@@ -5,14 +5,14 @@ import glob
 def get_read_id(fq_path):
     
     fq = os.path.basename(fq_path)
-    fq = fq.replace("_001.fastq.gz", "")
-    read_id = fq[-2:]
+    read_id = fq.replace(".fastq", "")
+
     return read_id
 
 def _get_fastqs(wildcards):
 
     data_dir = RAW_DATA
-    fqs = glob.glob(os.path.join(data_dir, wildcards.sample) + "*.gz")
+    fqs = glob.glob(os.path.join(data_dir, wildcards.sample) + "*.fastq")
     
     if len(fqs) == 0:
         sys.exit("fastqs could not be found in directory {}".format(data_dir))
@@ -54,6 +54,7 @@ rule extract_umi_barcode:
       memory = "select[mem>4] rusage[mem=4]",
     log: "logs/extract_umi/{sample}.out"
     threads: 2 # for gzip
+    conda: "envs/alignment.yaml"
     resources: all_threads=2
     shell:
       """
@@ -84,6 +85,7 @@ rule trim:
     log: "logs/trim/{sample}.out"
     threads: 2 # for gzip
     resources: all_threads=2
+    conda: "envs/alignment.yaml"
     shell:
       """
       cutadapt \
@@ -112,6 +114,7 @@ rule bowtie_align:
       os.path.join("logs", "bowtie2_align", "{sample}")
     threads: 12
     resources: all_threads=12
+    conda: "envs/alignment.yaml"
     shell:
       """
         bowtie2 \
@@ -140,6 +143,7 @@ rule bowtie_idx:
     log:
       os.path.join("logs", "bowtie2_index", "log.txt")
     threads: 12
+    conda: "envs/alignment.yaml"
     resources: all_threads=12
     shell:
       """
@@ -188,6 +192,7 @@ rule add_umis_to_bam:
       os.path.join("logs", "group_sample", "{sample}")
     threads: 2
     resources: all_threads=2
+    conda: "envs/alignment.yaml"
     shell:
       """
       umi_tools group \
@@ -215,6 +220,7 @@ rule sort_by_cb:
       os.path.join("logs", "sort_sample", "{sample}")
     threads: 24
     resources: all_threads=24
+    conda: "envs/alignment.yaml"
     shell:
       """
       samtools sort \
@@ -240,6 +246,7 @@ rule count_umis:
       os.path.join("logs", "count_sample", "{sample}")
     threads: 2
     resources: all_threads=2
+    conda: "envs/alignment.yaml"
     shell:
       """
       umi_tools count \

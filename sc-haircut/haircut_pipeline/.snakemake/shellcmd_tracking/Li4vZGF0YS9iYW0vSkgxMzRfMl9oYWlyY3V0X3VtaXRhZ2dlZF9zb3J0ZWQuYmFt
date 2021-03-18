@@ -1,3 +1,0 @@
-
-      samtools sort           -t CB           -@ 23           -o ../data/bam/JH134_2_haircut_umitagged_sorted.bam           ../data/bam/JH134_2_haircut_umitagged.bam 
-      

@@ -1,0 +1,8 @@
+name: alignment
+channels:
+  - bioconda
+dependencies:
+  - umi_tools
+  - samtools
+  - bowtie2
+  - cutadapt

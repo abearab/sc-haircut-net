@@ -2,25 +2,30 @@
 
 RAW_DATA:
     # path to input raw haircut fastqs
-    "/beevol/home/richerm/projects/10x_haircut/20190819/data/repair"
+    "/rumi/shams/abe/Projects/sc-haircut-net/raw-data"
+
 DATA:
     # path to output data files
-    "../processed_data"
+    "output"
 
 HAIRCUT_FASTA:
-    "../20190819/genome/hairpin.fa"
+    "/rumi/shams/abe/Projects/sc-haircut-net/sc-haircut/data/hairpin.fa"
 
 HAIRCUT_SAMPLES:
-    - JH160_pbmc_60
+    - mix15_repair
+    - mix30_repair
+    - mix60_repair
 
 10X_WHITELIST:
     # known barcodes used in the 10x libraires to use for error correction
-    "/cluster/software/modules-sw/cellranger/3.0.2/cellranger-cs/3.0.2/lib/python/cellranger/barcodes/737K-august-2016.txt"
+    "/rumi/shams/abe/Projects/sc-haircut-net/reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt"
 
 CELL_BARCODES:
     # barcodes considered to be cells based on cellrange count run on mRNA
     # data
-    - "/beevol/home/richerm/projects/10x_haircut/20190819/JH157_pbmc_60_mrna/outs/filtered_feature_bc_matrix/barcodes.tsv.gz"
+    - "/rumi/shams/abe/Projects/sc-haircut-net/reanalyzed-data/mix15_mrna/counts_unfiltered/cellranger/barcodes.tsv" 
+    - "/rumi/shams/abe/Projects/sc-haircut-net/reanalyzed-data/mix60_mrna/counts_unfiltered/cellranger/barcodes.tsv"
+    - "/rumi/shams/abe/Projects/sc-haircut-net/reanalyzed-data/mix30_mrna/counts_unfiltered/cellranger/barcodes.tsv"
 
 SRC:
     # path to directory with source code " 
