@@ -8,9 +8,9 @@ rule extract_umi_barcode:
     white list will be discarded (i.e. no error correction)
     """
     input:
-      R1 = config['RAW_DATA'] + "/{sample}_R1.fastq",
-      R2 = config['RAW_DATA'] + "/{sample}_R2.fastq",
-      whitelist = config['BC_WHITELIST']
+      R1 = RAW_DATA + "/{sample}_R1.fastq",
+      R2 = RAW_DATA + "/{sample}_R2.fastq",
+      whitelist = BC_WHITELIST
     output:
       R1 = "{data}/fastqs/{sample}_R1_umi.fastq.gz",
       R2 = "{data}/fastqs/{sample}_R2_umi.fastq.gz" 
