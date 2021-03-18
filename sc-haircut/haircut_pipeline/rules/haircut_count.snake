@@ -1,24 +1,5 @@
 """ Snakerules for counting haircut single cell data """ 
-import os
-import glob
 
-
-def get_path_to_fqs(wildcards):
-
-    data_dir = RAW_DATA
-    path_to_fqs = glob.glob(os.path.join(data_dir, wildcards.sample) + "*.fastq")
-
-    if len(path_to_fqs) == 0:
-        sys.exit("fastqs could not be found in directory {}".format(data_dir))
-
-    print("processing the following fastqs with the haircut pipeline", file = sys.stderr)
-    print("input fastq\tsample", file = sys.stderr) 
-    for fq in path_to_fqs:
-      print("{}\t{}".format(fq, wildcards.sample), file = sys.stderr)
-    
-    print (path_to_fqs)
-
-    return path_to_fqs
 
 rule extract_umi_barcode:
     """
@@ -27,7 +8,8 @@ rule extract_umi_barcode:
     white list will be discarded (i.e. no error correction)
     """
     input:
-      get_path_to_fqs,
+      R1 = RAW_DATA + "{sample}_R1_umi.fastq",
+      R2 = RAW_DATA + "{sample}_R2_umi.fastq",
       whitelist = BC_WHITELIST
     output:
       R1 = "{data}/fastqs/{sample}_R1_umi.fastq.gz",
@@ -44,9 +26,9 @@ rule extract_umi_barcode:
       """
       umi_tools extract \
         --bc-pattern {params.bc_pattern} \
-        --stdin {input[0]} \
+        --stdin {input.R1} \
         --stdout {output.R1} \
-        --read2-in {input[1]} \
+        --read2-in {input.R2} \
         --read2-out={output.R2} \
         --whitelist={input.whitelist} \
         --filter-cell-barcode
