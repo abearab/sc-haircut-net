@@ -16,6 +16,8 @@ def get_path_to_fqs(wildcards):
     for fq in path_to_fqs:
       print("{}\t{}".format(fq, wildcards.sample), file = sys.stderr)
     
+    print (path_to_fqs)
+
     return path_to_fqs
 
 rule extract_umi_barcode:
