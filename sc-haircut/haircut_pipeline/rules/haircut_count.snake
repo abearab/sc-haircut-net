@@ -16,8 +16,6 @@ rule extract_umi_barcode:
       R2 = "{data}/fastqs/{sample}_R2_umi.fastq.gz" 
     params:
       bc_pattern = "CCCCCCCCCCCCCCCCNNNNNNNNNN",
-      job_name = "{sample}.get_umi",
-      memory = "select[mem>4] rusage[mem=4]",
     log: "logs/extract_umi/{sample}.out"
     threads: 2 # for gzip
     conda: "envs/alignment.yaml"
