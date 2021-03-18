@@ -1,3 +1,4 @@
+*.snakemake/
 *.idea/
 *.DS_Store
 *.h5ad 

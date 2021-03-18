@@ -10,10 +10,11 @@ args='
 
 #### execute snakemake ####
 
-snakemake --drmaa "$args" \
+echo snakemake --drmaa "$args" \
     --snakefile Snakefile \
-    --jobs 72 \
+    --jobs 8 \
     --resources all_threads=72 \
     --latency-wait 50 \
     --rerun-incomplete  \
-    --configfile config.yaml 
+    --configfile config.yaml \
+    --use-conda

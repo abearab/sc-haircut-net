@@ -1,5 +1,22 @@
 # config file for processing functional count data 
 
+# SnakeMake rules to use 
+process_fastq:   
+    activate: false
+
+bowtie_idx:
+    activate: false
+
+bowtie_align:
+    activate: false
+
+process_bam:
+    activate: false
+
+count_umis:
+    activate: false
+
+# experiment details 
 RAW_DATA:
     # path to input raw haircut fastqs
     "/rumi/shams/abe/Projects/sc-haircut-net/raw-data"
