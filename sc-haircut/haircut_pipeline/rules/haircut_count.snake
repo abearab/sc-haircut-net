@@ -1,5 +1,5 @@
 """ Snakerules for counting haircut single cell data """ 
-
+import os 
 
 rule extract_umi_barcode:
     """
@@ -8,14 +8,16 @@ rule extract_umi_barcode:
     white list will be discarded (i.e. no error correction)
     """
     input:
-      R1 = RAW_DATA + "/{sample}_R1.fastq",
-      R2 = RAW_DATA + "/{sample}_R2.fastq",
-      whitelist = BC_WHITELIST
+      R1 = config['RAW_DATA'] + "/{sample}_R1.fastq",
+      R2 = config['RAW_DATA'] + "/{sample}_R2.fastq",
+      whitelist = config['BC_WHITELIST']
     output:
       R1 = "{data}/fastqs/{sample}_R1_umi.fastq.gz",
       R2 = "{data}/fastqs/{sample}_R2_umi.fastq.gz" 
     params:
       bc_pattern = "CCCCCCCCCCCCCCCCNNNNNNNNNN",
+      job_name = "{sample}.get_umi",
+      memory = "select[mem>4] rusage[mem=4]",
     log: "logs/extract_umi/{sample}.out"
     threads: 2 # for gzip
     conda: "envs/alignment.yaml"
