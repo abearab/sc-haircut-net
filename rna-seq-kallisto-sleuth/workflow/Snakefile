@@ -1,0 +1,10 @@
+include: "rules/common.smk"
+include: "rules/trim.smk"
+include: "rules/quant.smk"
+include: "rules/diffexp.smk"
+include: "rules/enrichment.smk"
+
+
+rule all:
+    input:
+        all_input,
