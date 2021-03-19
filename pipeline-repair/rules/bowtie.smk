@@ -11,7 +11,7 @@ rule bowtie_idx:
       job_name = "bt2_idx",
       memory = "select[mem>30] rusage[mem=30]",
     log:
-      config["DATA"] + "logs/bowtie2_index/log.txt")
+      config["DATA"] + "logs/bowtie2_index/log.txt"
     threads: 12
     resources: all_threads=12
     conda: "../envs/alignment.yaml"
