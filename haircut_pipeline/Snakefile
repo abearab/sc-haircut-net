@@ -1,15 +1,52 @@
-""" Snakefile for running 10x pipeline """
+""" Snakefile for counting haircut single cell data """
 
-configfile: "config.yaml"
+##### load config #####
+configfile: "../config.yaml"
 
-rule all:
+RAW_DATA = config["RAW_DATA"]
+DATA = config["DATA"]
+HC_SAMPLES = config["HAIRCUT_SAMPLES"]
+BC_WHITELIST = config["10X_WHITELIST"]
+MRNA_BARCODES = config["CELL_BARCODES"]
+HAIRCUT_FASTA = config["HAIRCUT_FASTA"]
+SRC = config["SRC"]
+
+hc_to_10x_map = {}
+for idx, sample in enumerate(HC_SAMPLES):
+    hc_to_10x_map[sample] = MRNA_BARCODES[idx]
+
+
+def all_input():
+    """
+    Function defining all requested inputs for the rule all (below).
+    """
+
+    wanted_input = []
+
+    # process_fastq
+    wanted_input.extend(
+      expand("{data}/fastqs/{sample}_{read_id}_umi.fastq.gz",
+             data = DATA, sample = HC_SAMPLES, read_id = ["R1", "R2"])
+    )
+    # bowtie_idx, bowtie_align and process_bam
+    wanted_input.extend(
+      expand("{data}/bam/{sample}_haircut_umitagged_sorted.bam",
+         data = DATA, sample = HC_SAMPLES)
+    )
+    # count_umis
+    wanted_input.extend(
+      expand("{data}/counts/{sample}_umitools_counts.tsv.gz",
+             data = DATA, sample = HC_SAMPLES)
+    )
+
+    return wanted_input
+
+
+rule haircut_count:
     input:
-        all_input
-    conda: "envs/alignment.yaml"
+        all_input()
 
 include: "rules/process_fastq.smk"
-include: "rules/bowtie_idx.smk"
-include: "rules/bowtie_align.smk"
-include: "rules/common.smk"
+include: "rules/bowtie.smk"
 include: "rules/count_umis.smk"
 include: "rules/process_bam.smk"

@@ -13,7 +13,7 @@ args='
 snakemake --drmaa "$args" \
     --snakefile Snakefile \
     --jobs 8 \
-    --resources all_threads=72 \
+    --resources all_threads=8 \
     --latency-wait 50 \
     --rerun-incomplete  \
     --configfile config.yaml \

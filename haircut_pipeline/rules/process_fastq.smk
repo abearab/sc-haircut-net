@@ -1,3 +1,5 @@
+configfile: "../config.yaml"
+
 rule extract_umi_barcode:
     """
     extract umi and cell barcode from read 1.
@@ -15,10 +17,10 @@ rule extract_umi_barcode:
       bc_pattern = "CCCCCCCCCCCCCCCCNNNNNNNNNN",
       job_name = "{sample}.get_umi",
       memory = "select[mem>4] rusage[mem=4]",
-    log: "../logs/extract_umi/{sample}.out"
+    log: "{data}/logs/extract_umi/{sample}.out"
     threads: 2 # for gzip
-    conda: "../envs/alignment.yaml"
     resources: all_threads=2
+    conda: "../envs/alignment.yaml"
     shell:
       """
       umi_tools extract \
@@ -58,4 +60,3 @@ rule trim:
         -o {output} \
         {input}
       """
-

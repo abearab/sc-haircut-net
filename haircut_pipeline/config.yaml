@@ -10,11 +10,11 @@ DATA:
     "output"
 
 HAIRCUT_FASTA:
-    "/rumi/shams/abe/Projects/sc-haircut-net/sc-haircut/data/hairpin.fa"
+    "data/hairpin.fa"
 
 10X_WHITELIST:
     # known barcodes used in the 10x libraires to use for error correction
-    "/rumi/shams/abe/Projects/sc-haircut-net/reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt"
+    "../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt"
 
 HAIRCUT_SAMPLES:
     - mix15_repair
@@ -32,18 +32,6 @@ SRC:
     # path to directory with source code " 
     "src"
 
-# SnakeMake rules to use
-process_fastq:
-    activate: true
-
-bowtie_idx:
-    activate: false
-
-bowtie_align:
-    activate: false
-
-process_bam:
-    activate: false
-
-count_umis:
-    activate: false
+CONDA:
+    # path to directory with conda environment yaml files "
+    "envs"
