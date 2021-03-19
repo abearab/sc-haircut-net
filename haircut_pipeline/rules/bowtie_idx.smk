@@ -13,7 +13,6 @@ rule bowtie_idx:
     log:
       os.path.join("logs", "bowtie2_index", "log.txt")
     threads: 12
-    conda: "envs/alignment.yaml"
     resources: all_threads=12
     shell:
       """

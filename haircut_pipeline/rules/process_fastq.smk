@@ -5,9 +5,9 @@ rule extract_umi_barcode:
     white list will be discarded (i.e. no error correction)
     """
     input:
-      R1 = RAW_DATA + "/{sample}_R1.fastq",
-      R2 = RAW_DATA + "/{sample}_R2.fastq",
-      whitelist = BC_WHITELIST
+      R1 = config["RAW_DATA"] + "/{sample}_R1.fastq",
+      R2 = config["RAW_DATA"] + "/{sample}_R2.fastq",
+      whitelist = config["10X_WHITELIST"]
     output:
       R1 = "{data}/fastqs/{sample}_R1_umi.fastq.gz",
       R2 = "{data}/fastqs/{sample}_R2_umi.fastq.gz" 
@@ -15,9 +15,9 @@ rule extract_umi_barcode:
       bc_pattern = "CCCCCCCCCCCCCCCCNNNNNNNNNN",
       job_name = "{sample}.get_umi",
       memory = "select[mem>4] rusage[mem=4]",
-    log: "logs/extract_umi/{sample}.out"
+    log: "../logs/extract_umi/{sample}.out"
     threads: 2 # for gzip
-    conda: "envs/alignment.yaml"
+    conda: "../envs/alignment.yaml"
     resources: all_threads=2
     shell:
       """
@@ -45,10 +45,10 @@ rule trim:
       other_options = " --minimum-length=2 ",
       job_name = "{sample}.trim",
       memory = "select[mem>4] rusage[mem=4]",
-    log: "logs/trim/{sample}.out"
+    log: "{data}/logs/trim/{sample}.out"
     threads: 2 # for gzip
     resources: all_threads=2
-    conda: "envs/alignment.yaml"
+    conda: "../envs/alignment.yaml"
     shell:
       """
       cutadapt \

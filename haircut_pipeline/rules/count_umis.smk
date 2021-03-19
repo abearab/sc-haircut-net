@@ -1,3 +1,5 @@
+import os
+
 rule count_umis:
     """
     count up umis

@@ -10,7 +10,7 @@ args='
 
 #### execute snakemake ####
 
-echo snakemake --drmaa "$args" \
+snakemake --drmaa "$args" \
     --snakefile Snakefile \
     --jobs 8 \
     --resources all_threads=72 \

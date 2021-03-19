@@ -1,3 +1,6 @@
+import os
+
+
 rule bowtie_align:
     """
     run bowtie2

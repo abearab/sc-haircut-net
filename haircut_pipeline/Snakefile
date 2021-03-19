@@ -1,0 +1,15 @@
+""" Snakefile for running 10x pipeline """
+
+configfile: "config.yaml"
+
+rule all:
+    input:
+        all_input
+    conda: "envs/alignment.yaml"
+
+include: "rules/process_fastq.smk"
+include: "rules/bowtie_idx.smk"
+include: "rules/bowtie_align.smk"
+include: "rules/common.smk"
+include: "rules/count_umis.smk"
+include: "rules/process_bam.smk"

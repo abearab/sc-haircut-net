@@ -1,3 +1,6 @@
+import os
+
+
 rule append_tag:
     """
     add XT tag with chrom + pos

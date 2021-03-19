@@ -1,5 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README-substrates.md is generated from README.Rmd. Please edit that file -->
 
 # scrunchy <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
