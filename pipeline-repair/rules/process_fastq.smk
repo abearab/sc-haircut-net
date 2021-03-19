@@ -1,5 +1,3 @@
-configfile: "../config.yaml"
-
 rule extract_umi_barcode:
     """
     extract umi and cell barcode from read 1.

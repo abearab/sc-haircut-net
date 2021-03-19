@@ -1,7 +1,7 @@
 """ Snakefile for counting haircut single cell data """
 
 ##### load config #####
-configfile: "../config.yaml"
+configfile: "config.yaml"
 
 RAW_DATA = config["RAW_DATA"]
 DATA = config["DATA"]

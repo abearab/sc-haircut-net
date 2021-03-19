@@ -3,7 +3,7 @@
 # experiment details
 RAW_DATA:
     # path to input raw haircut fastqs
-    "../raw-data"
+    "raw-data"
 
 DATA:
     # path to output data files
