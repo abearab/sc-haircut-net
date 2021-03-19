@@ -9,3 +9,6 @@ reanalyzed-data/*/*.bus
 .Rhistory
 *.ipynb_checkpoints/
 *__pycache__/
+*fastq
+*fastq.gz
+*.bam

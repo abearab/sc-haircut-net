@@ -1,0 +1,3982 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Provided resources: all_threads=8
+Job counts:
+	count	jobs
+	3	add_umis_to_bam
+	3	append_tag
+	3	bowtie_align
+	1	bowtie_idx
+	3	count_umis
+	3	extract_umi_barcode
+	1	haircut_count
+	3	sort_by_cb
+	3	trim
+	23
+Select jobs to execute...
+
+[Fri Mar 19 12:54:05 2021]
+rule bowtie_idx:
+    input: data/hairpin.fa
+    output: data/hairpin.1.bt2
+    log: logs/bowtie2_index/log.txt
+    jobid: 8
+    threads: 8
+    resources: all_threads=8
+
+
+      bowtie2-build         --threads 8         data/hairpin.fa         data/hairpin 
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+Settings:
+  Output files: "data/hairpin.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Max bucket size: default
+  Max bucket size, sqrt multiplier: default
+  Max bucket size, len divisor: 32
+  Difference-cover sample period: 1024
+  Endianness: little
+  Actual local endianness: little
+  Sanity checking: disabled
+  Assertions: disabled
+  Random seed: 0
+  Sizeofs: void*:8, int:4, long:8, size_t:8
+Input files DNA, FASTA:
+  data/hairpin.fa
+Building a SMALL index
+Reading reference sizes
+  Time reading reference sizes: 00:00:00
+Calculating joined length
+Writing header
+Reserving space for joined string
+Joining reference sequences
+  Time to join reference sequences: 00:00:00
+bmax according to bmaxDivN setting: 34
+Using parameters --bmax 26 --dcv 1024
+  Doing ahead-of-time memory usage test
+  Passed!  Constructing with these parameters: --bmax 26 --dcv 1024
+Constructing suffix-array element generator
+Building DifferenceCoverSample
+  Building sPrime
+  Building sPrimeOrder
+  V-Sorting samples
+  V-Sorting samples time: 00:00:00
+  Allocating rank array
+  Ranking v-sort output
+  Ranking v-sort output time: 00:00:00
+  Invoking Larsson-Sadakane on ranks
+  Invoking Larsson-Sadakane on ranks time: 00:00:00
+  Sanity-checking and returning
+Building samples
+Reserving space for 90 sample suffixes
+Generating random suffixes
+QSorting 90 sample offsets, eliminating duplicates
+QSorting sample offsets, eliminating duplicates time: 00:00:00
+Multikey QSorting 87 samples
+  (Using difference cover)
+  Multikey QSorting samples time: 00:00:00
+Calculating bucket sizes
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 9, merged 41; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 7, merged 6; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 4, merged 3; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 2, merged 2; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Avg bucket size: 18.5965 (target: 25)
+Converting suffix-array elements to index image
+Allocating ftab, absorbFtab
+Entering Ebwt loop
+Getting block 7 of 57
+Getting block 5 of 57
+Getting block 6 of 57
+Getting block 2 of 57
+Getting block 3 of 57
+Getting block 1 of 57
+Getting block 4 of 57
+  Reserving size (26) for bucket 7
+  Reserving size (26) for bucket 5
+  Reserving size (26) for bucket 6
+  Reserving size (26) for bucket 2
+Getting block 8 of 57
+  Reserving size (26) for bucket 3
+  Reserving size (26) for bucket 1
+  Reserving size (26) for bucket 4
+  Calculating Z arrays for bucket 7
+  Calculating Z arrays for bucket 5
+  Calculating Z arrays for bucket 6
+  Calculating Z arrays for bucket 2
+  Reserving size (26) for bucket 8
+  Calculating Z arrays for bucket 3
+  Calculating Z arrays for bucket 1
+  Calculating Z arrays for bucket 4
+  Calculating Z arrays for bucket 8
+  Entering block accumulator loop for bucket 7:
+  Entering block accumulator loop for bucket 5:
+  Entering block accumulator loop for bucket 1:
+  bucket 5: 10%
+  bucket 1: 10%
+  bucket 7: 10%
+  Entering block accumulator loop for bucket 6:
+  Entering block accumulator loop for bucket 3:
+  bucket 5: 20%
+  Entering block accumulator loop for bucket 2:
+  bucket 1: 20%
+  bucket 7: 20%
+  Entering block accumulator loop for bucket 4:
+  Entering block accumulator loop for bucket 8:
+  bucket 5: 30%
+  bucket 1: 30%
+  bucket 7: 30%
+  bucket 6: 10%
+  bucket 3: 10%
+  bucket 5: 40%
+  bucket 2: 10%
+  bucket 1: 40%
+  bucket 7: 40%
+  bucket 4: 10%
+  bucket 6: 20%
+  bucket 8: 10%
+  bucket 3: 20%
+  bucket 5: 50%
+  bucket 2: 20%
+  bucket 1: 50%
+  bucket 7: 50%
+  bucket 4: 20%
+  bucket 6: 30%
+  bucket 8: 20%
+  bucket 3: 30%
+  bucket 5: 60%
+  bucket 2: 30%
+  bucket 1: 60%
+  bucket 7: 60%
+  bucket 4: 30%
+  bucket 6: 40%
+  bucket 8: 30%
+  bucket 3: 40%
+  bucket 5: 70%
+  bucket 2: 40%
+  bucket 1: 70%
+  bucket 7: 70%
+  bucket 4: 40%
+  bucket 6: 50%
+  bucket 8: 40%
+  bucket 3: 50%
+  bucket 5: 80%
+  bucket 2: 50%
+  bucket 1: 80%
+  bucket 7: 80%
+  bucket 4: 50%
+  bucket 6: 60%
+  bucket 8: 50%
+  bucket 3: 60%
+  bucket 5: 90%
+  bucket 2: 60%
+  bucket 1: 90%
+  bucket 7: 90%
+  bucket 4: 60%
+  bucket 6: 70%
+  bucket 8: 60%
+  bucket 3: 70%
+  bucket 5: 100%
+  bucket 2: 70%
+  bucket 1: 100%
+  bucket 7: 100%
+  bucket 4: 70%
+  bucket 6: 80%
+  bucket 8: 70%
+  bucket 3: 80%
+  Sorting block of length 24 for bucket 5
+  (Using difference cover)
+  bucket 2: 80%
+  Sorting block of length 23 for bucket 1
+  (Using difference cover)
+  Sorting block of length 23 for bucket 7
+  (Using difference cover)
+  bucket 4: 80%
+  bucket 6: 90%
+  bucket 8: 80%
+  bucket 3: 90%
+  bucket 2: 90%
+  Sorting block time: 00:00:00
+  bucket 4: 90%
+  bucket 6: 100%
+  Sorting block time: 00:00:00
+  bucket 8: 90%
+  bucket 3: 100%
+  Sorting block time: 00:00:00
+  bucket 2: 100%
+Returning block of 25 for bucket 5
+  bucket 4: 100%
+  Sorting block of length 25 for bucket 6
+  (Using difference cover)
+Returning block of 24 for bucket 1
+  bucket 8: 100%
+  Sorting block of length 25 for bucket 3
+  (Using difference cover)
+Returning block of 24 for bucket 7
+  Sorting block of length 8 for bucket 2
+  (Using difference cover)
+  Sorting block time: 00:00:00
+  Sorting block of length 18 for bucket 4
+  (Using difference cover)
+  Sorting block of length 18 for bucket 8
+  (Using difference cover)
+Returning block of 26 for bucket 6
+  Sorting block time: 00:00:00
+Returning block of 26 for bucket 3
+  Sorting block time: 00:00:00
+Returning block of 9 for bucket 2
+  Sorting block time: 00:00:00
+Returning block of 19 for bucket 8
+  Sorting block time: 00:00:00
+Returning block of 19 for bucket 4
+Getting block 9 of 57
+  Reserving size (26) for bucket 9
+  Calculating Z arrays for bucket 9
+  Entering block accumulator loop for bucket 9:
+  bucket 9: 10%
+  bucket 9: 20%
+  bucket 9: 30%
+Getting block 10 of 57
+  bucket 9: 40%
+  Reserving size (26) for bucket 10
+  bucket 9: 50%
+  Calculating Z arrays for bucket 10
+  bucket 9: 60%
+  bucket 9: 70%
+  bucket 9: 80%
+  Entering block accumulator loop for bucket 10:
+  bucket 9: 90%
+  bucket 9: 100%
+  bucket 10: 10%
+  Sorting block of length 18 for bucket 9
+  (Using difference cover)
+  bucket 10: 20%
+Getting block 11 of 57
+  bucket 10: 30%
+  Reserving size (26) for bucket 11
+  bucket 10: 40%
+  Calculating Z arrays for bucket 11
+  bucket 10: 50%
+  Sorting block time: 00:00:00
+Returning block of 19 for bucket 9
+  Entering block accumulator loop for bucket 11:
+  bucket 10: 60%
+  bucket 10: 70%
+  bucket 11: 10%
+  bucket 10: 80%
+  bucket 11: 20%
+  bucket 10: 90%
+  bucket 11: 30%
+  bucket 10: 100%
+  bucket 11: 40%
+  Sorting block of length 10 for bucket 10
+  (Using difference cover)
+  bucket 11: 50%
+  bucket 11: 60%
+  bucket 11: 70%
+  bucket 11: 80%
+  Sorting block time: 00:00:00
+Returning block of 11 for bucket 10
+  bucket 11: 90%
+  bucket 11: 100%
+Getting block 12 of 57
+  Sorting block of length 25 for bucket 11
+  (Using difference cover)
+  Reserving size (26) for bucket 12
+  Calculating Z arrays for bucket 12
+  Entering block accumulator loop for bucket 12:
+  bucket 12: 10%
+  bucket 12: 20%
+  bucket 12: 30%
+  bucket 12: 40%
+  Sorting block time: 00:00:00
+Returning block of 26 for bucket 11
+  bucket 12: 50%
+Getting block 13 of 57
+  bucket 12: 60%
+  Reserving size (26) for bucket 13
+  bucket 12: 70%
+  Calculating Z arrays for bucket 13
+  bucket 12: 80%
+  bucket 12: 90%
+  Entering block accumulator loop for bucket 13:
+  bucket 12: 100%
+  Sorting block of length 19 for bucket 12
+  (Using difference cover)
+  bucket 13: 10%
+  bucket 13: 20%
+  bucket 13: 30%
+  bucket 13: 40%
+  Sorting block time: 00:00:00
+  bucket 13: 50%
+Returning block of 20 for bucket 12
+  bucket 13: 60%
+  bucket 13: 70%
+Getting block 14 of 57
+  bucket 13: 80%
+  Reserving size (26) for bucket 14
+  bucket 13: 90%
+  Calculating Z arrays for bucket 14
+  bucket 13: 100%
+  Sorting block of length 23 for bucket 13
+  (Using difference cover)
+  Entering block accumulator loop for bucket 14:
+  bucket 14: 10%
+  bucket 14: 20%
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 13
+  bucket 14: 30%
+  bucket 14: 40%
+  bucket 14: 50%
+  bucket 14: 60%
+  bucket 14: 70%
+  bucket 14: 80%
+  bucket 14: 90%
+  bucket 14: 100%
+  Sorting block of length 25 for bucket 14
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 26 for bucket 14
+Getting block 15 of 57
+  Reserving size (26) for bucket 15
+  Calculating Z arrays for bucket 15
+  Entering block accumulator loop for bucket 15:
+  bucket 15: 10%
+  bucket 15: 20%
+  bucket 15: 30%
+  bucket 15: 40%
+  bucket 15: 50%
+  bucket 15: 60%
+  bucket 15: 70%
+  bucket 15: 80%
+  bucket 15: 90%
+  bucket 15: 100%
+  Sorting block of length 24 for bucket 15
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 25 for bucket 15
+Getting block 16 of 57
+  Reserving size (26) for bucket 16
+Getting block 17 of 57
+  Calculating Z arrays for bucket 16
+  Reserving size (26) for bucket 17
+Getting block 18 of 57
+  Calculating Z arrays for bucket 17
+  Entering block accumulator loop for bucket 16:
+  Reserving size (26) for bucket 18
+  Entering block accumulator loop for bucket 17:
+  Calculating Z arrays for bucket 18
+  bucket 16: 10%
+  bucket 16: 20%
+  Entering block accumulator loop for bucket 18:
+  bucket 17: 10%
+  bucket 16: 30%
+  bucket 17: 20%
+  bucket 16: 40%
+  bucket 18: 10%
+  bucket 17: 30%
+  bucket 16: 50%
+Getting block 19 of 57
+  bucket 18: 20%
+  bucket 17: 40%
+  bucket 16: 60%
+  Reserving size (26) for bucket 19
+  bucket 18: 30%
+  bucket 17: 50%
+  bucket 16: 70%
+  Calculating Z arrays for bucket 19
+  bucket 18: 40%
+  bucket 17: 60%
+  bucket 16: 80%
+  bucket 18: 50%
+  Entering block accumulator loop for bucket 19:
+  bucket 17: 70%
+Getting block 20 of 57
+  bucket 16: 90%
+  bucket 18: 60%
+  bucket 17: 80%
+  Reserving size (26) for bucket 20
+  bucket 16: 100%
+  bucket 19: 10%
+  bucket 18: 70%
+  bucket 17: 90%
+  Calculating Z arrays for bucket 20
+  Sorting block of length 3 for bucket 16
+  (Using difference cover)
+  bucket 19: 20%
+  bucket 18: 80%
+  bucket 17: 100%
+  Sorting block time: 00:00:00
+Getting block 21 of 57
+  Entering block accumulator loop for bucket 20:
+  bucket 19: 30%
+  bucket 18: 90%
+  Sorting block of length 22 for bucket 17
+  (Using difference cover)
+Returning block of 4 for bucket 16
+  Reserving size (26) for bucket 21
+  bucket 19: 40%
+  bucket 18: 100%
+Getting block 22 of 57
+  Calculating Z arrays for bucket 21
+  Sorting block time: 00:00:00
+  bucket 20: 10%
+  bucket 19: 50%
+  Sorting block of length 24 for bucket 18
+  (Using difference cover)
+  Reserving size (26) for bucket 22
+Returning block of 23 for bucket 17
+  Entering block accumulator loop for bucket 21:
+  bucket 20: 20%
+  Sorting block time: 00:00:00
+  bucket 19: 60%
+  Calculating Z arrays for bucket 22
+Returning block of 25 for bucket 18
+  bucket 20: 30%
+  bucket 19: 70%
+  bucket 21: 10%
+  Entering block accumulator loop for bucket 22:
+  bucket 20: 40%
+  bucket 19: 80%
+  bucket 21: 20%
+  bucket 20: 50%
+  bucket 19: 90%
+  bucket 21: 30%
+  bucket 22: 10%
+  bucket 20: 60%
+  bucket 19: 100%
+  bucket 21: 40%
+  bucket 22: 20%
+  bucket 20: 70%
+  Sorting block of length 18 for bucket 19
+  bucket 21: 50%
+  (Using difference cover)
+  bucket 22: 30%
+  bucket 20: 80%
+  bucket 21: 60%
+  bucket 22: 40%
+  bucket 20: 90%
+  bucket 21: 70%
+  bucket 22: 50%
+  bucket 20: 100%
+  bucket 21: 80%
+  Sorting block time: 00:00:00
+  bucket 22: 60%
+  Sorting block of length 11 for bucket 20
+  (Using difference cover)
+Returning block of 19 for bucket 19
+  bucket 21: 90%
+  bucket 22: 70%
+  bucket 21: 100%
+  bucket 22: 80%
+  Sorting block time: 00:00:00
+  Sorting block of length 22 for bucket 21
+  (Using difference cover)
+  bucket 22: 90%
+Returning block of 12 for bucket 20
+  bucket 22: 100%
+Getting block 23 of 57
+  Sorting block time: 00:00:00
+  Sorting block of length 23 for bucket 22
+  (Using difference cover)
+  Reserving size (26) for bucket 23
+Returning block of 23 for bucket 21
+  Calculating Z arrays for bucket 23
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 22
+  Entering block accumulator loop for bucket 23:
+  bucket 23: 10%
+  bucket 23: 20%
+  bucket 23: 30%
+  bucket 23: 40%
+  bucket 23: 50%
+  bucket 23: 60%
+  bucket 23: 70%
+  bucket 23: 80%
+  bucket 23: 90%
+  bucket 23: 100%
+  Sorting block of length 23 for bucket 23
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 23
+Getting block 24 of 57
+  Reserving size (26) for bucket 24
+  Calculating Z arrays for bucket 24
+  Entering block accumulator loop for bucket 24:
+  bucket 24: 10%
+  bucket 24: 20%
+  bucket 24: 30%
+  bucket 24: 40%
+  bucket 24: 50%
+  bucket 24: 60%
+  bucket 24: 70%
+  bucket 24: 80%
+  bucket 24: 90%
+  bucket 24: 100%
+  Sorting block of length 22 for bucket 24
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 23 for bucket 24
+Getting block 25 of 57
+  Reserving size (26) for bucket 25
+  Calculating Z arrays for bucket 25
+  Entering block accumulator loop for bucket 25:
+Getting block 26 of 57
+  bucket 25: 10%
+  Reserving size (26) for bucket 26
+  bucket 25: 20%
+  Calculating Z arrays for bucket 26
+  bucket 25: 30%
+  bucket 25: 40%
+  Entering block accumulator loop for bucket 26:
+  bucket 25: 50%
+  bucket 26: 10%
+  bucket 25: 60%
+  bucket 26: 20%
+  bucket 25: 70%
+  bucket 26: 30%
+  bucket 25: 80%
+  bucket 26: 40%
+  bucket 25: 90%
+  bucket 26: 50%
+  bucket 25: 100%
+  bucket 26: 60%
+  Sorting block of length 3 for bucket 25
+  (Using difference cover)
+Getting block 27 of 57
+  bucket 26: 70%
+  Reserving size (26) for bucket 27
+Getting block 28 of 57
+  Sorting block time: 00:00:00
+  bucket 26: 80%
+  Calculating Z arrays for bucket 27
+  Reserving size (26) for bucket 28
+Returning block of 4 for bucket 25
+  bucket 26: 90%
+  Calculating Z arrays for bucket 28
+  Entering block accumulator loop for bucket 27:
+  bucket 26: 100%
+Getting block 29 of 57
+  Entering block accumulator loop for bucket 28:
+  Sorting block of length 23 for bucket 26
+  bucket 27: 10%
+  (Using difference cover)
+  Reserving size (26) for bucket 29
+Getting block 30 of 57
+  bucket 27: 20%
+  Calculating Z arrays for bucket 29
+Getting block 31 of 57
+  Sorting block time: 00:00:00
+  bucket 28: 10%
+  Reserving size (26) for bucket 30
+  bucket 27: 30%
+  Reserving size (26) for bucket 31
+Returning block of 24 for bucket 26
+  Entering block accumulator loop for bucket 29:
+  bucket 28: 20%
+  Calculating Z arrays for bucket 30
+  bucket 27: 40%
+  Calculating Z arrays for bucket 31
+  bucket 28: 30%
+  bucket 27: 50%
+  Entering block accumulator loop for bucket 30:
+  bucket 29: 10%
+  Entering block accumulator loop for bucket 31:
+  bucket 28: 40%
+  bucket 27: 60%
+  bucket 29: 20%
+  bucket 28: 50%
+  bucket 27: 70%
+  bucket 30: 10%
+  bucket 29: 30%
+  bucket 31: 10%
+  bucket 28: 60%
+  bucket 27: 80%
+Getting block 32 of 57
+  bucket 30: 20%
+  bucket 29: 40%
+  bucket 31: 20%
+  bucket 28: 70%
+  bucket 27: 90%
+  Reserving size (26) for bucket 32
+  bucket 30: 30%
+  bucket 29: 50%
+  bucket 31: 30%
+  bucket 28: 80%
+  bucket 27: 100%
+  Calculating Z arrays for bucket 32
+  bucket 30: 40%
+  bucket 29: 60%
+  bucket 31: 40%
+  bucket 28: 90%
+  Sorting block of length 18 for bucket 27
+  (Using difference cover)
+  Entering block accumulator loop for bucket 32:
+  bucket 30: 50%
+  bucket 29: 70%
+  bucket 31: 50%
+  bucket 28: 100%
+  bucket 30: 60%
+  bucket 29: 80%
+  Sorting block time: 00:00:00
+  bucket 31: 60%
+  Sorting block of length 25 for bucket 28
+  (Using difference cover)
+  bucket 32: 10%
+  bucket 30: 70%
+  bucket 29: 90%
+  Sorting block time: 00:00:00
+Returning block of 19 for bucket 27
+  bucket 31: 70%
+  bucket 32: 20%
+  bucket 30: 80%
+Returning block of 26 for bucket 28
+  bucket 29: 100%
+  bucket 31: 80%
+  bucket 32: 30%
+  bucket 30: 90%
+  Sorting block of length 7 for bucket 29
+  (Using difference cover)
+  bucket 31: 90%
+  bucket 32: 40%
+  bucket 30: 100%
+  bucket 31: 100%
+  bucket 32: 50%
+  Sorting block of length 19 for bucket 30
+  (Using difference cover)
+  Sorting block time: 00:00:00
+  Sorting block of length 20 for bucket 31
+  (Using difference cover)
+Getting block 33 of 57
+  Sorting block time: 00:00:00
+  bucket 32: 60%
+Returning block of 8 for bucket 29
+  Reserving size (26) for bucket 33
+  Sorting block time: 00:00:00
+Returning block of 20 for bucket 30
+  bucket 32: 70%
+  Calculating Z arrays for bucket 33
+Returning block of 21 for bucket 31
+  bucket 32: 80%
+  Entering block accumulator loop for bucket 33:
+  bucket 32: 90%
+  bucket 32: 100%
+  bucket 33: 10%
+  Sorting block of length 22 for bucket 32
+  (Using difference cover)
+  bucket 33: 20%
+  bucket 33: 30%
+  bucket 33: 40%
+  bucket 33: 50%
+  bucket 33: 60%
+  bucket 33: 70%
+  Sorting block time: 00:00:00
+  bucket 33: 80%
+Returning block of 23 for bucket 32
+  bucket 33: 90%
+  bucket 33: 100%
+  Sorting block of length 17 for bucket 33
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 18 for bucket 33
+Getting block 34 of 57
+  Reserving size (26) for bucket 34
+  Calculating Z arrays for bucket 34
+  Entering block accumulator loop for bucket 34:
+  bucket 34: 10%
+  bucket 34: 20%
+  bucket 34: 30%
+  bucket 34: 40%
+  bucket 34: 50%
+  bucket 34: 60%
+  bucket 34: 70%
+  bucket 34: 80%
+  bucket 34: 90%
+  bucket 34: 100%
+  Sorting block of length 24 for bucket 34
+  (Using difference cover)
+Getting block 35 of 57
+  Reserving size (26) for bucket 35
+  Calculating Z arrays for bucket 35
+  Sorting block time: 00:00:00
+Returning block of 25 for bucket 34
+  Entering block accumulator loop for bucket 35:
+  bucket 35: 10%
+  bucket 35: 20%
+  bucket 35: 30%
+Getting block 36 of 57
+  bucket 35: 40%
+  Reserving size (26) for bucket 36
+  bucket 35: 50%
+  Calculating Z arrays for bucket 36
+  bucket 35: 60%
+  Entering block accumulator loop for bucket 36:
+  bucket 35: 70%
+  bucket 35: 80%
+  bucket 36: 10%
+  bucket 35: 90%
+  bucket 36: 20%
+  bucket 35: 100%
+  bucket 36: 30%
+  Sorting block of length 15 for bucket 35
+  (Using difference cover)
+  bucket 36: 40%
+  bucket 36: 50%
+  bucket 36: 60%
+  bucket 36: 70%
+  bucket 36: 80%
+  bucket 36: 90%
+  Sorting block time: 00:00:00
+  bucket 36: 100%
+Returning block of 16 for bucket 35
+  Sorting block of length 16 for bucket 36
+  (Using difference cover)
+Getting block 37 of 57
+  Reserving size (26) for bucket 37
+  Calculating Z arrays for bucket 37
+  Sorting block time: 00:00:00
+Returning block of 17 for bucket 36
+  Entering block accumulator loop for bucket 37:
+Getting block 38 of 57
+  bucket 37: 10%
+  Reserving size (26) for bucket 38
+Getting block 39 of 57
+  bucket 37: 20%
+  Calculating Z arrays for bucket 38
+  Reserving size (26) for bucket 39
+  bucket 37: 30%
+  Calculating Z arrays for bucket 39
+  Entering block accumulator loop for bucket 38:
+  bucket 37: 40%
+  bucket 38: 10%
+  bucket 37: 50%
+  Entering block accumulator loop for bucket 39:
+  bucket 38: 20%
+  bucket 37: 60%
+  bucket 38: 30%
+  bucket 37: 70%
+  bucket 39: 10%
+  bucket 38: 40%
+  bucket 37: 80%
+  bucket 39: 20%
+  bucket 38: 50%
+  bucket 37: 90%
+  bucket 39: 30%
+  bucket 38: 60%
+Getting block 40 of 57
+  bucket 37: 100%
+  bucket 39: 40%
+  bucket 38: 70%
+  Reserving size (26) for bucket 40
+  Sorting block of length 25 for bucket 37
+  (Using difference cover)
+Getting block 41 of 57
+  bucket 39: 50%
+  bucket 38: 80%
+  Calculating Z arrays for bucket 40
+  Reserving size (26) for bucket 41
+  bucket 39: 60%
+  Sorting block time: 00:00:00
+  bucket 38: 90%
+  Calculating Z arrays for bucket 41
+  Entering block accumulator loop for bucket 40:
+  bucket 39: 70%
+Returning block of 26 for bucket 37
+  bucket 38: 100%
+  Entering block accumulator loop for bucket 41:
+  bucket 39: 80%
+  Sorting block of length 15 for bucket 38
+  (Using difference cover)
+  bucket 40: 10%
+  bucket 39: 90%
+  bucket 40: 20%
+  bucket 41: 10%
+  Sorting block time: 00:00:00
+  bucket 39: 100%
+  bucket 40: 30%
+Returning block of 16 for bucket 38
+  bucket 41: 20%
+  Sorting block of length 14 for bucket 39
+  (Using difference cover)
+  bucket 40: 40%
+  bucket 41: 30%
+Getting block 42 of 57
+  bucket 40: 50%
+  bucket 41: 40%
+  Sorting block time: 00:00:00
+  Reserving size (26) for bucket 42
+  bucket 40: 60%
+Returning block of 15 for bucket 39
+  bucket 41: 50%
+  Calculating Z arrays for bucket 42
+  bucket 40: 70%
+  bucket 41: 60%
+  Entering block accumulator loop for bucket 42:
+  bucket 40: 80%
+Getting block 43 of 57
+  bucket 41: 70%
+  bucket 40: 90%
+  Reserving size (26) for bucket 43
+  bucket 41: 80%
+  bucket 42: 10%
+Getting block 44 of 57
+  bucket 40: 100%
+  Calculating Z arrays for bucket 43
+  bucket 41: 90%
+  bucket 42: 20%
+  Reserving size (26) for bucket 44
+  Sorting block of length 12 for bucket 40
+  (Using difference cover)
+  bucket 41: 100%
+  Entering block accumulator loop for bucket 43:
+  bucket 42: 30%
+  Calculating Z arrays for bucket 44
+  Sorting block time: 00:00:00
+  Sorting block of length 16 for bucket 41
+  (Using difference cover)
+  bucket 42: 40%
+Returning block of 13 for bucket 40
+  bucket 43: 10%
+  Entering block accumulator loop for bucket 44:
+  bucket 42: 50%
+  Sorting block time: 00:00:00
+  bucket 43: 20%
+Returning block of 17 for bucket 41
+  bucket 42: 60%
+  bucket 43: 30%
+  bucket 44: 10%
+  bucket 42: 70%
+  bucket 43: 40%
+  bucket 44: 20%
+  bucket 42: 80%
+  bucket 43: 50%
+  bucket 44: 30%
+  bucket 42: 90%
+  bucket 43: 60%
+  bucket 44: 40%
+  bucket 42: 100%
+  bucket 43: 70%
+  bucket 44: 50%
+  Sorting block of length 25 for bucket 42
+  bucket 43: 80%
+  (Using difference cover)
+  bucket 44: 60%
+  bucket 43: 90%
+  bucket 44: 70%
+Getting block 45 of 57
+  bucket 43: 100%
+  Sorting block time: 00:00:00
+  bucket 44: 80%
+  Reserving size (26) for bucket 45
+  Sorting block of length 6 for bucket 43
+  (Using difference cover)
+Returning block of 26 for bucket 42
+  bucket 44: 90%
+  Sorting block time: 00:00:00
+  Calculating Z arrays for bucket 45
+Getting block 46 of 57
+Returning block of 7 for bucket 43
+  bucket 44: 100%
+  Reserving size (26) for bucket 46
+  Entering block accumulator loop for bucket 45:
+  Sorting block of length 20 for bucket 44
+  (Using difference cover)
+  Calculating Z arrays for bucket 46
+  bucket 45: 10%
+  bucket 45: 20%
+  Entering block accumulator loop for bucket 46:
+  bucket 45: 30%
+  Sorting block time: 00:00:00
+  bucket 45: 40%
+Returning block of 21 for bucket 44
+  bucket 46: 10%
+  bucket 45: 50%
+  bucket 46: 20%
+  bucket 45: 60%
+  bucket 46: 30%
+  bucket 45: 70%
+  bucket 46: 40%
+  bucket 45: 80%
+  bucket 46: 50%
+  bucket 45: 90%
+  bucket 46: 60%
+  bucket 45: 100%
+  bucket 46: 70%
+  Sorting block of length 10 for bucket 45
+  (Using difference cover)
+  bucket 46: 80%
+Getting block 47 of 57
+  bucket 46: 90%
+  Reserving size (26) for bucket 47
+  bucket 46: 100%
+  Sorting block time: 00:00:00
+  Calculating Z arrays for bucket 47
+  Sorting block of length 17 for bucket 46
+  (Using difference cover)
+Returning block of 11 for bucket 45
+  Entering block accumulator loop for bucket 47:
+  bucket 47: 10%
+  bucket 47: 20%
+  bucket 47: 30%
+  Sorting block time: 00:00:00
+Returning block of 18 for bucket 46
+  bucket 47: 40%
+  bucket 47: 50%
+  bucket 47: 60%
+  bucket 47: 70%
+  bucket 47: 80%
+  bucket 47: 90%
+  bucket 47: 100%
+  Sorting block of length 25 for bucket 47
+  (Using difference cover)
+Getting block 48 of 57
+  Reserving size (26) for bucket 48
+  Calculating Z arrays for bucket 48
+  Sorting block time: 00:00:00
+Returning block of 26 for bucket 47
+  Entering block accumulator loop for bucket 48:
+  bucket 48: 10%
+  bucket 48: 20%
+  bucket 48: 30%
+  bucket 48: 40%
+  bucket 48: 50%
+  bucket 48: 60%
+  bucket 48: 70%
+  bucket 48: 80%
+  bucket 48: 90%
+  bucket 48: 100%
+  Sorting block of length 15 for bucket 48
+  (Using difference cover)
+Getting block 49 of 57
+  Reserving size (26) for bucket 49
+  Calculating Z arrays for bucket 49
+  Entering block accumulator loop for bucket 49:
+  Sorting block time: 00:00:00
+  bucket 49: 10%
+Returning block of 16 for bucket 48
+  bucket 49: 20%
+  bucket 49: 30%
+  bucket 49: 40%
+  bucket 49: 50%
+  bucket 49: 60%
+  bucket 49: 70%
+  bucket 49: 80%
+  bucket 49: 90%
+  bucket 49: 100%
+  Sorting block of length 16 for bucket 49
+  (Using difference cover)
+Getting block 50 of 57
+  Reserving size (26) for bucket 50
+  Calculating Z arrays for bucket 50
+  Sorting block time: 00:00:00
+Returning block of 17 for bucket 49
+  Entering block accumulator loop for bucket 50:
+  bucket 50: 10%
+  bucket 50: 20%
+  bucket 50: 30%
+  bucket 50: 40%
+  bucket 50: 50%
+  bucket 50: 60%
+  bucket 50: 70%
+  bucket 50: 80%
+Getting block 51 of 57
+  bucket 50: 90%
+  Reserving size (26) for bucket 51
+  bucket 50: 100%
+  Calculating Z arrays for bucket 51
+  Sorting block of length 23 for bucket 50
+  (Using difference cover)
+Getting block 52 of 57
+  Entering block accumulator loop for bucket 51:
+  Reserving size (26) for bucket 52
+  Calculating Z arrays for bucket 52
+  Sorting block time: 00:00:00
+  bucket 51: 10%
+Returning block of 24 for bucket 50
+  bucket 51: 20%
+  Entering block accumulator loop for bucket 52:
+  bucket 51: 30%
+Getting block 53 of 57
+  bucket 51: 40%
+  bucket 52: 10%
+  Reserving size (26) for bucket 53
+  bucket 51: 50%
+  bucket 52: 20%
+  Calculating Z arrays for bucket 53
+  bucket 51: 60%
+  bucket 52: 30%
+Getting block 54 of 57
+  bucket 51: 70%
+  Entering block accumulator loop for bucket 53:
+  bucket 52: 40%
+  Reserving size (26) for bucket 54
+  bucket 51: 80%
+  bucket 52: 50%
+  Calculating Z arrays for bucket 54
+  bucket 51: 90%
+  bucket 53: 10%
+  bucket 52: 60%
+  bucket 51: 100%
+  Entering block accumulator loop for bucket 54:
+  bucket 53: 20%
+  bucket 52: 70%
+  Sorting block of length 18 for bucket 51
+  (Using difference cover)
+  bucket 53: 30%
+  bucket 52: 80%
+  bucket 54: 10%
+Getting block 55 of 57
+  Sorting block time: 00:00:00
+  bucket 53: 40%
+  bucket 52: 90%
+  bucket 54: 20%
+Returning block of 19 for bucket 51
+  Reserving size (26) for bucket 55
+  bucket 53: 50%
+  bucket 52: 100%
+  bucket 54: 30%
+  Calculating Z arrays for bucket 55
+  bucket 53: 60%
+  Sorting block of length 18 for bucket 52
+  (Using difference cover)
+  bucket 54: 40%
+  bucket 53: 70%
+  Entering block accumulator loop for bucket 55:
+  Sorting block time: 00:00:00
+  bucket 54: 50%
+  bucket 53: 80%
+Returning block of 19 for bucket 52
+Getting block 56 of 57
+  bucket 54: 60%
+  bucket 53: 90%
+Getting block 57 of 57
+  bucket 55: 10%
+  Reserving size (26) for bucket 56
+  bucket 54: 70%
+  bucket 53: 100%
+  Reserving size (26) for bucket 57
+  bucket 55: 20%
+  Calculating Z arrays for bucket 56
+  bucket 54: 80%
+  Sorting block of length 24 for bucket 53
+  (Using difference cover)
+  Calculating Z arrays for bucket 57
+  bucket 55: 30%
+  Entering block accumulator loop for bucket 56:
+  bucket 54: 90%
+  Entering block accumulator loop for bucket 57:
+  bucket 55: 40%
+  bucket 54: 100%
+  Sorting block time: 00:00:00
+  bucket 55: 50%
+  bucket 56: 10%
+  Sorting block of length 22 for bucket 54
+  (Using difference cover)
+  bucket 57: 10%
+Returning block of 25 for bucket 53
+  bucket 55: 60%
+  bucket 56: 20%
+  bucket 57: 20%
+  bucket 55: 70%
+  Sorting block time: 00:00:00
+  bucket 56: 30%
+  bucket 57: 30%
+Returning block of 23 for bucket 54
+  bucket 55: 80%
+  bucket 56: 40%
+  bucket 57: 40%
+  bucket 55: 90%
+  bucket 56: 50%
+  bucket 57: 50%
+  bucket 55: 100%
+  bucket 56: 60%
+  bucket 57: 60%
+  Sorting block of length 21 for bucket 55
+  (Using difference cover)
+  bucket 56: 70%
+  bucket 57: 70%
+  bucket 56: 80%
+  bucket 57: 80%
+  Sorting block time: 00:00:00
+  bucket 56: 90%
+  bucket 57: 90%
+Returning block of 22 for bucket 55
+  bucket 56: 100%
+  bucket 57: 100%
+  Sorting block of length 19 for bucket 56
+  (Using difference cover)
+  Sorting block of length 14 for bucket 57
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 20 for bucket 56
+  Sorting block time: 00:00:00
+Returning block of 15 for bucket 57
+Exited Ebwt loop
+fchr[A]: 0
+fchr[C]: 301
+fchr[G]: 557
+fchr[T]: 832
+fchr[$]: 1116
+Exiting Ebwt::buildToDisk()
+Returning from initFromVector
+Wrote 4195236 bytes to primary EBWT file: data/hairpin.1.bt2
+Wrote 284 bytes to secondary EBWT file: data/hairpin.2.bt2
+Re-opening _in1 and _in2 as input streams
+Returning from Ebwt constructor
+Headers:
+    len: 1116
+    bwtLen: 1117
+    sz: 279
+    bwtSz: 280
+    lineRate: 6
+    offRate: 4
+    offMask: 0xfffffff0
+    ftabChars: 10
+    eftabLen: 20
+    eftabSz: 80
+    ftabLen: 1048577
+    ftabSz: 4194308
+    offsLen: 70
+    offsSz: 280
+    lineSz: 64
+    sideSz: 64
+    sideBwtSz: 48
+    sideBwtLen: 192
+    numSides: 6
+    numLines: 6
+    ebwtTotLen: 384
+    ebwtTotSz: 384
+    color: 0
+    reverse: 0
+Total time for call to driver() for forward index: 00:00:00
+Reading reference sizes
+  Time reading reference sizes: 00:00:00
+Calculating joined length
+Writing header
+Reserving space for joined string
+Joining reference sequences
+  Time to join reference sequences: 00:00:00
+  Time to reverse reference sequence: 00:00:00
+bmax according to bmaxDivN setting: 34
+Using parameters --bmax 26 --dcv 1024
+  Doing ahead-of-time memory usage test
+  Passed!  Constructing with these parameters: --bmax 26 --dcv 1024
+Constructing suffix-array element generator
+Building DifferenceCoverSample
+  Building sPrime
+  Building sPrimeOrder
+  V-Sorting samples
+  V-Sorting samples time: 00:00:00
+  Allocating rank array
+  Ranking v-sort output
+  Ranking v-sort output time: 00:00:00
+  Invoking Larsson-Sadakane on ranks
+  Invoking Larsson-Sadakane on ranks time: 00:00:00
+  Sanity-checking and returning
+Building samples
+Reserving space for 90 sample suffixes
+Generating random suffixes
+QSorting 90 sample offsets, eliminating duplicates
+QSorting sample offsets, eliminating duplicates time: 00:00:00
+Multikey QSorting 87 samples
+  (Using difference cover)
+  Multikey QSorting samples time: 00:00:00
+Calculating bucket sizes
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 8, merged 40; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 5, merged 4; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 2, merged 2; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 3, merged 1; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Avg bucket size: 18.2586 (target: 25)
+Converting suffix-array elements to index image
+Allocating ftab, absorbFtab
+Entering Ebwt loop
+Getting block 1 of 58
+Getting block 2 of 58
+  Reserving size (26) for bucket 1
+  Reserving size (26) for bucket 2
+Getting block 3 of 58
+Getting block 4 of 58
+Getting block 5 of 58
+Getting block 6 of 58
+Getting block 7 of 58
+Getting block 8 of 58
+  Calculating Z arrays for bucket 1
+  Calculating Z arrays for bucket 2
+  Reserving size (26) for bucket 3
+  Reserving size (26) for bucket 4
+  Reserving size (26) for bucket 5
+  Reserving size (26) for bucket 6
+  Reserving size (26) for bucket 7
+  Reserving size (26) for bucket 8
+  Entering block accumulator loop for bucket 1:
+  Calculating Z arrays for bucket 3
+  Calculating Z arrays for bucket 4
+  Entering block accumulator loop for bucket 2:
+  Calculating Z arrays for bucket 5
+  Calculating Z arrays for bucket 6
+  Calculating Z arrays for bucket 7
+  Calculating Z arrays for bucket 8
+  Entering block accumulator loop for bucket 4:
+  Entering block accumulator loop for bucket 3:
+  Entering block accumulator loop for bucket 5:
+  bucket 1: 10%
+  bucket 2: 10%
+  Entering block accumulator loop for bucket 7:
+  Entering block accumulator loop for bucket 6:
+  Entering block accumulator loop for bucket 8:
+  bucket 1: 20%
+  bucket 4: 10%
+  bucket 2: 20%
+  bucket 5: 10%
+  bucket 3: 10%
+  bucket 1: 30%
+  bucket 4: 20%
+  bucket 7: 10%
+  bucket 2: 30%
+  bucket 8: 10%
+  bucket 6: 10%
+  bucket 5: 20%
+  bucket 3: 20%
+  bucket 1: 40%
+  bucket 4: 30%
+  bucket 7: 20%
+  bucket 2: 40%
+  bucket 8: 20%
+  bucket 6: 20%
+  bucket 5: 30%
+  bucket 3: 30%
+  bucket 1: 50%
+  bucket 4: 40%
+  bucket 7: 30%
+  bucket 2: 50%
+  bucket 8: 30%
+  bucket 6: 30%
+  bucket 5: 40%
+  bucket 3: 40%
+  bucket 1: 60%
+  bucket 4: 50%
+  bucket 7: 40%
+  bucket 2: 60%
+  bucket 8: 40%
+  bucket 6: 40%
+  bucket 5: 50%
+  bucket 3: 50%
+  bucket 1: 70%
+  bucket 4: 60%
+  bucket 7: 50%
+  bucket 2: 70%
+  bucket 8: 50%
+  bucket 6: 50%
+  bucket 5: 60%
+  bucket 3: 60%
+  bucket 1: 80%
+  bucket 4: 70%
+  bucket 7: 60%
+  bucket 2: 80%
+  bucket 8: 60%
+  bucket 6: 60%
+  bucket 5: 70%
+  bucket 3: 70%
+  bucket 1: 90%
+  bucket 4: 80%
+  bucket 7: 70%
+  bucket 2: 90%
+  bucket 8: 70%
+  bucket 6: 70%
+  bucket 5: 80%
+  bucket 3: 80%
+  bucket 1: 100%
+  bucket 4: 90%
+  bucket 7: 80%
+  bucket 2: 100%
+  bucket 8: 80%
+  bucket 6: 80%
+  bucket 5: 90%
+  bucket 3: 90%
+  Sorting block of length 23 for bucket 1
+  bucket 4: 100%
+  bucket 7: 90%
+  (Using difference cover)
+  Sorting block of length 24 for bucket 2
+  bucket 8: 90%
+  (Using difference cover)
+  bucket 6: 90%
+  bucket 5: 100%
+  bucket 3: 100%
+  Sorting block of length 21 for bucket 4
+  (Using difference cover)
+  bucket 7: 100%
+  bucket 8: 100%
+  bucket 6: 100%
+  Sorting block time: 00:00:00
+  Sorting block of length 21 for bucket 5
+  (Using difference cover)
+  Sorting block of length 6 for bucket 3
+  (Using difference cover)
+  Sorting block time: 00:00:00
+  Sorting block of length 11 for bucket 7
+  (Using difference cover)
+  Sorting block of length 19 for bucket 8
+  Sorting block of length 23 for bucket 6
+  Sorting block time: 00:00:00
+  (Using difference cover)
+Returning block of 24 for bucket 1
+Returning block of 22 for bucket 4
+  (Using difference cover)
+Returning block of 25 for bucket 2
+  Sorting block time: 00:00:00
+Returning block of 7 for bucket 3
+  Sorting block time: 00:00:00
+Returning block of 12 for bucket 7
+  Sorting block time: 00:00:00
+Returning block of 22 for bucket 5
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 6
+  Sorting block time: 00:00:00
+Returning block of 20 for bucket 8
+Getting block 9 of 58
+  Reserving size (26) for bucket 9
+  Calculating Z arrays for bucket 9
+  Entering block accumulator loop for bucket 9:
+  bucket 9: 10%
+  bucket 9: 20%
+  bucket 9: 30%
+  bucket 9: 40%
+  bucket 9: 50%
+Getting block 10 of 58
+  bucket 9: 60%
+  Reserving size (26) for bucket 10
+  bucket 9: 70%
+  Calculating Z arrays for bucket 10
+  bucket 9: 80%
+  bucket 9: 90%
+  Entering block accumulator loop for bucket 10:
+  bucket 9: 100%
+  Sorting block of length 25 for bucket 9
+  (Using difference cover)
+  bucket 10: 10%
+Getting block 11 of 58
+  bucket 10: 20%
+  Sorting block time: 00:00:00
+  Reserving size (26) for bucket 11
+Returning block of 26 for bucket 9
+  bucket 10: 30%
+  Calculating Z arrays for bucket 11
+  bucket 10: 40%
+  bucket 10: 50%
+  Entering block accumulator loop for bucket 11:
+  bucket 10: 60%
+Getting block 12 of 58
+  bucket 10: 70%
+  bucket 11: 10%
+  Reserving size (26) for bucket 12
+  bucket 10: 80%
+Getting block 13 of 58
+  bucket 11: 20%
+  Calculating Z arrays for bucket 12
+  bucket 10: 90%
+  Reserving size (26) for bucket 13
+  bucket 11: 30%
+  bucket 10: 100%
+  Entering block accumulator loop for bucket 12:
+  Calculating Z arrays for bucket 13
+  bucket 11: 40%
+  Sorting block of length 16 for bucket 10
+  (Using difference cover)
+  bucket 11: 50%
+Getting block 14 of 58
+Getting block 15 of 58
+  bucket 12: 10%
+  Sorting block time: 00:00:00
+  Entering block accumulator loop for bucket 13:
+  bucket 11: 60%
+  Reserving size (26) for bucket 14
+  Reserving size (26) for bucket 15
+Returning block of 17 for bucket 10
+  bucket 12: 20%
+  bucket 11: 70%
+  Calculating Z arrays for bucket 14
+  Calculating Z arrays for bucket 15
+  bucket 12: 30%
+  bucket 13: 10%
+  bucket 11: 80%
+Getting block 16 of 58
+  Entering block accumulator loop for bucket 14:
+  bucket 12: 40%
+  Entering block accumulator loop for bucket 15:
+  bucket 13: 20%
+  bucket 11: 90%
+  Reserving size (26) for bucket 16
+  bucket 12: 50%
+  bucket 13: 30%
+  bucket 11: 100%
+  Calculating Z arrays for bucket 16
+  bucket 14: 10%
+  bucket 12: 60%
+  bucket 15: 10%
+  bucket 13: 40%
+  Sorting block of length 22 for bucket 11
+  (Using difference cover)
+  bucket 14: 20%
+  bucket 12: 70%
+  Entering block accumulator loop for bucket 16:
+  bucket 15: 20%
+  Sorting block time: 00:00:00
+  bucket 13: 50%
+  bucket 14: 30%
+  bucket 12: 80%
+  bucket 15: 30%
+Returning block of 23 for bucket 11
+  bucket 13: 60%
+  bucket 14: 40%
+  bucket 12: 90%
+  bucket 16: 10%
+  bucket 15: 40%
+  bucket 13: 70%
+  bucket 14: 50%
+  bucket 12: 100%
+  bucket 16: 20%
+  bucket 15: 50%
+  bucket 13: 80%
+  bucket 14: 60%
+  Sorting block of length 25 for bucket 12
+  (Using difference cover)
+  bucket 16: 30%
+  bucket 15: 60%
+  Sorting block time: 00:00:00
+  bucket 13: 90%
+  bucket 14: 70%
+  bucket 16: 40%
+Returning block of 26 for bucket 12
+  bucket 15: 70%
+  bucket 13: 100%
+  bucket 14: 80%
+  bucket 16: 50%
+  bucket 15: 80%
+  Sorting block of length 24 for bucket 13
+  (Using difference cover)
+  bucket 14: 90%
+  bucket 16: 60%
+  bucket 15: 90%
+  bucket 14: 100%
+  bucket 16: 70%
+  bucket 15: 100%
+  Sorting block of length 16 for bucket 14
+  (Using difference cover)
+  bucket 16: 80%
+  Sorting block time: 00:00:00
+Getting block 17 of 58
+  Sorting block of length 13 for bucket 15
+  (Using difference cover)
+  bucket 16: 90%
+  Sorting block time: 00:00:00
+Returning block of 25 for bucket 13
+  Reserving size (26) for bucket 17
+  Sorting block time: 00:00:00
+Getting block 18 of 58
+  bucket 16: 100%
+Returning block of 17 for bucket 14
+  Calculating Z arrays for bucket 17
+Returning block of 14 for bucket 15
+  Reserving size (26) for bucket 18
+  Sorting block of length 17 for bucket 16
+  (Using difference cover)
+  Entering block accumulator loop for bucket 17:
+  Calculating Z arrays for bucket 18
+  bucket 17: 10%
+  bucket 17: 20%
+  Sorting block time: 00:00:00
+  bucket 17: 30%
+Returning block of 18 for bucket 16
+  Entering block accumulator loop for bucket 18:
+  bucket 17: 40%
+Getting block 19 of 58
+  bucket 17: 50%
+  bucket 18: 10%
+  Reserving size (26) for bucket 19
+  bucket 17: 60%
+  bucket 18: 20%
+  Calculating Z arrays for bucket 19
+  bucket 17: 70%
+  bucket 18: 30%
+  bucket 17: 80%
+  Entering block accumulator loop for bucket 19:
+  bucket 18: 40%
+  bucket 17: 90%
+  bucket 18: 50%
+  bucket 17: 100%
+  bucket 19: 10%
+  bucket 18: 60%
+  Sorting block of length 17 for bucket 17
+  (Using difference cover)
+  bucket 19: 20%
+  bucket 18: 70%
+  bucket 19: 30%
+  bucket 18: 80%
+  Sorting block time: 00:00:00
+  bucket 19: 40%
+  bucket 18: 90%
+Returning block of 18 for bucket 17
+  bucket 19: 50%
+  bucket 18: 100%
+  bucket 19: 60%
+  Sorting block of length 23 for bucket 18
+  (Using difference cover)
+  bucket 19: 70%
+  bucket 19: 80%
+  bucket 19: 90%
+  bucket 19: 100%
+  Sorting block of length 8 for bucket 19
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 18
+  Sorting block time: 00:00:00
+Returning block of 9 for bucket 19
+Getting block 20 of 58
+  Reserving size (26) for bucket 20
+  Calculating Z arrays for bucket 20
+  Entering block accumulator loop for bucket 20:
+  bucket 20: 10%
+  bucket 20: 20%
+  bucket 20: 30%
+  bucket 20: 40%
+  bucket 20: 50%
+  bucket 20: 60%
+  bucket 20: 70%
+  bucket 20: 80%
+  bucket 20: 90%
+  bucket 20: 100%
+  Sorting block of length 18 for bucket 20
+  (Using difference cover)
+Getting block 21 of 58
+  Reserving size (26) for bucket 21
+  Calculating Z arrays for bucket 21
+  Sorting block time: 00:00:00
+  Entering block accumulator loop for bucket 21:
+Returning block of 19 for bucket 20
+  bucket 21: 10%
+  bucket 21: 20%
+  bucket 21: 30%
+  bucket 21: 40%
+  bucket 21: 50%
+  bucket 21: 60%
+  bucket 21: 70%
+  bucket 21: 80%
+  bucket 21: 90%
+  bucket 21: 100%
+  Sorting block of length 16 for bucket 21
+  (Using difference cover)
+Getting block 22 of 58
+  Reserving size (26) for bucket 22
+  Calculating Z arrays for bucket 22
+  Sorting block time: 00:00:00
+Returning block of 17 for bucket 21
+  Entering block accumulator loop for bucket 22:
+  bucket 22: 10%
+  bucket 22: 20%
+  bucket 22: 30%
+  bucket 22: 40%
+  bucket 22: 50%
+  bucket 22: 60%
+  bucket 22: 70%
+  bucket 22: 80%
+  bucket 22: 90%
+  bucket 22: 100%
+  Sorting block of length 25 for bucket 22
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 26 for bucket 22
+Getting block 23 of 58
+  Reserving size (26) for bucket 23
+  Calculating Z arrays for bucket 23
+  Entering block accumulator loop for bucket 23:
+  bucket 23: 10%
+  bucket 23: 20%
+  bucket 23: 30%
+  bucket 23: 40%
+  bucket 23: 50%
+  bucket 23: 60%
+  bucket 23: 70%
+  bucket 23: 80%
+  bucket 23: 90%
+  bucket 23: 100%
+  Sorting block of length 23 for bucket 23
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 23
+Getting block 24 of 58
+  Reserving size (26) for bucket 24
+  Calculating Z arrays for bucket 24
+Getting block 25 of 58
+  Entering block accumulator loop for bucket 24:
+  Reserving size (26) for bucket 25
+  Calculating Z arrays for bucket 25
+  bucket 24: 10%
+  bucket 24: 20%
+  bucket 24: 30%
+  Entering block accumulator loop for bucket 25:
+  bucket 24: 40%
+  bucket 24: 50%
+  bucket 25: 10%
+  bucket 24: 60%
+  bucket 25: 20%
+Getting block 26 of 58
+  bucket 24: 70%
+  bucket 25: 30%
+  Reserving size (26) for bucket 26
+  bucket 24: 80%
+  bucket 25: 40%
+  Calculating Z arrays for bucket 26
+  bucket 24: 90%
+  bucket 25: 50%
+  bucket 24: 100%
+  bucket 25: 60%
+  Entering block accumulator loop for bucket 26:
+  Sorting block of length 25 for bucket 24
+  (Using difference cover)
+  bucket 25: 70%
+  bucket 25: 80%
+  bucket 26: 10%
+  bucket 25: 90%
+  Sorting block time: 00:00:00
+  bucket 26: 20%
+Returning block of 26 for bucket 24
+  bucket 25: 100%
+  bucket 26: 30%
+  Sorting block of length 7 for bucket 25
+  (Using difference cover)
+  bucket 26: 40%
+  bucket 26: 50%
+  bucket 26: 60%
+Getting block 27 of 58
+  bucket 26: 70%
+  Sorting block time: 00:00:00
+  Reserving size (26) for bucket 27
+Returning block of 8 for bucket 25
+  bucket 26: 80%
+  Calculating Z arrays for bucket 27
+  bucket 26: 90%
+Getting block 28 of 58
+  Entering block accumulator loop for bucket 27:
+  bucket 26: 100%
+  Reserving size (26) for bucket 28
+  Sorting block of length 25 for bucket 26
+  (Using difference cover)
+  Calculating Z arrays for bucket 28
+  bucket 27: 10%
+  bucket 27: 20%
+  Entering block accumulator loop for bucket 28:
+  Sorting block time: 00:00:00
+  bucket 27: 30%
+Returning block of 26 for bucket 26
+  bucket 27: 40%
+  bucket 28: 10%
+  bucket 27: 50%
+Getting block 29 of 58
+  bucket 28: 20%
+  bucket 27: 60%
+  Reserving size (26) for bucket 29
+  bucket 28: 30%
+Getting block 30 of 58
+  bucket 27: 70%
+  Calculating Z arrays for bucket 29
+  bucket 28: 40%
+  Reserving size (26) for bucket 30
+  bucket 27: 80%
+  Entering block accumulator loop for bucket 29:
+  bucket 28: 50%
+  Calculating Z arrays for bucket 30
+  bucket 27: 90%
+  bucket 28: 60%
+  bucket 27: 100%
+  bucket 29: 10%
+  Entering block accumulator loop for bucket 30:
+Getting block 31 of 58
+  bucket 28: 70%
+  Sorting block of length 5 for bucket 27
+  (Using difference cover)
+  bucket 29: 20%
+  Reserving size (26) for bucket 31
+  bucket 28: 80%
+  Sorting block time: 00:00:00
+  bucket 29: 30%
+  bucket 30: 10%
+  Calculating Z arrays for bucket 31
+Returning block of 6 for bucket 27
+  bucket 28: 90%
+  bucket 29: 40%
+  bucket 30: 20%
+  Entering block accumulator loop for bucket 31:
+  bucket 28: 100%
+  bucket 29: 50%
+  bucket 30: 30%
+  Sorting block of length 20 for bucket 28
+  bucket 29: 60%
+  bucket 31: 10%
+  (Using difference cover)
+  bucket 30: 40%
+  bucket 29: 70%
+  bucket 31: 20%
+  bucket 30: 50%
+  bucket 29: 80%
+  bucket 31: 30%
+  bucket 30: 60%
+  bucket 29: 90%
+  bucket 31: 40%
+  Sorting block time: 00:00:00
+Getting block 32 of 58
+  bucket 30: 70%
+  bucket 29: 100%
+  bucket 31: 50%
+Returning block of 21 for bucket 28
+  Reserving size (26) for bucket 32
+  bucket 30: 80%
+  Sorting block of length 23 for bucket 29
+  bucket 31: 60%
+  (Using difference cover)
+  Calculating Z arrays for bucket 32
+  bucket 30: 90%
+  bucket 31: 70%
+  Entering block accumulator loop for bucket 32:
+  bucket 30: 100%
+  bucket 31: 80%
+Getting block 33 of 58
+  Sorting block time: 00:00:00
+  Sorting block of length 19 for bucket 30
+  (Using difference cover)
+  bucket 31: 90%
+  bucket 32: 10%
+  Reserving size (26) for bucket 33
+  Sorting block time: 00:00:00
+Returning block of 24 for bucket 29
+  bucket 31: 100%
+  bucket 32: 20%
+  Calculating Z arrays for bucket 33
+Returning block of 20 for bucket 30
+  Sorting block of length 23 for bucket 31
+  (Using difference cover)
+  bucket 32: 30%
+Getting block 34 of 58
+  Entering block accumulator loop for bucket 33:
+  Sorting block time: 00:00:00
+  bucket 32: 40%
+  Reserving size (26) for bucket 34
+Returning block of 24 for bucket 31
+  bucket 32: 50%
+  Calculating Z arrays for bucket 34
+  bucket 33: 10%
+  bucket 32: 60%
+  Entering block accumulator loop for bucket 34:
+  bucket 33: 20%
+  bucket 32: 70%
+  bucket 33: 30%
+  bucket 32: 80%
+  bucket 34: 10%
+  bucket 33: 40%
+  bucket 32: 90%
+  bucket 34: 20%
+  bucket 33: 50%
+  bucket 32: 100%
+  bucket 34: 30%
+  bucket 33: 60%
+  Sorting block of length 22 for bucket 32
+  (Using difference cover)
+  bucket 34: 40%
+  bucket 33: 70%
+  bucket 34: 50%
+  bucket 33: 80%
+  bucket 34: 60%
+  Sorting block time: 00:00:00
+  bucket 33: 90%
+Returning block of 23 for bucket 32
+  bucket 34: 70%
+  bucket 33: 100%
+  bucket 34: 80%
+  Sorting block of length 17 for bucket 33
+  (Using difference cover)
+  bucket 34: 90%
+  bucket 34: 100%
+  Sorting block of length 20 for bucket 34
+  (Using difference cover)
+Getting block 35 of 58
+  Reserving size (26) for bucket 35
+  Calculating Z arrays for bucket 35
+  Sorting block time: 00:00:00
+Returning block of 18 for bucket 33
+  Entering block accumulator loop for bucket 35:
+Getting block 36 of 58
+  Sorting block time: 00:00:00
+  bucket 35: 10%
+  Reserving size (26) for bucket 36
+Returning block of 21 for bucket 34
+  bucket 35: 20%
+  Calculating Z arrays for bucket 36
+  bucket 35: 30%
+  Entering block accumulator loop for bucket 36:
+  bucket 35: 40%
+  bucket 35: 50%
+  bucket 36: 10%
+  bucket 35: 60%
+  bucket 36: 20%
+  bucket 35: 70%
+  bucket 36: 30%
+  bucket 35: 80%
+  bucket 36: 40%
+  bucket 35: 90%
+  bucket 36: 50%
+  bucket 35: 100%
+  bucket 36: 60%
+  Sorting block of length 18 for bucket 35
+  (Using difference cover)
+  bucket 36: 70%
+  bucket 36: 80%
+Getting block 37 of 58
+  Sorting block time: 00:00:00
+  bucket 36: 90%
+  Reserving size (26) for bucket 37
+Returning block of 19 for bucket 35
+  bucket 36: 100%
+  Calculating Z arrays for bucket 37
+  Sorting block of length 25 for bucket 36
+  (Using difference cover)
+  Entering block accumulator loop for bucket 37:
+  bucket 37: 10%
+  bucket 37: 20%
+Getting block 38 of 58
+  bucket 37: 30%
+  Reserving size (26) for bucket 38
+  Sorting block time: 00:00:00
+  bucket 37: 40%
+  Calculating Z arrays for bucket 38
+Returning block of 26 for bucket 36
+  bucket 37: 50%
+  Entering block accumulator loop for bucket 38:
+  bucket 37: 60%
+  bucket 37: 70%
+  bucket 38: 10%
+  bucket 37: 80%
+  bucket 38: 20%
+  bucket 37: 90%
+  bucket 38: 30%
+Getting block 39 of 58
+  bucket 37: 100%
+  bucket 38: 40%
+  Reserving size (26) for bucket 39
+  Sorting block of length 23 for bucket 37
+  (Using difference cover)
+  bucket 38: 50%
+  Calculating Z arrays for bucket 39
+  bucket 38: 60%
+  Entering block accumulator loop for bucket 39:
+Getting block 40 of 58
+  Sorting block time: 00:00:00
+  bucket 38: 70%
+  Reserving size (26) for bucket 40
+Returning block of 24 for bucket 37
+  bucket 38: 80%
+  bucket 39: 10%
+  Calculating Z arrays for bucket 40
+  bucket 38: 90%
+  bucket 39: 20%
+  bucket 38: 100%
+  Entering block accumulator loop for bucket 40:
+  bucket 39: 30%
+  Sorting block of length 24 for bucket 38
+  (Using difference cover)
+  bucket 39: 40%
+  bucket 40: 10%
+  bucket 39: 50%
+  bucket 40: 20%
+  Sorting block time: 00:00:00
+Getting block 41 of 58
+  bucket 39: 60%
+  bucket 40: 30%
+Returning block of 25 for bucket 38
+  Reserving size (26) for bucket 41
+  bucket 39: 70%
+  bucket 40: 40%
+Getting block 42 of 58
+  Calculating Z arrays for bucket 41
+  bucket 39: 80%
+  bucket 40: 50%
+  Reserving size (26) for bucket 42
+  Entering block accumulator loop for bucket 41:
+  bucket 39: 90%
+  bucket 40: 60%
+  Calculating Z arrays for bucket 42
+  bucket 39: 100%
+  bucket 40: 70%
+  bucket 41: 10%
+  Sorting block of length 7 for bucket 39
+  (Using difference cover)
+  Entering block accumulator loop for bucket 42:
+  bucket 40: 80%
+  bucket 41: 20%
+  bucket 40: 90%
+  Sorting block time: 00:00:00
+  bucket 41: 30%
+  bucket 42: 10%
+Returning block of 8 for bucket 39
+  bucket 40: 100%
+  bucket 41: 40%
+  bucket 42: 20%
+  Sorting block of length 20 for bucket 40
+  (Using difference cover)
+  bucket 41: 50%
+  bucket 42: 30%
+  bucket 41: 60%
+  bucket 42: 40%
+  bucket 41: 70%
+  Sorting block time: 00:00:00
+  bucket 42: 50%
+Returning block of 21 for bucket 40
+  bucket 41: 80%
+  bucket 42: 60%
+  bucket 41: 90%
+  bucket 42: 70%
+  bucket 41: 100%
+  bucket 42: 80%
+  Sorting block of length 21 for bucket 41
+  (Using difference cover)
+  bucket 42: 90%
+Getting block 43 of 58
+  bucket 42: 100%
+  Reserving size (26) for bucket 43
+  Sorting block of length 20 for bucket 42
+  (Using difference cover)
+  Sorting block time: 00:00:00
+  Calculating Z arrays for bucket 43
+Returning block of 22 for bucket 41
+Getting block 44 of 58
+  Sorting block time: 00:00:00
+  Entering block accumulator loop for bucket 43:
+  Reserving size (26) for bucket 44
+Returning block of 21 for bucket 42
+Getting block 45 of 58
+  Calculating Z arrays for bucket 44
+  bucket 43: 10%
+  Reserving size (26) for bucket 45
+  bucket 43: 20%
+  Entering block accumulator loop for bucket 44:
+  Calculating Z arrays for bucket 45
+  bucket 43: 30%
+  Entering block accumulator loop for bucket 45:
+  bucket 43: 40%
+  bucket 44: 10%
+  bucket 43: 50%
+  bucket 44: 20%
+  bucket 45: 10%
+  bucket 43: 60%
+  bucket 44: 30%
+  bucket 45: 20%
+  bucket 43: 70%
+  bucket 44: 40%
+  bucket 45: 30%
+  bucket 43: 80%
+  bucket 44: 50%
+  bucket 45: 40%
+  bucket 43: 90%
+  bucket 44: 60%
+  bucket 45: 50%
+  bucket 43: 100%
+  bucket 44: 70%
+Getting block 46 of 58
+  bucket 45: 60%
+  Sorting block of length 8 for bucket 43
+  bucket 44: 80%
+  (Using difference cover)
+  Reserving size (26) for bucket 46
+  bucket 45: 70%
+  bucket 44: 90%
+  Calculating Z arrays for bucket 46
+  bucket 45: 80%
+  bucket 44: 100%
+  bucket 45: 90%
+  Sorting block time: 00:00:00
+  Entering block accumulator loop for bucket 46:
+  Sorting block of length 17 for bucket 44
+  (Using difference cover)
+  bucket 45: 100%
+Returning block of 9 for bucket 43
+  Sorting block of length 23 for bucket 45
+  Sorting block time: 00:00:00
+  (Using difference cover)
+Getting block 47 of 58
+  bucket 46: 10%
+Returning block of 18 for bucket 44
+  Reserving size (26) for bucket 47
+Getting block 48 of 58
+  bucket 46: 20%
+  Calculating Z arrays for bucket 47
+  Sorting block time: 00:00:00
+  Reserving size (26) for bucket 48
+  bucket 46: 30%
+Returning block of 24 for bucket 45
+  Entering block accumulator loop for bucket 47:
+  Calculating Z arrays for bucket 48
+  bucket 46: 40%
+  bucket 46: 50%
+  bucket 47: 10%
+  Entering block accumulator loop for bucket 48:
+  bucket 46: 60%
+  bucket 47: 20%
+  bucket 46: 70%
+  bucket 47: 30%
+  bucket 48: 10%
+  bucket 46: 80%
+  bucket 47: 40%
+Getting block 49 of 58
+  bucket 48: 20%
+  bucket 46: 90%
+  bucket 47: 50%
+  Reserving size (26) for bucket 49
+  bucket 48: 30%
+  bucket 46: 100%
+  bucket 47: 60%
+  Calculating Z arrays for bucket 49
+  bucket 48: 40%
+  Sorting block of length 24 for bucket 46
+  (Using difference cover)
+  bucket 47: 70%
+Getting block 50 of 58
+  bucket 48: 50%
+  Entering block accumulator loop for bucket 49:
+  bucket 47: 80%
+  Sorting block time: 00:00:00
+  Reserving size (26) for bucket 50
+  bucket 48: 60%
+  bucket 47: 90%
+Returning block of 25 for bucket 46
+  Calculating Z arrays for bucket 50
+  bucket 48: 70%
+  bucket 49: 10%
+  bucket 47: 100%
+  Entering block accumulator loop for bucket 50:
+  bucket 48: 80%
+  bucket 49: 20%
+  Sorting block of length 19 for bucket 47
+  (Using difference cover)
+  bucket 48: 90%
+  bucket 49: 30%
+  bucket 50: 10%
+  bucket 48: 100%
+  Sorting block time: 00:00:00
+  bucket 49: 40%
+  bucket 50: 20%
+  Sorting block of length 7 for bucket 48
+  (Using difference cover)
+Returning block of 20 for bucket 47
+  bucket 49: 50%
+  bucket 50: 30%
+  bucket 49: 60%
+  bucket 50: 40%
+  Sorting block time: 00:00:00
+  bucket 49: 70%
+Returning block of 8 for bucket 48
+  bucket 50: 50%
+  bucket 49: 80%
+  bucket 50: 60%
+  bucket 49: 90%
+  bucket 50: 70%
+Getting block 51 of 58
+  bucket 49: 100%
+  bucket 50: 80%
+  Reserving size (26) for bucket 51
+  Sorting block of length 25 for bucket 49
+  (Using difference cover)
+  bucket 50: 90%
+  Calculating Z arrays for bucket 51
+  bucket 50: 100%
+  Entering block accumulator loop for bucket 51:
+  Sorting block of length 10 for bucket 50
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Getting block 52 of 58
+Getting block 53 of 58
+  Sorting block time: 00:00:00
+  bucket 51: 10%
+Returning block of 26 for bucket 49
+  Reserving size (26) for bucket 52
+  Reserving size (26) for bucket 53
+Returning block of 11 for bucket 50
+  bucket 51: 20%
+  Calculating Z arrays for bucket 52
+  Calculating Z arrays for bucket 53
+  bucket 51: 30%
+  Entering block accumulator loop for bucket 52:
+  bucket 51: 40%
+  Entering block accumulator loop for bucket 53:
+  bucket 51: 50%
+  bucket 52: 10%
+  bucket 51: 60%
+  bucket 53: 10%
+  bucket 52: 20%
+  bucket 51: 70%
+  bucket 53: 20%
+  bucket 52: 30%
+  bucket 51: 80%
+  bucket 53: 30%
+  bucket 52: 40%
+  bucket 51: 90%
+  bucket 53: 40%
+  bucket 52: 50%
+  bucket 51: 100%
+  bucket 53: 50%
+  bucket 52: 60%
+  Sorting block of length 23 for bucket 51
+  (Using difference cover)
+  bucket 53: 60%
+  bucket 52: 70%
+  bucket 53: 70%
+  bucket 52: 80%
+  bucket 53: 80%
+  Sorting block time: 00:00:00
+  bucket 52: 90%
+  bucket 53: 90%
+Returning block of 24 for bucket 51
+  bucket 52: 100%
+  bucket 53: 100%
+Getting block 54 of 58
+  Sorting block of length 2 for bucket 52
+  Sorting block of length 24 for bucket 53
+  (Using difference cover)
+  (Using difference cover)
+  Reserving size (26) for bucket 54
+  Calculating Z arrays for bucket 54
+  Sorting block time: 00:00:00
+Getting block 55 of 58
+Returning block of 3 for bucket 52
+  Reserving size (26) for bucket 55
+  Sorting block time: 00:00:00
+  Entering block accumulator loop for bucket 54:
+  Calculating Z arrays for bucket 55
+Returning block of 25 for bucket 53
+  Entering block accumulator loop for bucket 55:
+  bucket 54: 10%
+Getting block 56 of 58
+  bucket 54: 20%
+  bucket 55: 10%
+  Reserving size (26) for bucket 56
+  bucket 54: 30%
+  bucket 55: 20%
+  Calculating Z arrays for bucket 56
+  bucket 54: 40%
+  bucket 55: 30%
+  bucket 54: 50%
+  Entering block accumulator loop for bucket 56:
+  bucket 55: 40%
+  bucket 54: 60%
+  bucket 55: 50%
+  bucket 54: 70%
+  bucket 56: 10%
+  bucket 55: 60%
+  bucket 54: 80%
+  bucket 56: 20%
+  bucket 55: 70%
+  bucket 54: 90%
+  bucket 56: 30%
+  bucket 55: 80%
+  bucket 54: 100%
+  bucket 56: 40%
+  bucket 55: 90%
+  Sorting block of length 10 for bucket 54
+  (Using difference cover)
+  bucket 56: 50%
+Getting block 57 of 58
+  bucket 55: 100%
+  Sorting block time: 00:00:00
+  bucket 56: 60%
+  Reserving size (26) for bucket 57
+  Sorting block of length 20 for bucket 55
+  (Using difference cover)
+Returning block of 11 for bucket 54
+  bucket 56: 70%
+  Calculating Z arrays for bucket 57
+Getting block 58 of 58
+  Sorting block time: 00:00:00
+  bucket 56: 80%
+  Entering block accumulator loop for bucket 57:
+  Reserving size (26) for bucket 58
+Returning block of 21 for bucket 55
+  bucket 56: 90%
+  Calculating Z arrays for bucket 58
+  bucket 56: 100%
+  bucket 57: 10%
+  Entering block accumulator loop for bucket 58:
+  Sorting block of length 9 for bucket 56
+  (Using difference cover)
+  bucket 57: 20%
+  bucket 58: 10%
+  bucket 57: 30%
+  bucket 58: 20%
+  bucket 57: 40%
+  Sorting block time: 00:00:00
+  bucket 58: 30%
+  bucket 57: 50%
+Returning block of 10 for bucket 56
+  bucket 58: 40%
+  bucket 57: 60%
+  bucket 58: 50%
+  bucket 57: 70%
+  bucket 58: 60%
+  bucket 57: 80%
+  bucket 58: 70%
+  bucket 57: 90%
+  bucket 58: 80%
+  bucket 57: 100%
+  bucket 58: 90%
+  Sorting block of length 24 for bucket 57
+  (Using difference cover)
+  bucket 58: 100%
+  Sorting block of length 14 for bucket 58
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 25 for bucket 57
+  Sorting block time: 00:00:00
+Returning block of 15 for bucket 58
+Exited Ebwt loop
+fchr[A]: 0
+fchr[C]: 301
+fchr[G]: 557
+fchr[T]: 832
+fchr[$]: 1116
+Exiting Ebwt::buildToDisk()
+Returning from initFromVector
+Wrote 4195236 bytes to primary EBWT file: data/hairpin.rev.1.bt2
+Wrote 284 bytes to secondary EBWT file: data/hairpin.rev.2.bt2
+Re-opening _in1 and _in2 as input streams
+Returning from Ebwt constructor
+Headers:
+    len: 1116
+    bwtLen: 1117
+    sz: 279
+    bwtSz: 280
+    lineRate: 6
+    offRate: 4
+    offMask: 0xfffffff0
+    ftabChars: 10
+    eftabLen: 20
+    eftabSz: 80
+    ftabLen: 1048577
+    ftabSz: 4194308
+    offsLen: 70
+    offsSz: 280
+    lineSz: 64
+    sideSz: 64
+    sideBwtSz: 48
+    sideBwtLen: 192
+    numSides: 6
+    numLines: 6
+    ebwtTotLen: 384
+    ebwtTotSz: 384
+    color: 0
+    reverse: 1
+Total time for backward call to driver() for mirror index: 00:00:00
+[Fri Mar 19 12:54:12 2021]
+Finished job 8.
+1 of 23 steps (4%) done
+Select jobs to execute...
+
+[Fri Mar 19 12:54:13 2021]
+rule extract_umi_barcode:
+    input: ../raw-data/mix15_repair_R1.fastq, ../raw-data/mix15_repair_R2.fastq, ../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt
+    output: output/fastqs/mix15_repair_R1_umi.fastq.gz, output/fastqs/mix15_repair_R2_umi.fastq.gz
+    log: output/logs/extract_umi/mix15_repair.out
+    jobid: 1
+    wildcards: data=output, sample=mix15_repair
+    threads: 2
+    resources: all_threads=2
+
+
+      umi_tools extract         --bc-pattern CCCCCCCCCCCCCCCCNNNNNNNNNN         --stdin ../raw-data/mix15_repair_R1.fastq         --stdout output/fastqs/mix15_repair_R1_umi.fastq.gz         --read2-in ../raw-data/mix15_repair_R2.fastq         --read2-out=output/fastqs/mix15_repair_R2_umi.fastq.gz         --whitelist=../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt         --filter-cell-barcode
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+
+[Fri Mar 19 12:54:13 2021]
+rule extract_umi_barcode:
+    input: ../raw-data/mix30_repair_R1.fastq, ../raw-data/mix30_repair_R2.fastq, ../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt
+    output: output/fastqs/mix30_repair_R1_umi.fastq.gz, output/fastqs/mix30_repair_R2_umi.fastq.gz
+    log: output/logs/extract_umi/mix30_repair.out
+    jobid: 2
+    wildcards: data=output, sample=mix30_repair
+    threads: 2
+    resources: all_threads=2
+
+
+      umi_tools extract         --bc-pattern CCCCCCCCCCCCCCCCNNNNNNNNNN         --stdin ../raw-data/mix30_repair_R1.fastq         --stdout output/fastqs/mix30_repair_R1_umi.fastq.gz         --read2-in ../raw-data/mix30_repair_R2.fastq         --read2-out=output/fastqs/mix30_repair_R2_umi.fastq.gz         --whitelist=../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt         --filter-cell-barcode
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+
+[Fri Mar 19 12:54:13 2021]
+rule extract_umi_barcode:
+    input: ../raw-data/mix60_repair_R1.fastq, ../raw-data/mix60_repair_R2.fastq, ../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt
+    output: output/fastqs/mix60_repair_R1_umi.fastq.gz, output/fastqs/mix60_repair_R2_umi.fastq.gz
+    log: output/logs/extract_umi/mix60_repair.out
+    jobid: 3
+    wildcards: data=output, sample=mix60_repair
+    threads: 2
+    resources: all_threads=2
+
+
+      umi_tools extract         --bc-pattern CCCCCCCCCCCCCCCCNNNNNNNNNN         --stdin ../raw-data/mix60_repair_R1.fastq         --stdout output/fastqs/mix60_repair_R1_umi.fastq.gz         --read2-in ../raw-data/mix60_repair_R2.fastq         --read2-out=output/fastqs/mix60_repair_R2_umi.fastq.gz         --whitelist=../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt         --filter-cell-barcode
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+# UMI-tools version: 1.1.1
+# output generated by extract --bc-pattern CCCCCCCCCCCCCCCCNNNNNNNNNN --stdin ../raw-data/mix15_repair_R1.fastq --stdout output/fastqs/mix15_repair_R1_umi.fastq.gz --read2-in ../raw-data/mix15_repair_R2.fastq --read2-out=output/fastqs/mix15_repair_R2_umi.fastq.gz --whitelist=../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt --filter-cell-barcode
+# job started at Fri Mar 19 12:54:20 2021 on rumi -- 8d9785e6-ac14-46bf-9674-76d0b9781615
+# pid: 42019, system: Linux 4.15.0-136-generic #140-Ubuntu SMP Thu Jan 28 05:20:47 UTC 2021 x86_64
+# blacklist                               : None
+# compresslevel                           : 6
+# correct_umi_threshold                   : 0
+# either_read                             : False
+# either_read_resolve                     : discard
+# error_correct_cell                      : False
+# extract_method                          : string
+# filter_cell_barcode                     : True
+# filter_cell_barcodes                    : False
+# filter_umi                              : None
+# filtered_out                            : None
+# filtered_out2                           : None
+# ignore_suffix                           : False
+# log2stderr                              : False
+# loglevel                                : 1
+# pattern                                 : CCCCCCCCCCCCCCCCNNNNNNNNNN
+# pattern2                                : None
+# prime3                                  : None
+# quality_encoding                        : None
+# quality_filter_mask                     : None
+# quality_filter_threshold                : None
+# random_seed                             : None
+# read2_in                                : ../raw-data/mix15_repair_R2.fastq
+# read2_out                               : output/fastqs/mix15_repair_R2_umi.fastq.gz
+# read2_stdout                            : False
+# reads_subset                            : None
+# reconcile                               : False
+# retain_umi                              : None
+# short_help                              : None
+# stderr                                  : <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>
+# stdin                                   : <_io.TextIOWrapper name='../raw-data/mix15_repair_R1.fastq' mode='r' encoding='UTF-8'>
+# stdlog                                  : <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>
+# stdout                                  : <_io.TextIOWrapper name='output/fastqs/mix15_repair_R1_umi.fastq.gz' encoding='ascii'>
+# timeit_file                             : None
+# timeit_header                           : None
+# timeit_name                             : all
+# tmpdir                                  : None
+# umi_correct_log                         : None
+# umi_whitelist                           : None
+# umi_whitelist_paired                    : None
+# whitelist                               : ../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt
+2021-03-19 12:54:20,916 INFO Use of --whitelist ensures cell barcodes are filtered. --filter-cell-barcode is no longer required and may be removed in future versions.
+# UMI-tools version: 1.1.1
+# output generated by extract --bc-pattern CCCCCCCCCCCCCCCCNNNNNNNNNN --stdin ../raw-data/mix30_repair_R1.fastq --stdout output/fastqs/mix30_repair_R1_umi.fastq.gz --read2-in ../raw-data/mix30_repair_R2.fastq --read2-out=output/fastqs/mix30_repair_R2_umi.fastq.gz --whitelist=../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt --filter-cell-barcode
+# job started at Fri Mar 19 12:54:20 2021 on rumi -- a82017e1-9585-458a-9559-b1023a8bacc6
+# pid: 42023, system: Linux 4.15.0-136-generic #140-Ubuntu SMP Thu Jan 28 05:20:47 UTC 2021 x86_64
+# blacklist                               : None
+# compresslevel                           : 6
+# correct_umi_threshold                   : 0
+# either_read                             : False
+# either_read_resolve                     : discard
+# error_correct_cell                      : False
+# extract_method                          : string
+# filter_cell_barcode                     : True
+# filter_cell_barcodes                    : False
+# filter_umi                              : None
+# filtered_out                            : None
+# filtered_out2                           : None
+# ignore_suffix                           : False
+# log2stderr                              : False
+# loglevel                                : 1
+# pattern                                 : CCCCCCCCCCCCCCCCNNNNNNNNNN
+# pattern2                                : None
+# prime3                                  : None
+# quality_encoding                        : None
+# quality_filter_mask                     : None
+# quality_filter_threshold                : None
+# random_seed                             : None
+# read2_in                                : ../raw-data/mix30_repair_R2.fastq
+# read2_out                               : output/fastqs/mix30_repair_R2_umi.fastq.gz
+# read2_stdout                            : False
+# reads_subset                            : None
+# reconcile                               : False
+# retain_umi                              : None
+# short_help                              : None
+# stderr                                  : <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>
+# stdin                                   : <_io.TextIOWrapper name='../raw-data/mix30_repair_R1.fastq' mode='r' encoding='UTF-8'>
+# stdlog                                  : <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>
+# stdout                                  : <_io.TextIOWrapper name='output/fastqs/mix30_repair_R1_umi.fastq.gz' encoding='ascii'>
+# timeit_file                             : None
+# timeit_header                           : None
+# timeit_name                             : all
+# tmpdir                                  : None
+# umi_correct_log                         : None
+# umi_whitelist                           : None
+# umi_whitelist_paired                    : None
+# whitelist                               : ../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt
+2021-03-19 12:54:20,917 INFO Use of --whitelist ensures cell barcodes are filtered. --filter-cell-barcode is no longer required and may be removed in future versions.
+# UMI-tools version: 1.1.1
+# output generated by extract --bc-pattern CCCCCCCCCCCCCCCCNNNNNNNNNN --stdin ../raw-data/mix60_repair_R1.fastq --stdout output/fastqs/mix60_repair_R1_umi.fastq.gz --read2-in ../raw-data/mix60_repair_R2.fastq --read2-out=output/fastqs/mix60_repair_R2_umi.fastq.gz --whitelist=../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt --filter-cell-barcode
+# job started at Fri Mar 19 12:54:20 2021 on rumi -- c3279e30-9ef1-467d-ab0e-0f3878050c38
+# pid: 42031, system: Linux 4.15.0-136-generic #140-Ubuntu SMP Thu Jan 28 05:20:47 UTC 2021 x86_64
+# blacklist                               : None
+# compresslevel                           : 6
+# correct_umi_threshold                   : 0
+# either_read                             : False
+# either_read_resolve                     : discard
+# error_correct_cell                      : False
+# extract_method                          : string
+# filter_cell_barcode                     : True
+# filter_cell_barcodes                    : False
+# filter_umi                              : None
+# filtered_out                            : None
+# filtered_out2                           : None
+# ignore_suffix                           : False
+# log2stderr                              : False
+# loglevel                                : 1
+# pattern                                 : CCCCCCCCCCCCCCCCNNNNNNNNNN
+# pattern2                                : None
+# prime3                                  : None
+# quality_encoding                        : None
+# quality_filter_mask                     : None
+# quality_filter_threshold                : None
+# random_seed                             : None
+# read2_in                                : ../raw-data/mix60_repair_R2.fastq
+# read2_out                               : output/fastqs/mix60_repair_R2_umi.fastq.gz
+# read2_stdout                            : False
+# reads_subset                            : None
+# reconcile                               : False
+# retain_umi                              : None
+# short_help                              : None
+# stderr                                  : <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>
+# stdin                                   : <_io.TextIOWrapper name='../raw-data/mix60_repair_R1.fastq' mode='r' encoding='UTF-8'>
+# stdlog                                  : <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>
+# stdout                                  : <_io.TextIOWrapper name='output/fastqs/mix60_repair_R1_umi.fastq.gz' encoding='ascii'>
+# timeit_file                             : None
+# timeit_header                           : None
+# timeit_name                             : all
+# tmpdir                                  : None
+# umi_correct_log                         : None
+# umi_whitelist                           : None
+# umi_whitelist_paired                    : None
+# whitelist                               : ../reanalyzed-data/barnyard_mrna/10xv2_whitelist.txt
+2021-03-19 12:54:20,941 INFO Use of --whitelist ensures cell barcodes are filtered. --filter-cell-barcode is no longer required and may be removed in future versions.
+2021-03-19 12:54:21,576 INFO Starting barcode extraction
+2021-03-19 12:54:21,605 INFO Starting barcode extraction
+2021-03-19 12:54:21,702 INFO Starting barcode extraction
+2021-03-19 12:54:25,837 INFO Parsed 100000 reads
+2021-03-19 12:54:26,616 INFO Parsed 100000 reads
+2021-03-19 12:54:27,709 INFO Parsed 100000 reads
+2021-03-19 12:54:30,116 INFO Parsed 200000 reads
+2021-03-19 12:54:31,281 INFO Parsed 200000 reads
+2021-03-19 12:54:33,793 INFO Parsed 200000 reads
+2021-03-19 12:54:34,281 INFO Parsed 300000 reads
+2021-03-19 12:54:35,769 INFO Parsed 300000 reads
+2021-03-19 12:54:38,401 INFO Parsed 400000 reads
+2021-03-19 12:54:39,765 INFO Parsed 300000 reads
+2021-03-19 12:54:40,287 INFO Parsed 400000 reads
+2021-03-19 12:54:42,505 INFO Parsed 500000 reads
+2021-03-19 12:54:44,782 INFO Parsed 500000 reads
+2021-03-19 12:54:45,762 INFO Parsed 400000 reads
+2021-03-19 12:54:46,631 INFO Parsed 600000 reads
+2021-03-19 12:54:49,317 INFO Parsed 600000 reads
+2021-03-19 12:54:50,710 INFO Parsed 700000 reads
+2021-03-19 12:54:51,784 INFO Parsed 500000 reads
+2021-03-19 12:54:53,827 INFO Parsed 700000 reads
+2021-03-19 12:54:54,777 INFO Parsed 800000 reads
+2021-03-19 12:54:57,738 INFO Parsed 600000 reads
+2021-03-19 12:54:58,306 INFO Parsed 800000 reads
+2021-03-19 12:54:58,867 INFO Parsed 900000 reads
+2021-03-19 12:55:02,812 INFO Parsed 900000 reads
+2021-03-19 12:55:02,968 INFO Parsed 1000000 reads
+2021-03-19 12:55:03,716 INFO Parsed 700000 reads
+2021-03-19 12:55:06,995 INFO Parsed 1100000 reads
+2021-03-19 12:55:07,328 INFO Parsed 1000000 reads
+2021-03-19 12:55:09,688 INFO Parsed 800000 reads
+2021-03-19 12:55:11,009 INFO Parsed 1200000 reads
+2021-03-19 12:55:11,770 INFO Parsed 1100000 reads
+2021-03-19 12:55:15,012 INFO Parsed 1300000 reads
+2021-03-19 12:55:15,669 INFO Parsed 900000 reads
+2021-03-19 12:55:16,203 INFO Parsed 1200000 reads
+2021-03-19 12:55:19,034 INFO Parsed 1400000 reads
+2021-03-19 12:55:20,596 INFO Parsed 1300000 reads
+2021-03-19 12:55:21,601 INFO Parsed 1000000 reads
+2021-03-19 12:55:23,034 INFO Parsed 1500000 reads
+2021-03-19 12:55:24,984 INFO Parsed 1400000 reads
+2021-03-19 12:55:27,063 INFO Parsed 1600000 reads
+2021-03-19 12:55:27,460 INFO Parsed 1100000 reads
+2021-03-19 12:55:29,429 INFO Parsed 1500000 reads
+2021-03-19 12:55:31,029 INFO Parsed 1700000 reads
+2021-03-19 12:55:33,373 INFO Parsed 1200000 reads
+2021-03-19 12:55:33,877 INFO Parsed 1600000 reads
+2021-03-19 12:55:35,130 INFO Parsed 1800000 reads
+2021-03-19 12:55:38,296 INFO Parsed 1700000 reads
+2021-03-19 12:55:39,208 INFO Parsed 1900000 reads
+2021-03-19 12:55:39,333 INFO Parsed 1300000 reads
+2021-03-19 12:55:42,721 INFO Parsed 1800000 reads
+2021-03-19 12:55:43,275 INFO Parsed 2000000 reads
+2021-03-19 12:55:45,210 INFO Parsed 1400000 reads
+2021-03-19 12:55:47,163 INFO Parsed 1900000 reads
+2021-03-19 12:55:47,422 INFO Parsed 2100000 reads
+2021-03-19 12:55:51,071 INFO Parsed 1500000 reads
+2021-03-19 12:55:51,517 INFO Parsed 2200000 reads
+2021-03-19 12:55:51,638 INFO Parsed 2000000 reads
+2021-03-19 12:55:55,593 INFO Parsed 2300000 reads
+2021-03-19 12:55:56,097 INFO Parsed 2100000 reads
+2021-03-19 12:55:56,964 INFO Parsed 1600000 reads
+2021-03-19 12:55:59,698 INFO Parsed 2400000 reads
+2021-03-19 12:56:00,607 INFO Parsed 2200000 reads
+2021-03-19 12:56:02,836 INFO Parsed 1700000 reads
+2021-03-19 12:56:03,817 INFO Parsed 2500000 reads
+2021-03-19 12:56:05,136 INFO Parsed 2300000 reads
+2021-03-19 12:56:07,921 INFO Parsed 2600000 reads
+2021-03-19 12:56:08,673 INFO Parsed 1800000 reads
+2021-03-19 12:56:09,651 INFO Parsed 2400000 reads
+2021-03-19 12:56:12,001 INFO Parsed 2700000 reads
+2021-03-19 12:56:14,154 INFO Parsed 2500000 reads
+2021-03-19 12:56:14,569 INFO Parsed 1900000 reads
+2021-03-19 12:56:16,052 INFO Parsed 2800000 reads
+2021-03-19 12:56:18,658 INFO Parsed 2600000 reads
+2021-03-19 12:56:20,137 INFO Parsed 2900000 reads
+2021-03-19 12:56:20,375 INFO Parsed 2000000 reads
+2021-03-19 12:56:23,142 INFO Parsed 2700000 reads
+2021-03-19 12:56:24,210 INFO Parsed 3000000 reads
+2021-03-19 12:56:26,186 INFO Parsed 2100000 reads
+2021-03-19 12:56:27,572 INFO Parsed 2800000 reads
+2021-03-19 12:56:28,280 INFO Parsed 3100000 reads
+2021-03-19 12:56:31,981 INFO Parsed 2200000 reads
+2021-03-19 12:56:32,013 INFO Parsed 2900000 reads
+2021-03-19 12:56:32,291 INFO Parsed 3200000 reads
+2021-03-19 12:56:36,371 INFO Parsed 3300000 reads
+2021-03-19 12:56:36,479 INFO Parsed 3000000 reads
+2021-03-19 12:56:37,786 INFO Parsed 2300000 reads
+2021-03-19 12:56:40,462 INFO Parsed 3400000 reads
+2021-03-19 12:56:40,936 INFO Parsed 3100000 reads
+2021-03-19 12:56:43,634 INFO Parsed 2400000 reads
+2021-03-19 12:56:44,532 INFO Parsed 3500000 reads
+2021-03-19 12:56:45,367 INFO Parsed 3200000 reads
+2021-03-19 12:56:48,670 INFO Parsed 3600000 reads
+2021-03-19 12:56:49,487 INFO Parsed 2500000 reads
+2021-03-19 12:56:49,805 INFO Parsed 3300000 reads
+2021-03-19 12:56:52,647 INFO Parsed 3700000 reads
+2021-03-19 12:56:54,251 INFO Parsed 3400000 reads
+2021-03-19 12:56:55,394 INFO Parsed 2600000 reads
+2021-03-19 12:56:56,661 INFO Parsed 3800000 reads
+2021-03-19 12:56:58,677 INFO Parsed 3500000 reads
+2021-03-19 12:57:00,756 INFO Parsed 3900000 reads
+2021-03-19 12:57:01,270 INFO Parsed 2700000 reads
+2021-03-19 12:57:03,128 INFO Parsed 3600000 reads
+2021-03-19 12:57:04,805 INFO Parsed 4000000 reads
+2021-03-19 12:57:07,177 INFO Parsed 2800000 reads
+2021-03-19 12:57:07,590 INFO Parsed 3700000 reads
+2021-03-19 12:57:08,802 INFO Parsed 4100000 reads
+2021-03-19 12:57:12,101 INFO Parsed 3800000 reads
+2021-03-19 12:57:12,878 INFO Parsed 4200000 reads
+2021-03-19 12:57:13,081 INFO Parsed 2900000 reads
+2021-03-19 12:57:16,622 INFO Parsed 3900000 reads
+2021-03-19 12:57:16,903 INFO Parsed 4300000 reads
+2021-03-19 12:57:18,986 INFO Parsed 3000000 reads
+2021-03-19 12:57:20,923 INFO Parsed 4400000 reads
+2021-03-19 12:57:21,119 INFO Parsed 4000000 reads
+2021-03-19 12:57:24,893 INFO Parsed 3100000 reads
+2021-03-19 12:57:24,919 INFO Parsed 4500000 reads
+2021-03-19 12:57:25,587 INFO Parsed 4100000 reads
+2021-03-19 12:57:28,885 INFO Parsed 4600000 reads
+2021-03-19 12:57:30,077 INFO Parsed 4200000 reads
+2021-03-19 12:57:30,736 INFO Parsed 3200000 reads
+2021-03-19 12:57:32,877 INFO Parsed 4700000 reads
+2021-03-19 12:57:34,528 INFO Parsed 4300000 reads
+2021-03-19 12:57:36,647 INFO Parsed 3300000 reads
+2021-03-19 12:57:36,948 INFO Parsed 4800000 reads
+2021-03-19 12:57:38,940 INFO Parsed 4400000 reads
+2021-03-19 12:57:40,926 INFO Parsed 4900000 reads
+2021-03-19 12:57:42,397 INFO Parsed 3400000 reads
+2021-03-19 12:57:43,382 INFO Parsed 4500000 reads
+2021-03-19 12:57:44,942 INFO Parsed 5000000 reads
+2021-03-19 12:57:47,847 INFO Parsed 4600000 reads
+2021-03-19 12:57:48,083 INFO Parsed 3500000 reads
+2021-03-19 12:57:48,895 INFO Parsed 5100000 reads
+2021-03-19 12:57:52,286 INFO Parsed 4700000 reads
+2021-03-19 12:57:52,914 INFO Parsed 5200000 reads
+2021-03-19 12:57:53,790 INFO Parsed 3600000 reads
+2021-03-19 12:57:56,730 INFO Parsed 4800000 reads
+2021-03-19 12:57:57,002 INFO Parsed 5300000 reads
+2021-03-19 12:57:59,501 INFO Parsed 3700000 reads
+2021-03-19 12:58:01,052 INFO Parsed 5400000 reads
+2021-03-19 12:58:01,145 INFO Parsed 4900000 reads
+2021-03-19 12:58:05,083 INFO Parsed 5500000 reads
+2021-03-19 12:58:05,386 INFO Parsed 3800000 reads
+2021-03-19 12:58:05,509 INFO Parsed 5000000 reads
+2021-03-19 12:58:09,186 INFO Parsed 5600000 reads
+2021-03-19 12:58:09,921 INFO Parsed 5100000 reads
+2021-03-19 12:58:11,240 INFO Parsed 3900000 reads
+2021-03-19 12:58:13,290 INFO Parsed 5700000 reads
+2021-03-19 12:58:14,357 INFO Parsed 5200000 reads
+2021-03-19 12:58:17,018 INFO Parsed 4000000 reads
+2021-03-19 12:58:17,357 INFO Parsed 5800000 reads
+2021-03-19 12:58:18,789 INFO Parsed 5300000 reads
+2021-03-19 12:58:21,454 INFO Parsed 5900000 reads
+2021-03-19 12:58:22,899 INFO Parsed 4100000 reads
+2021-03-19 12:58:23,241 INFO Parsed 5400000 reads
+2021-03-19 12:58:25,446 INFO Parsed 6000000 reads
+2021-03-19 12:58:27,673 INFO Parsed 5500000 reads
+2021-03-19 12:58:28,732 INFO Parsed 4200000 reads
+2021-03-19 12:58:29,441 INFO Parsed 6100000 reads
+2021-03-19 12:58:32,139 INFO Parsed 5600000 reads
+2021-03-19 12:58:33,436 INFO Parsed 6200000 reads
+2021-03-19 12:58:34,568 INFO Parsed 4300000 reads
+2021-03-19 12:58:36,606 INFO Parsed 5700000 reads
+2021-03-19 12:58:37,451 INFO Parsed 6300000 reads
+2021-03-19 12:58:40,395 INFO Parsed 4400000 reads
+2021-03-19 12:58:41,026 INFO Parsed 5800000 reads
+2021-03-19 12:58:41,416 INFO Parsed 6400000 reads
+2021-03-19 12:58:45,345 INFO Parsed 6500000 reads
+2021-03-19 12:58:45,460 INFO Parsed 5900000 reads
+2021-03-19 12:58:46,206 INFO Parsed 4500000 reads
+2021-03-19 12:58:49,284 INFO Parsed 6600000 reads
+2021-03-19 12:58:49,913 INFO Parsed 6000000 reads
+2021-03-19 12:58:51,969 INFO Parsed 4600000 reads
+2021-03-19 12:58:53,241 INFO Parsed 6700000 reads
+2021-03-19 12:58:54,374 INFO Parsed 6100000 reads
+2021-03-19 12:58:57,207 INFO Parsed 6800000 reads
+2021-03-19 12:58:57,632 INFO Parsed 4700000 reads
+2021-03-19 12:58:58,850 INFO Parsed 6200000 reads
+2021-03-19 12:59:01,087 INFO Parsed 6900000 reads
+2021-03-19 12:59:03,263 INFO Parsed 6300000 reads
+2021-03-19 12:59:03,324 INFO Parsed 4800000 reads
+2021-03-19 12:59:05,023 INFO Parsed 7000000 reads
+2021-03-19 12:59:07,729 INFO Parsed 6400000 reads
+2021-03-19 12:59:09,089 INFO Parsed 7100000 reads
+2021-03-19 12:59:09,090 INFO Parsed 4900000 reads
+2021-03-19 12:59:12,208 INFO Parsed 6500000 reads
+2021-03-19 12:59:13,110 INFO Parsed 7200000 reads
+2021-03-19 12:59:14,765 INFO Parsed 5000000 reads
+2021-03-19 12:59:16,636 INFO Parsed 6600000 reads
+2021-03-19 12:59:17,120 INFO Parsed 7300000 reads
+2021-03-19 12:59:20,479 INFO Parsed 5100000 reads
+2021-03-19 12:59:21,039 INFO Parsed 6700000 reads
+2021-03-19 12:59:21,124 INFO Parsed 7400000 reads
+2021-03-19 12:59:25,130 INFO Parsed 7500000 reads
+2021-03-19 12:59:25,405 INFO Parsed 6800000 reads
+2021-03-19 12:59:26,274 INFO Parsed 5200000 reads
+2021-03-19 12:59:29,110 INFO Parsed 7600000 reads
+2021-03-19 12:59:29,767 INFO Parsed 6900000 reads
+2021-03-19 12:59:32,112 INFO Parsed 5300000 reads
+2021-03-19 12:59:33,106 INFO Parsed 7700000 reads
+2021-03-19 12:59:34,204 INFO Parsed 7000000 reads
+2021-03-19 12:59:37,107 INFO Parsed 7800000 reads
+2021-03-19 12:59:37,887 INFO Parsed 5400000 reads
+2021-03-19 12:59:38,589 INFO Parsed 7100000 reads
+2021-03-19 12:59:41,096 INFO Parsed 7900000 reads
+2021-03-19 12:59:43,029 INFO Parsed 7200000 reads
+2021-03-19 12:59:43,614 INFO Parsed 5500000 reads
+2021-03-19 12:59:45,095 INFO Parsed 8000000 reads
+2021-03-19 12:59:47,433 INFO Parsed 7300000 reads
+2021-03-19 12:59:49,081 INFO Parsed 8100000 reads
+2021-03-19 12:59:49,391 INFO Parsed 5600000 reads
+2021-03-19 12:59:51,922 INFO Parsed 7400000 reads
+2021-03-19 12:59:53,093 INFO Parsed 8200000 reads
+2021-03-19 12:59:55,150 INFO Parsed 5700000 reads
+2021-03-19 12:59:56,394 INFO Parsed 7500000 reads
+2021-03-19 12:59:57,080 INFO Parsed 8300000 reads
+2021-03-19 13:00:00,854 INFO Parsed 7600000 reads
+2021-03-19 13:00:00,959 INFO Parsed 5800000 reads
+2021-03-19 13:00:01,055 INFO Parsed 8400000 reads
+2021-03-19 13:00:05,038 INFO Parsed 8500000 reads
+2021-03-19 13:00:05,295 INFO Parsed 7700000 reads
+2021-03-19 13:00:06,664 INFO Parsed 5900000 reads
+2021-03-19 13:00:09,007 INFO Parsed 8600000 reads
+2021-03-19 13:00:09,760 INFO Parsed 7800000 reads
+2021-03-19 13:00:12,381 INFO Parsed 6000000 reads
+2021-03-19 13:00:12,939 INFO Parsed 8700000 reads
+2021-03-19 13:00:14,218 INFO Parsed 7900000 reads
+2021-03-19 13:00:16,893 INFO Parsed 8800000 reads
+2021-03-19 13:00:18,079 INFO Parsed 6100000 reads
+2021-03-19 13:00:18,669 INFO Parsed 8000000 reads
+2021-03-19 13:00:20,844 INFO Parsed 8900000 reads
+2021-03-19 13:00:23,033 INFO Parsed 8100000 reads
+2021-03-19 13:00:23,841 INFO Parsed 6200000 reads
+2021-03-19 13:00:24,810 INFO Parsed 9000000 reads
+2021-03-19 13:00:27,467 INFO Parsed 8200000 reads
+2021-03-19 13:00:28,834 INFO Parsed 9100000 reads
+2021-03-19 13:00:29,524 INFO Parsed 6300000 reads
+2021-03-19 13:00:31,906 INFO Parsed 8300000 reads
+2021-03-19 13:00:32,813 INFO Parsed 9200000 reads
+2021-03-19 13:00:35,356 INFO Parsed 6400000 reads
+2021-03-19 13:00:36,334 INFO Parsed 8400000 reads
+2021-03-19 13:00:36,802 INFO Parsed 9300000 reads
+2021-03-19 13:00:40,780 INFO Parsed 8500000 reads
+2021-03-19 13:00:40,784 INFO Parsed 9400000 reads
+2021-03-19 13:00:41,201 INFO Parsed 6500000 reads
+2021-03-19 13:00:44,784 INFO Parsed 9500000 reads
+2021-03-19 13:00:45,200 INFO Parsed 8600000 reads
+2021-03-19 13:00:47,060 INFO Parsed 6600000 reads
+2021-03-19 13:00:48,707 INFO Parsed 9600000 reads
+2021-03-19 13:00:49,617 INFO Parsed 8700000 reads
+2021-03-19 13:00:52,655 INFO Parsed 9700000 reads
+2021-03-19 13:00:52,883 INFO Parsed 6700000 reads
+2021-03-19 13:00:54,012 INFO Parsed 8800000 reads
+2021-03-19 13:00:56,634 INFO Parsed 9800000 reads
+2021-03-19 13:00:58,415 INFO Parsed 8900000 reads
+2021-03-19 13:00:58,691 INFO Parsed 6800000 reads
+2021-03-19 13:01:00,628 INFO Parsed 9900000 reads
+2021-03-19 13:01:02,803 INFO Parsed 9000000 reads
+2021-03-19 13:01:04,545 INFO Parsed 10000000 reads
+2021-03-19 13:01:04,580 INFO Parsed 6900000 reads
+2021-03-19 13:01:07,249 INFO Parsed 9100000 reads
+2021-03-19 13:01:08,476 INFO Parsed 10100000 reads
+2021-03-19 13:01:10,440 INFO Parsed 7000000 reads
+2021-03-19 13:01:11,731 INFO Parsed 9200000 reads
+2021-03-19 13:01:12,451 INFO Parsed 10200000 reads
+2021-03-19 13:01:16,170 INFO Parsed 9300000 reads
+2021-03-19 13:01:16,241 INFO Parsed 7100000 reads
+2021-03-19 13:01:16,344 INFO Parsed 10300000 reads
+2021-03-19 13:01:20,255 INFO Parsed 10400000 reads
+2021-03-19 13:01:20,781 INFO Parsed 9400000 reads
+2021-03-19 13:01:21,992 INFO Parsed 7200000 reads
+2021-03-19 13:01:24,235 INFO Parsed 10500000 reads
+2021-03-19 13:01:25,203 INFO Parsed 9500000 reads
+2021-03-19 13:01:27,691 INFO Parsed 7300000 reads
+2021-03-19 13:01:28,358 INFO Parsed 10600000 reads
+2021-03-19 13:01:29,628 INFO Parsed 9600000 reads
+2021-03-19 13:01:32,470 INFO Parsed 10700000 reads
+2021-03-19 13:01:33,386 INFO Parsed 7400000 reads
+2021-03-19 13:01:34,058 INFO Parsed 9700000 reads
+2021-03-19 13:01:36,570 INFO Parsed 10800000 reads
+2021-03-19 13:01:38,494 INFO Parsed 9800000 reads
+2021-03-19 13:01:39,100 INFO Parsed 7500000 reads
+2021-03-19 13:01:40,680 INFO Parsed 10900000 reads
+2021-03-19 13:01:42,950 INFO Parsed 9900000 reads
+2021-03-19 13:01:44,771 INFO Parsed 11000000 reads
+2021-03-19 13:01:44,933 INFO Parsed 7600000 reads
+2021-03-19 13:01:47,481 INFO Parsed 10000000 reads
+2021-03-19 13:01:48,914 INFO Parsed 11100000 reads
+2021-03-19 13:01:50,915 INFO Parsed 7700000 reads
+2021-03-19 13:01:51,889 INFO Parsed 10100000 reads
+2021-03-19 13:01:52,982 INFO Parsed 11200000 reads
+2021-03-19 13:01:56,268 INFO Parsed 10200000 reads
+2021-03-19 13:01:56,757 INFO Parsed 7800000 reads
+2021-03-19 13:01:57,037 INFO Parsed 11300000 reads
+2021-03-19 13:02:00,592 INFO Parsed 10300000 reads
+2021-03-19 13:02:01,029 INFO Parsed 11400000 reads
+2021-03-19 13:02:02,620 INFO Parsed 7900000 reads
+2021-03-19 13:02:04,944 INFO Parsed 10400000 reads
+2021-03-19 13:02:05,130 INFO Parsed 11500000 reads
+2021-03-19 13:02:08,504 INFO Parsed 8000000 reads
+2021-03-19 13:02:09,207 INFO Parsed 11600000 reads
+2021-03-19 13:02:09,308 INFO Parsed 10500000 reads
+2021-03-19 13:02:13,234 INFO Parsed 11700000 reads
+2021-03-19 13:02:13,841 INFO Parsed 10600000 reads
+2021-03-19 13:02:14,329 INFO Parsed 8100000 reads
+2021-03-19 13:02:17,245 INFO Parsed 11800000 reads
+2021-03-19 13:02:18,390 INFO Parsed 10700000 reads
+2021-03-19 13:02:20,122 INFO Parsed 8200000 reads
+2021-03-19 13:02:21,279 INFO Parsed 11900000 reads
+2021-03-19 13:02:22,969 INFO Parsed 10800000 reads
+2021-03-19 13:02:25,311 INFO Parsed 12000000 reads
+2021-03-19 13:02:26,022 INFO Parsed 8300000 reads
+2021-03-19 13:02:27,524 INFO Parsed 10900000 reads
+2021-03-19 13:02:29,447 INFO Parsed 12100000 reads
+2021-03-19 13:02:31,827 INFO Parsed 8400000 reads
+2021-03-19 13:02:32,071 INFO Parsed 11000000 reads
+2021-03-19 13:02:33,565 INFO Parsed 12200000 reads
+2021-03-19 13:02:36,554 INFO Parsed 11100000 reads
+2021-03-19 13:02:37,569 INFO Parsed 8500000 reads
+2021-03-19 13:02:37,654 INFO Parsed 12300000 reads
+2021-03-19 13:02:41,045 INFO Parsed 11200000 reads
+2021-03-19 13:02:41,755 INFO Parsed 12400000 reads
+2021-03-19 13:02:43,437 INFO Parsed 8600000 reads
+2021-03-19 13:02:45,640 INFO Parsed 11300000 reads
+2021-03-19 13:02:45,917 INFO Parsed 12500000 reads
+2021-03-19 13:02:49,285 INFO Parsed 8700000 reads
+2021-03-19 13:02:50,045 INFO Parsed 12600000 reads
+2021-03-19 13:02:50,166 INFO Parsed 11400000 reads
+2021-03-19 13:02:54,128 INFO Parsed 12700000 reads
+2021-03-19 13:02:54,632 INFO Parsed 11500000 reads
+2021-03-19 13:02:55,167 INFO Parsed 8800000 reads
+2021-03-19 13:02:58,220 INFO Parsed 12800000 reads
+2021-03-19 13:02:59,158 INFO Parsed 11600000 reads
+2021-03-19 13:03:01,027 INFO Parsed 8900000 reads
+2021-03-19 13:03:02,270 INFO Parsed 12900000 reads
+2021-03-19 13:03:03,638 INFO Parsed 11700000 reads
+2021-03-19 13:03:06,282 INFO Parsed 13000000 reads
+2021-03-19 13:03:06,911 INFO Parsed 9000000 reads
+2021-03-19 13:03:08,078 INFO Parsed 11800000 reads
+2021-03-19 13:03:10,361 INFO Parsed 13100000 reads
+2021-03-19 13:03:12,521 INFO Parsed 11900000 reads
+2021-03-19 13:03:12,913 INFO Parsed 9100000 reads
+2021-03-19 13:03:14,424 INFO Parsed 13200000 reads
+2021-03-19 13:03:16,965 INFO Parsed 12000000 reads
+2021-03-19 13:03:18,459 INFO Parsed 13300000 reads
+2021-03-19 13:03:18,754 INFO Parsed 9200000 reads
+2021-03-19 13:03:21,426 INFO Parsed 12100000 reads
+2021-03-19 13:03:22,503 INFO Parsed 13400000 reads
+2021-03-19 13:03:24,550 INFO Parsed 9300000 reads
+2021-03-19 13:03:25,954 INFO Parsed 12200000 reads
+2021-03-19 13:03:26,542 INFO Parsed 13500000 reads
+2021-03-19 13:03:30,347 INFO Parsed 9400000 reads
+2021-03-19 13:03:30,543 INFO Parsed 12300000 reads
+2021-03-19 13:03:30,717 INFO Parsed 13600000 reads
+2021-03-19 13:03:34,835 INFO Parsed 13700000 reads
+2021-03-19 13:03:35,119 INFO Parsed 12400000 reads
+2021-03-19 13:03:36,069 INFO Parsed 9500000 reads
+2021-03-19 13:03:38,969 INFO Parsed 13800000 reads
+2021-03-19 13:03:39,713 INFO Parsed 12500000 reads
+2021-03-19 13:03:41,859 INFO Parsed 9600000 reads
+2021-03-19 13:03:43,112 INFO Parsed 13900000 reads
+2021-03-19 13:03:44,238 INFO Parsed 12600000 reads
+2021-03-19 13:03:47,204 INFO Parsed 14000000 reads
+2021-03-19 13:03:47,625 INFO Parsed 9700000 reads
+2021-03-19 13:03:48,797 INFO Parsed 12700000 reads
+2021-03-19 13:03:51,311 INFO Parsed 14100000 reads
+2021-03-19 13:03:53,344 INFO Parsed 12800000 reads
+2021-03-19 13:03:53,393 INFO Parsed 9800000 reads
+2021-03-19 13:03:55,417 INFO Parsed 14200000 reads
+2021-03-19 13:03:57,861 INFO Parsed 12900000 reads
+2021-03-19 13:03:59,274 INFO Parsed 9900000 reads
+2021-03-19 13:03:59,505 INFO Parsed 14300000 reads
+2021-03-19 13:04:02,379 INFO Parsed 13000000 reads
+2021-03-19 13:04:03,587 INFO Parsed 14400000 reads
+2021-03-19 13:04:05,213 INFO Parsed 10000000 reads
+2021-03-19 13:04:06,921 INFO Parsed 13100000 reads
+2021-03-19 13:04:07,657 INFO Parsed 14500000 reads
+2021-03-19 13:04:11,056 INFO Parsed 10100000 reads
+2021-03-19 13:04:11,434 INFO Parsed 13200000 reads
+2021-03-19 13:04:11,742 INFO Parsed 14600000 reads
+2021-03-19 13:04:15,809 INFO Parsed 14700000 reads
+2021-03-19 13:04:15,969 INFO Parsed 13300000 reads
+2021-03-19 13:04:16,890 INFO Parsed 10200000 reads
+2021-03-19 13:04:19,872 INFO Parsed 14800000 reads
+2021-03-19 13:04:20,479 INFO Parsed 13400000 reads
+2021-03-19 13:04:22,679 INFO Parsed 10300000 reads
+2021-03-19 13:04:23,905 INFO Parsed 14900000 reads
+2021-03-19 13:04:25,018 INFO Parsed 13500000 reads
+2021-03-19 13:04:27,962 INFO Parsed 15000000 reads
+2021-03-19 13:04:28,579 INFO Parsed 10400000 reads
+2021-03-19 13:04:29,541 INFO Parsed 13600000 reads
+2021-03-19 13:04:32,004 INFO Parsed 15100000 reads
+2021-03-19 13:04:34,044 INFO Parsed 13700000 reads
+2021-03-19 13:04:34,345 INFO Parsed 10500000 reads
+2021-03-19 13:04:36,124 INFO Parsed 15200000 reads
+2021-03-19 13:04:38,611 INFO Parsed 13800000 reads
+2021-03-19 13:04:40,078 INFO Parsed 10600000 reads
+2021-03-19 13:04:40,252 INFO Parsed 15300000 reads
+2021-03-19 13:04:43,209 INFO Parsed 13900000 reads
+2021-03-19 13:04:44,355 INFO Parsed 15400000 reads
+2021-03-19 13:04:45,857 INFO Parsed 10700000 reads
+2021-03-19 13:04:47,793 INFO Parsed 14000000 reads
+2021-03-19 13:04:48,439 INFO Parsed 15500000 reads
+2021-03-19 13:04:51,574 INFO Parsed 10800000 reads
+2021-03-19 13:04:52,328 INFO Parsed 14100000 reads
+2021-03-19 13:04:52,511 INFO Parsed 15600000 reads
+2021-03-19 13:04:56,604 INFO Parsed 15700000 reads
+2021-03-19 13:04:56,910 INFO Parsed 14200000 reads
+2021-03-19 13:04:57,316 INFO Parsed 10900000 reads
+2021-03-19 13:05:00,740 INFO Parsed 15800000 reads
+2021-03-19 13:05:01,475 INFO Parsed 14300000 reads
+2021-03-19 13:05:03,076 INFO Parsed 11000000 reads
+2021-03-19 13:05:04,843 INFO Parsed 15900000 reads
+2021-03-19 13:05:06,043 INFO Parsed 14400000 reads
+2021-03-19 13:05:08,910 INFO Parsed 16000000 reads
+2021-03-19 13:05:08,949 INFO Parsed 11100000 reads
+2021-03-19 13:05:10,638 INFO Parsed 14500000 reads
+2021-03-19 13:05:12,975 INFO Parsed 16100000 reads
+2021-03-19 13:05:14,826 INFO Parsed 11200000 reads
+2021-03-19 13:05:15,167 INFO Parsed 14600000 reads
+2021-03-19 13:05:16,996 INFO Parsed 16200000 reads
+2021-03-19 13:05:19,648 INFO Parsed 14700000 reads
+2021-03-19 13:05:20,670 INFO Parsed 11300000 reads
+2021-03-19 13:05:20,990 INFO Parsed 16300000 reads
+2021-03-19 13:05:24,147 INFO Parsed 14800000 reads
+2021-03-19 13:05:24,967 INFO Parsed 16400000 reads
+2021-03-19 13:05:26,494 INFO Parsed 11400000 reads
+2021-03-19 13:05:28,654 INFO Parsed 14900000 reads
+2021-03-19 13:05:28,979 INFO Parsed 16500000 reads
+2021-03-19 13:05:32,296 INFO Parsed 11500000 reads
+2021-03-19 13:05:32,982 INFO Parsed 16600000 reads
+2021-03-19 13:05:33,150 INFO Parsed 15000000 reads
+2021-03-19 13:05:37,024 INFO Parsed 16700000 reads
+2021-03-19 13:05:37,645 INFO Parsed 15100000 reads
+2021-03-19 13:05:38,067 INFO Parsed 11600000 reads
+2021-03-19 13:05:41,125 INFO Parsed 16800000 reads
+2021-03-19 13:05:42,159 INFO Parsed 15200000 reads
+2021-03-19 13:05:43,776 INFO Parsed 11700000 reads
+2021-03-19 13:05:45,230 INFO Parsed 16900000 reads
+2021-03-19 13:05:46,669 INFO Parsed 15300000 reads
+2021-03-19 13:05:49,369 INFO Parsed 17000000 reads
+2021-03-19 13:05:49,462 INFO Parsed 11800000 reads
+2021-03-19 13:05:51,242 INFO Parsed 15400000 reads
+2021-03-19 13:05:53,493 INFO Parsed 17100000 reads
+2021-03-19 13:05:55,215 INFO Parsed 11900000 reads
+2021-03-19 13:05:55,793 INFO Parsed 15500000 reads
+2021-03-19 13:05:57,596 INFO Parsed 17200000 reads
+2021-03-19 13:06:00,324 INFO Parsed 15600000 reads
+2021-03-19 13:06:00,937 INFO Parsed 12000000 reads
+2021-03-19 13:06:01,706 INFO Parsed 17300000 reads
+2021-03-19 13:06:04,861 INFO Parsed 15700000 reads
+2021-03-19 13:06:05,774 INFO Parsed 17400000 reads
+2021-03-19 13:06:06,665 INFO Parsed 12100000 reads
+2021-03-19 13:06:09,402 INFO Parsed 15800000 reads
+2021-03-19 13:06:09,843 INFO Parsed 17500000 reads
+2021-03-19 13:06:12,460 INFO Parsed 12200000 reads
+2021-03-19 13:06:13,893 INFO Parsed 17600000 reads
+2021-03-19 13:06:13,941 INFO Parsed 15900000 reads
+2021-03-19 13:06:17,950 INFO Parsed 17700000 reads
+2021-03-19 13:06:18,285 INFO Parsed 12300000 reads
+2021-03-19 13:06:18,469 INFO Parsed 16000000 reads
+2021-03-19 13:06:22,007 INFO Parsed 17800000 reads
+2021-03-19 13:06:23,028 INFO Parsed 16100000 reads
+2021-03-19 13:06:24,125 INFO Parsed 12400000 reads
+2021-03-19 13:06:26,032 INFO Parsed 17900000 reads
+2021-03-19 13:06:27,576 INFO Parsed 16200000 reads
+2021-03-19 13:06:30,042 INFO Parsed 12500000 reads
+2021-03-19 13:06:30,082 INFO Parsed 18000000 reads
+2021-03-19 13:06:32,014 INFO Parsed 16300000 reads
+2021-03-19 13:06:34,104 INFO Parsed 18100000 reads
+2021-03-19 13:06:35,830 INFO Parsed 12600000 reads
+2021-03-19 13:06:36,483 INFO Parsed 16400000 reads
+2021-03-19 13:06:38,180 INFO Parsed 18200000 reads
+2021-03-19 13:06:40,917 INFO Parsed 16500000 reads
+2021-03-19 13:06:41,574 INFO Parsed 12700000 reads
+2021-03-19 13:06:42,188 INFO Parsed 18300000 reads
+2021-03-19 13:06:45,311 INFO Parsed 16600000 reads
+2021-03-19 13:06:46,281 INFO Parsed 18400000 reads
+2021-03-19 13:06:47,326 INFO Parsed 12800000 reads
+2021-03-19 13:06:49,716 INFO Parsed 16700000 reads
+2021-03-19 13:06:50,360 INFO Parsed 18500000 reads
+2021-03-19 13:06:53,072 INFO Parsed 12900000 reads
+2021-03-19 13:06:54,173 INFO Parsed 16800000 reads
+2021-03-19 13:06:54,471 INFO Parsed 18600000 reads
+2021-03-19 13:06:58,547 INFO Parsed 18700000 reads
+2021-03-19 13:06:58,626 INFO Parsed 16900000 reads
+2021-03-19 13:06:58,791 INFO Parsed 13000000 reads
+2021-03-19 13:07:02,603 INFO Parsed 18800000 reads
+2021-03-19 13:07:03,196 INFO Parsed 17000000 reads
+2021-03-19 13:07:04,459 INFO Parsed 13100000 reads
+2021-03-19 13:07:06,677 INFO Parsed 18900000 reads
+2021-03-19 13:07:07,727 INFO Parsed 17100000 reads
+2021-03-19 13:07:10,119 INFO Parsed 13200000 reads
+2021-03-19 13:07:10,761 INFO Parsed 19000000 reads
+2021-03-19 13:07:12,308 INFO Parsed 17200000 reads
+2021-03-19 13:07:14,858 INFO Parsed 19100000 reads
+2021-03-19 13:07:15,787 INFO Parsed 13300000 reads
+2021-03-19 13:07:16,873 INFO Parsed 17300000 reads
+2021-03-19 13:07:18,919 INFO Parsed 19200000 reads
+2021-03-19 13:07:21,424 INFO Parsed 17400000 reads
+2021-03-19 13:07:21,637 INFO Parsed 13400000 reads
+2021-03-19 13:07:22,908 INFO Parsed 19300000 reads
+2021-03-19 13:07:26,043 INFO Parsed 17500000 reads
+2021-03-19 13:07:26,950 INFO Parsed 19400000 reads
+2021-03-19 13:07:27,519 INFO Parsed 13500000 reads
+2021-03-19 13:07:30,552 INFO Parsed 17600000 reads
+2021-03-19 13:07:30,947 INFO Parsed 19500000 reads
+2021-03-19 13:07:33,371 INFO Parsed 13600000 reads
+2021-03-19 13:07:34,938 INFO Parsed 19600000 reads
+2021-03-19 13:07:35,071 INFO Parsed 17700000 reads
+2021-03-19 13:07:38,951 INFO Parsed 19700000 reads
+2021-03-19 13:07:39,259 INFO Parsed 13700000 reads
+2021-03-19 13:07:39,614 INFO Parsed 17800000 reads
+2021-03-19 13:07:42,949 INFO Parsed 19800000 reads
+2021-03-19 13:07:43,768 INFO Input Reads: 19820160
+2021-03-19 13:07:43,768 INFO Filtered cell barcode: 10228149
+2021-03-19 13:07:43,768 INFO Reads output: 9592011
+# job finished in 802 seconds at Fri Mar 19 13:07:43 2021 -- 778.17 24.96  0.18  0.04 -- c3279e30-9ef1-467d-ab0e-0f3878050c38
+[Fri Mar 19 13:07:43 2021]
+Finished job 3.
+2 of 23 steps (9%) done
+Select jobs to execute...
+2021-03-19 13:07:44,159 INFO Parsed 17900000 reads
+
+[Fri Mar 19 13:07:44 2021]
+rule trim:
+    input: output/fastqs/mix60_repair_R2_umi.fastq.gz
+    output: output/fastqs/mix60_repair_R2_umi_trimmed.fastq.gz
+    log: output/logs/trim/mix60_repair.out
+    jobid: 19
+    wildcards: data=output, sample=mix60_repair
+    threads: 2
+    resources: all_threads=2
+
+
+      cutadapt          -a AAAAAAAAAA           -g AAGCAGTGGTATCAACGCAGAGTACATGGG           --minimum-length=2          -o output/fastqs/mix60_repair_R2_umi_trimmed.fastq.gz         output/fastqs/mix60_repair_R2_umi.fastq.gz
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+2021-03-19 13:07:45,208 INFO Parsed 13800000 reads
+This is cutadapt 3.3 with Python 3.6.13
+Command line parameters: -a AAAAAAAAAA -g AAGCAGTGGTATCAACGCAGAGTACATGGG --minimum-length=2 -o output/fastqs/mix60_repair_R2_umi_trimmed.fastq.gz output/fastqs/mix60_repair_R2_umi.fastq.gz
+Processing reads on 1 core in single-end mode ...
+2021-03-19 13:07:48,589 INFO Parsed 18000000 reads
+2021-03-19 13:07:50,973 INFO Parsed 13900000 reads
+2021-03-19 13:07:53,013 INFO Parsed 18100000 reads
+2021-03-19 13:07:56,743 INFO Parsed 14000000 reads
+2021-03-19 13:07:57,459 INFO Parsed 18200000 reads
+2021-03-19 13:08:01,869 INFO Parsed 18300000 reads
+2021-03-19 13:08:02,434 INFO Parsed 14100000 reads
+2021-03-19 13:08:06,293 INFO Parsed 18400000 reads
+2021-03-19 13:08:08,074 INFO Parsed 14200000 reads
+2021-03-19 13:08:10,746 INFO Parsed 18500000 reads
+2021-03-19 13:08:13,720 INFO Parsed 14300000 reads
+2021-03-19 13:08:15,276 INFO Parsed 18600000 reads
+2021-03-19 13:08:19,416 INFO Parsed 14400000 reads
+2021-03-19 13:08:19,767 INFO Parsed 18700000 reads
+2021-03-19 13:08:23,562 INFO Input Reads: 14473473
+2021-03-19 13:08:23,562 INFO Reads output: 11588006
+2021-03-19 13:08:23,562 INFO Filtered cell barcode: 2885467
+# job finished in 842 seconds at Fri Mar 19 13:08:23 2021 -- 823.87 19.24  0.17  0.05 -- 8d9785e6-ac14-46bf-9674-76d0b9781615
+[Fri Mar 19 13:08:23 2021]
+Finished job 1.
+3 of 23 steps (13%) done
+Select jobs to execute...
+2021-03-19 13:08:24,226 INFO Parsed 18800000 reads
+
+[Fri Mar 19 13:08:24 2021]
+rule trim:
+    input: output/fastqs/mix15_repair_R2_umi.fastq.gz
+    output: output/fastqs/mix15_repair_R2_umi_trimmed.fastq.gz
+    log: output/logs/trim/mix15_repair.out
+    jobid: 9
+    wildcards: data=output, sample=mix15_repair
+    threads: 2
+    resources: all_threads=2
+
+
+      cutadapt          -a AAAAAAAAAA           -g AAGCAGTGGTATCAACGCAGAGTACATGGG           --minimum-length=2          -o output/fastqs/mix15_repair_R2_umi_trimmed.fastq.gz         output/fastqs/mix15_repair_R2_umi.fastq.gz
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+This is cutadapt 3.3 with Python 3.6.13
+Command line parameters: -a AAAAAAAAAA -g AAGCAGTGGTATCAACGCAGAGTACATGGG --minimum-length=2 -o output/fastqs/mix15_repair_R2_umi_trimmed.fastq.gz output/fastqs/mix15_repair_R2_umi.fastq.gz
+Processing reads on 1 core in single-end mode ...
+2021-03-19 13:08:28,621 INFO Parsed 18900000 reads
+2021-03-19 13:08:32,997 INFO Parsed 19000000 reads
+2021-03-19 13:08:37,385 INFO Parsed 19100000 reads
+2021-03-19 13:08:41,781 INFO Parsed 19200000 reads
+2021-03-19 13:08:46,150 INFO Parsed 19300000 reads
+2021-03-19 13:08:50,493 INFO Parsed 19400000 reads
+2021-03-19 13:08:54,813 INFO Parsed 19500000 reads
+2021-03-19 13:08:59,113 INFO Parsed 19600000 reads
+2021-03-19 13:09:03,388 INFO Parsed 19700000 reads
+2021-03-19 13:09:07,688 INFO Parsed 19800000 reads
+2021-03-19 13:09:11,999 INFO Parsed 19900000 reads
+2021-03-19 13:09:16,299 INFO Parsed 20000000 reads
+2021-03-19 13:09:17,736 INFO Input Reads: 20034174
+2021-03-19 13:09:17,736 INFO Reads output: 11382230
+2021-03-19 13:09:17,736 INFO Filtered cell barcode: 8651944
+# job finished in 896 seconds at Fri Mar 19 13:09:17 2021 -- 875.49 21.66  0.18  0.04 -- a82017e1-9585-458a-9559-b1023a8bacc6
+[Fri Mar 19 13:09:17 2021]
+Finished job 2.
+4 of 23 steps (17%) done
+Select jobs to execute...
+
+[Fri Mar 19 13:09:18 2021]
+rule trim:
+    input: output/fastqs/mix30_repair_R2_umi.fastq.gz
+    output: output/fastqs/mix30_repair_R2_umi_trimmed.fastq.gz
+    log: output/logs/trim/mix30_repair.out
+    jobid: 14
+    wildcards: data=output, sample=mix30_repair
+    threads: 2
+    resources: all_threads=2
+
+
+      cutadapt          -a AAAAAAAAAA           -g AAGCAGTGGTATCAACGCAGAGTACATGGG           --minimum-length=2          -o output/fastqs/mix30_repair_R2_umi_trimmed.fastq.gz         output/fastqs/mix30_repair_R2_umi.fastq.gz
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+This is cutadapt 3.3 with Python 3.6.13
+Command line parameters: -a AAAAAAAAAA -g AAGCAGTGGTATCAACGCAGAGTACATGGG --minimum-length=2 -o output/fastqs/mix30_repair_R2_umi_trimmed.fastq.gz output/fastqs/mix30_repair_R2_umi.fastq.gz
+Processing reads on 1 core in single-end mode ...
+Finished in 166.42 s (17 us/read; 3.46 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               9,592,011
+Reads with adapters:                 9,571,216 (99.8%)
+Reads that were too short:              19,882 (0.2%)
+Reads written (passing filters):     9,572,129 (99.8%)
+
+Total basepairs processed: 1,448,393,661 bp
+Total written (filtered):    492,026,990 bp (34.0%)
+
+=== Adapter 1 ===
+
+Sequence: AAAAAAAAAA; Type: regular 3'; Length: 10; Trimmed: 8744655 times
+
+No. of allowed errors:
+1-9 bp: 0; 10 bp: 1
+
+Bases preceding removed adapters:
+  A: 0.0%
+  C: 56.6%
+  G: 27.8%
+  T: 15.6%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	335	149875.2	0	335
+4	202	37468.8	0	202
+5	64	9367.2	0	64
+6	37	2341.8	0	37
+7	27	585.4	0	27
+8	15	146.4	0	15
+9	28	36.6	0	28
+10	33	9.1	1	27 6
+11	42	9.1	1	27 15
+12	43	9.1	1	37 6
+13	61	9.1	1	48 13
+14	99	9.1	1	79 20
+15	83	9.1	1	70 13
+16	324	9.1	1	228 96
+17	359	9.1	1	235 124
+18	543	9.1	1	320 223
+19	771	9.1	1	498 273
+20	566	9.1	1	385 181
+21	679	9.1	1	509 170
+22	280	9.1	1	226 54
+23	182	9.1	1	147 35
+24	117	9.1	1	97 20
+25	89	9.1	1	76 13
+26	96	9.1	1	87 9
+27	86	9.1	1	81 5
+28	57	9.1	1	52 5
+29	38	9.1	1	34 4
+30	27	9.1	1	25 2
+31	41	9.1	1	40 1
+32	40	9.1	1	39 1
+33	30	9.1	1	30
+34	33	9.1	1	32 1
+35	39	9.1	1	38 1
+36	51	9.1	1	50 1
+37	55	9.1	1	49 6
+38	48	9.1	1	45 3
+39	74	9.1	1	64 10
+40	88	9.1	1	75 13
+41	108	9.1	1	88 20
+42	136	9.1	1	108 28
+43	159	9.1	1	126 33
+44	258	9.1	1	178 80
+45	419	9.1	1	260 159
+46	353	9.1	1	216 137
+47	522	9.1	1	309 213
+48	697	9.1	1	387 310
+49	626	9.1	1	412 214
+50	813	9.1	1	548 265
+51	1038	9.1	1	710 328
+52	1300	9.1	1	898 402
+53	1320	9.1	1	930 390
+54	1682	9.1	1	1265 417
+55	1125	9.1	1	803 322
+56	1425	9.1	1	1019 406
+57	1462	9.1	1	1041 421
+58	1721	9.1	1	1272 449
+59	2340	9.1	1	1835 505
+60	3387	9.1	1	2861 526
+61	3995	9.1	1	3557 438
+62	3263	9.1	1	2908 355
+63	3741	9.1	1	3416 325
+64	3621	9.1	1	3393 228
+65	6743	9.1	1	6485 258
+66	7242	9.1	1	7048 194
+67	2170	9.1	1	2078 92
+68	1523	9.1	1	1440 83
+69	804	9.1	1	751 53
+70	836	9.1	1	764 72
+71	1040	9.1	1	937 103
+72	3493	9.1	1	3210 283
+73	5120	9.1	1	4799 321
+74	5852	9.1	1	5606 246
+75	3119	9.1	1	2968 151
+76	2043	9.1	1	1945 98
+77	1822	9.1	1	1700 122
+78	1261	9.1	1	1140 121
+79	1687	9.1	1	1564 123
+80	1444	9.1	1	1341 103
+81	2658	9.1	1	2507 151
+82	3520	9.1	1	3365 155
+83	3606	9.1	1	3479 127
+84	4557	9.1	1	4445 112
+85	4086	9.1	1	3969 117
+86	1872	9.1	1	1748 124
+87	2448	9.1	1	2331 117
+88	6726	9.1	1	6513 213
+89	51568	9.1	1	51077 491
+90	108966	9.1	1	107941 1025
+91	146470	9.1	1	145026 1444
+92	189391	9.1	1	187457 1934
+93	190556	9.1	1	188707 1849
+94	228119	9.1	1	226094 2025
+95	221468	9.1	1	219616 1852
+96	221019	9.1	1	218874 2145
+97	228823	9.1	1	227167 1656
+98	217657	9.1	1	216253 1404
+99	260199	9.1	1	258645 1554
+100	277202	9.1	1	275270 1932
+101	341922	9.1	1	339716 2206
+102	304240	9.1	1	302359 1881
+103	326703	9.1	1	324432 2271
+104	327547	9.1	1	325615 1932
+105	442913	9.1	1	440142 2771
+106	400673	9.1	1	398357 2316
+107	362184	9.1	1	360100 2084
+108	371711	9.1	1	370113 1598
+109	399017	9.1	1	397774 1243
+110	319699	9.1	1	318825 874
+111	284485	9.1	1	283927 558
+112	274019	9.1	1	273563 456
+113	245302	9.1	1	244888 414
+114	165158	9.1	1	164813 345
+115	166814	9.1	1	166563 251
+116	155715	9.1	1	155560 155
+117	180394	9.1	1	180244 150
+118	146115	9.1	1	145987 128
+119	122178	9.1	1	122089 89
+120	98781	9.1	1	98701 80
+121	108798	9.1	1	108702 96
+122	92629	9.1	1	92535 94
+123	61962	9.1	1	61898 64
+124	40926	9.1	1	40869 57
+125	29615	9.1	1	29562 53
+126	18775	9.1	1	18736 39
+127	14863	9.1	1	14835 28
+128	7658	9.1	1	7640 18
+129	6341	9.1	1	6326 15
+130	4982	9.1	1	4969 13
+131	5509	9.1	1	5487 22
+132	13898	9.1	1	13886 12
+133	143398	9.1	1	143322 76
+134	69968	9.1	1	69903 65
+135	37834	9.1	1	37783 51
+136	55315	9.1	1	55278 37
+137	26831	9.1	1	26816 15
+138	28525	9.1	1	28507 18
+139	14989	9.1	1	14975 14
+140	11484	9.1	1	11469 15
+141	8255	9.1	1	8245 10
+142	5958	9.1	1	5953 5
+143	4537	9.1	1	4530 7
+144	4166	9.1	1	4161 5
+145	3080	9.1	1	3074 6
+146	3338	9.1	1	3333 5
+147	1920	9.1	1	1916 4
+148	2443	9.1	1	2441 2
+149	2803	9.1	1	2798 5
+150	2745	9.1	1	2739 6
+151	17137	9.1	1	16745 392
+
+
+=== Adapter 2 ===
+
+Sequence: AAGCAGTGGTATCAACGCAGAGTACATGGG; Type: regular 5'; Length: 30; Trimmed: 826561 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30 bp: 3
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	47792	149875.2	0	47792
+4	143	37468.8	0	143
+5	10	9367.2	0	10
+6	3	2341.8	0	3
+7	1	585.4	0	1
+8	1	146.4	0	1
+9	6	36.6	0	6
+10	5	9.1	1	3 2
+11	16	2.3	1	13 3
+12	19	0.6	1	13 6
+13	34	0.1	1	34
+14	16	0.0	1	12 4
+15	38	0.0	1	37 1
+16	123	0.0	1	112 11
+17	107	0.0	1	90 17
+18	64	0.0	1	55 9
+19	119	0.0	1	109 8 2
+20	119	0.0	2	93 21 5
+21	197	0.0	2	175 14 8
+22	361	0.0	2	326 26 9
+23	432	0.0	2	364 50 18
+24	550	0.0	2	474 57 19
+25	1902	0.0	2	1719 140 43
+26	1850	0.0	2	1573 209 68
+27	2531	0.0	2	1755 280 81 415
+28	9420	0.0	2	7087 597 1455 281
+29	23538	0.0	2	16044 5662 1340 492
+30	705086	0.0	3	644499 49441 8148 2998
+31	24663	0.0	3	2366 18748 2294 1255
+32	2392	0.0	3	5 55 1793 539
+33	4957	0.0	3	0 0 4 4953
+34	13	0.0	3	0 0 0 13
+35	1	0.0	3	1
+37	1	0.0	3	1
+38	1	0.0	3	1
+40	1	0.0	3	1
+41	1	0.0	3	0 1
+42	1	0.0	3	1
+43	12	0.0	3	11 0 0 1
+46	1	0.0	3	0 0 0 1
+48	1	0.0	3	1
+55	1	0.0	3	0 0 1
+56	1	0.0	3	1
+57	3	0.0	3	3
+58	10	0.0	3	10
+59	8	0.0	3	8
+60	5	0.0	3	4 1
+61	1	0.0	3	1
+62	1	0.0	3	1
+84	1	0.0	3	1
+87	1	0.0	3	0 1
+121	1	0.0	3	1
+[Fri Mar 19 13:10:32 2021]
+Finished job 19.
+5 of 23 steps (22%) done
+Select jobs to execute...
+Finished in 193.52 s (17 us/read; 3.59 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:              11,588,006
+Reads with adapters:                11,569,866 (99.8%)
+Reads that were too short:              17,523 (0.2%)
+Reads written (passing filters):    11,570,483 (99.8%)
+
+Total basepairs processed: 1,749,788,906 bp
+Total written (filtered):    527,812,065 bp (30.2%)
+
+=== Adapter 1 ===
+
+Sequence: AAAAAAAAAA; Type: regular 3'; Length: 10; Trimmed: 11289122 times
+
+No. of allowed errors:
+1-9 bp: 0; 10 bp: 1
+
+Bases preceding removed adapters:
+  A: 0.0%
+  C: 55.9%
+  G: 31.5%
+  T: 12.7%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	34	181062.6	0	34
+4	18	45265.6	0	18
+5	10	11316.4	0	10
+6	15	2829.1	0	15
+7	5	707.3	0	5
+8	15	176.8	0	15
+9	20	44.2	0	20
+10	18	11.1	1	9 9
+11	9	11.1	1	8 1
+12	17	11.1	1	15 2
+13	13	11.1	1	12 1
+14	14	11.1	1	11 3
+15	22	11.1	1	22
+16	33	11.1	1	26 7
+17	26	11.1	1	19 7
+18	52	11.1	1	45 7
+19	57	11.1	1	50 7
+20	42	11.1	1	34 8
+21	60	11.1	1	45 15
+22	38	11.1	1	34 4
+23	30	11.1	1	29 1
+24	31	11.1	1	29 2
+25	17	11.1	1	16 1
+26	16	11.1	1	16
+27	12	11.1	1	12
+28	13	11.1	1	13
+29	16	11.1	1	15 1
+30	19	11.1	1	18 1
+31	17	11.1	1	16 1
+32	16	11.1	1	16
+33	12	11.1	1	12
+34	11	11.1	1	11
+35	20	11.1	1	19 1
+36	19	11.1	1	19
+37	21	11.1	1	21
+38	16	11.1	1	14 2
+39	15	11.1	1	14 1
+40	28	11.1	1	24 4
+41	23	11.1	1	20 3
+42	32	11.1	1	28 4
+43	52	11.1	1	40 12
+44	59	11.1	1	45 14
+45	124	11.1	1	86 38
+46	110	11.1	1	88 22
+47	116	11.1	1	83 33
+48	184	11.1	1	125 59
+49	211	11.1	1	148 63
+50	264	11.1	1	197 67
+51	334	11.1	1	258 76
+52	437	11.1	1	316 121
+53	468	11.1	1	348 120
+54	578	11.1	1	430 148
+55	468	11.1	1	353 115
+56	602	11.1	1	463 139
+57	597	11.1	1	454 143
+58	622	11.1	1	477 145
+59	726	11.1	1	535 191
+60	828	11.1	1	656 172
+61	729	11.1	1	586 143
+62	709	11.1	1	569 140
+63	687	11.1	1	544 143
+64	636	11.1	1	519 117
+65	816	11.1	1	689 127
+66	1065	11.1	1	911 154
+67	605	11.1	1	551 54
+68	638	11.1	1	586 52
+69	370	11.1	1	327 43
+70	399	11.1	1	354 45
+71	415	11.1	1	366 49
+72	1617	11.1	1	1404 213
+73	2019	11.1	1	1768 251
+74	1936	11.1	1	1747 189
+75	1389	11.1	1	1250 139
+76	1187	11.1	1	1089 98
+77	1014	11.1	1	880 134
+78	712	11.1	1	612 100
+79	784	11.1	1	693 91
+80	641	11.1	1	555 86
+81	1381	11.1	1	1258 123
+82	2020	11.1	1	1877 143
+83	2354	11.1	1	2220 134
+84	2580	11.1	1	2461 119
+85	2902	11.1	1	2778 124
+86	1752	11.1	1	1614 138
+87	1820	11.1	1	1657 163
+88	4088	11.1	1	3855 233
+89	18918	11.1	1	18482 436
+90	71416	11.1	1	70682 734
+91	102376	11.1	1	101243 1133
+92	129796	11.1	1	127995 1801
+93	116723	11.1	1	115134 1589
+94	186644	11.1	1	184591 2053
+95	177323	11.1	1	175564 1759
+96	210437	11.1	1	208070 2367
+97	238931	11.1	1	237129 1802
+98	282654	11.1	1	280896 1758
+99	338260	11.1	1	336041 2219
+100	396516	11.1	1	393730 2786
+101	536471	11.1	1	532908 3563
+102	470457	11.1	1	467530 2927
+103	533062	11.1	1	529472 3590
+104	471086	11.1	1	468187 2899
+105	542643	11.1	1	538701 3942
+106	509825	11.1	1	506469 3356
+107	486413	11.1	1	483300 3113
+108	513204	11.1	1	510747 2457
+109	555993	11.1	1	554198 1795
+110	484818	11.1	1	483502 1316
+111	440091	11.1	1	439173 918
+112	457120	11.1	1	456325 795
+113	466802	11.1	1	466095 707
+114	321125	11.1	1	320552 573
+115	300148	11.1	1	299708 440
+116	278898	11.1	1	278616 282
+117	312052	11.1	1	311765 287
+118	238147	11.1	1	237932 215
+119	183986	11.1	1	183814 172
+120	135963	11.1	1	135814 149
+121	147740	11.1	1	147603 137
+122	141080	11.1	1	140947 133
+123	73149	11.1	1	73062 87
+124	41256	11.1	1	41206 50
+125	23731	11.1	1	23698 33
+126	13581	11.1	1	13560 21
+127	11778	11.1	1	11765 13
+128	5659	11.1	1	5642 17
+129	3987	11.1	1	3976 11
+130	2986	11.1	1	2976 10
+131	3126	11.1	1	3115 11
+132	6917	11.1	1	6904 13
+133	99139	11.1	1	99080 59
+134	46060	11.1	1	45999 61
+135	19196	11.1	1	19163 33
+136	26333	11.1	1	26312 21
+137	14064	11.1	1	14046 18
+138	11421	11.1	1	11412 9
+139	5270	11.1	1	5258 12
+140	4299	11.1	1	4290 9
+141	3595	11.1	1	3590 5
+142	2587	11.1	1	2577 10
+143	2196	11.1	1	2195 1
+144	1858	11.1	1	1858
+145	1390	11.1	1	1390
+146	1516	11.1	1	1516
+147	946	11.1	1	945 1
+148	1798	11.1	1	1797 1
+149	1696	11.1	1	1695 1
+150	2463	11.1	1	2456 7
+151	15060	11.1	1	14964 96
+
+
+=== Adapter 2 ===
+
+Sequence: AAGCAGTGGTATCAACGCAGAGTACATGGG; Type: regular 5'; Length: 30; Trimmed: 280744 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30 bp: 3
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	1155	181062.6	0	1155
+4	89	45265.6	0	89
+5	7	11316.4	0	7
+6	1	2829.1	0	1
+11	5	2.8	1	3 2
+12	3	0.7	1	2 1
+13	3	0.2	1	3
+14	1	0.0	1	1
+15	9	0.0	1	7 2
+16	23	0.0	1	22 1
+17	20	0.0	1	18 2
+18	24	0.0	1	22 2
+19	30	0.0	1	26 4
+20	33	0.0	2	32 1
+21	59	0.0	2	52 4 3
+22	65	0.0	2	57 6 2
+23	96	0.0	2	89 7
+24	172	0.0	2	146 19 7
+25	547	0.0	2	509 29 9
+26	543	0.0	2	469 59 15
+27	819	0.0	2	611 80 21 107
+28	2930	0.0	2	2315 180 382 53
+29	7714	0.0	2	5343 1900 370 101
+30	256590	0.0	3	235286 17407 2813 1084
+31	8227	0.0	3	1082 6109 676 360
+32	448	0.0	3	2 20 316 110
+33	1120	0.0	3	1 0 1 1118
+34	7	0.0	3	0 0 0 7
+40	1	0.0	3	1
+43	1	0.0	3	0 1
+51	1	0.0	3	1
+60	1	0.0	3	1
+[Fri Mar 19 13:11:39 2021]
+Finished job 9.
+6 of 23 steps (26%) done
+Select jobs to execute...
+Finished in 187.90 s (17 us/read; 3.63 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:              11,382,230
+Reads with adapters:                11,361,980 (99.8%)
+Reads that were too short:              17,604 (0.2%)
+Reads written (passing filters):    11,364,626 (99.8%)
+
+Total basepairs processed: 1,718,716,730 bp
+Total written (filtered):    537,408,063 bp (31.3%)
+
+=== Adapter 1 ===
+
+Sequence: AAAAAAAAAA; Type: regular 3'; Length: 10; Trimmed: 11032927 times
+
+No. of allowed errors:
+1-9 bp: 0; 10 bp: 1
+
+Bases preceding removed adapters:
+  A: 0.0%
+  C: 55.1%
+  G: 31.0%
+  T: 13.9%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	413	177847.3	0	413
+4	223	44461.8	0	223
+5	75	11115.5	0	75
+6	25	2778.9	0	25
+7	15	694.7	0	15
+8	7	173.7	0	7
+9	17	43.4	0	17
+10	38	10.9	1	23 15
+11	35	10.9	1	26 9
+12	27	10.9	1	16 11
+13	60	10.9	1	38 22
+14	96	10.9	1	80 16
+15	87	10.9	1	63 24
+16	366	10.9	1	241 125
+17	371	10.9	1	214 157
+18	687	10.9	1	387 300
+19	883	10.9	1	559 324
+20	666	10.9	1	434 232
+21	746	10.9	1	547 199
+22	349	10.9	1	286 63
+23	198	10.9	1	164 34
+24	131	10.9	1	114 17
+25	95	10.9	1	73 22
+26	90	10.9	1	78 12
+27	73	10.9	1	64 9
+28	31	10.9	1	29 2
+29	24	10.9	1	23 1
+30	27	10.9	1	26 1
+31	20	10.9	1	20
+32	23	10.9	1	22 1
+33	20	10.9	1	20
+34	27	10.9	1	26 1
+35	29	10.9	1	28 1
+36	24	10.9	1	21 3
+37	29	10.9	1	28 1
+38	34	10.9	1	31 3
+39	45	10.9	1	38 7
+40	71	10.9	1	59 12
+41	113	10.9	1	91 22
+42	104	10.9	1	84 20
+43	171	10.9	1	125 46
+44	245	10.9	1	175 70
+45	362	10.9	1	255 107
+46	321	10.9	1	222 99
+47	410	10.9	1	274 136
+48	479	10.9	1	297 182
+49	522	10.9	1	374 148
+50	744	10.9	1	547 197
+51	1032	10.9	1	755 277
+52	1314	10.9	1	968 346
+53	1316	10.9	1	1013 303
+54	1826	10.9	1	1426 400
+55	1036	10.9	1	817 219
+56	1421	10.9	1	1104 317
+57	1402	10.9	1	1057 345
+58	1719	10.9	1	1367 352
+59	2375	10.9	1	1950 425
+60	3674	10.9	1	3230 444
+61	4356	10.9	1	3975 381
+62	3581	10.9	1	3257 324
+63	4218	10.9	1	3939 279
+64	4220	10.9	1	4010 210
+65	7806	10.9	1	7567 239
+66	7983	10.9	1	7788 195
+67	2191	10.9	1	2093 98
+68	1480	10.9	1	1390 90
+69	743	10.9	1	676 67
+70	750	10.9	1	675 75
+71	785	10.9	1	702 83
+72	3332	10.9	1	3076 256
+73	4836	10.9	1	4555 281
+74	6044	10.9	1	5778 266
+75	2953	10.9	1	2800 153
+76	1937	10.9	1	1823 114
+77	1778	10.9	1	1631 147
+78	1179	10.9	1	1075 104
+79	1743	10.9	1	1610 133
+80	1432	10.9	1	1302 130
+81	2722	10.9	1	2562 160
+82	3825	10.9	1	3663 162
+83	4101	10.9	1	3965 136
+84	5070	10.9	1	4956 114
+85	4446	10.9	1	4303 143
+86	2199	10.9	1	2023 176
+87	2482	10.9	1	2325 157
+88	5678	10.9	1	5481 197
+89	36978	10.9	1	36543 435
+90	92876	10.9	1	92042 834
+91	121404	10.9	1	120116 1288
+92	161953	10.9	1	160047 1906
+93	177100	10.9	1	175226 1874
+94	256596	10.9	1	254302 2294
+95	271386	10.9	1	269206 2180
+96	280676	10.9	1	277964 2712
+97	310788	10.9	1	308798 1990
+98	314355	10.9	1	312557 1798
+99	367877	10.9	1	365795 2082
+100	419313	10.9	1	416709 2604
+101	559661	10.9	1	556342 3319
+102	492254	10.9	1	489578 2676
+103	520057	10.9	1	516845 3212
+104	475661	10.9	1	473039 2622
+105	565719	10.9	1	562275 3444
+106	490248	10.9	1	487466 2782
+107	427503	10.9	1	425085 2418
+108	436757	10.9	1	435016 1741
+109	484404	10.9	1	482984 1420
+110	393859	10.9	1	392895 964
+111	351098	10.9	1	350459 639
+112	372474	10.9	1	371887 587
+113	360786	10.9	1	360257 529
+114	230474	10.9	1	230031 443
+115	230975	10.9	1	230684 291
+116	215763	10.9	1	215551 212
+117	273904	10.9	1	273717 187
+118	200086	10.9	1	199932 154
+119	150263	10.9	1	150117 146
+120	102241	10.9	1	102151 90
+121	116489	10.9	1	116390 99
+122	100845	10.9	1	100752 93
+123	60431	10.9	1	60366 65
+124	33127	10.9	1	33088 39
+125	20529	10.9	1	20481 48
+126	13143	10.9	1	13119 24
+127	11678	10.9	1	11660 18
+128	5188	10.9	1	5173 15
+129	4672	10.9	1	4650 22
+130	3951	10.9	1	3935 16
+131	4217	10.9	1	4195 22
+132	8945	10.9	1	8929 16
+133	127679	10.9	1	127593 86
+134	61807	10.9	1	61731 76
+135	29203	10.9	1	29162 41
+136	47187	10.9	1	47153 34
+137	23506	10.9	1	23480 26
+138	24435	10.9	1	24416 19
+139	11652	10.9	1	11641 11
+140	8987	10.9	1	8976 11
+141	6422	10.9	1	6416 6
+142	5001	10.9	1	4996 5
+143	4047	10.9	1	4047
+144	3794	10.9	1	3788 6
+145	2675	10.9	1	2671 4
+146	2654	10.9	1	2654
+147	1804	10.9	1	1804
+148	2465	10.9	1	2461 4
+149	2668	10.9	1	2664 4
+150	2716	10.9	1	2709 7
+151	14888	10.9	1	14617 271
+
+
+=== Adapter 2 ===
+
+Sequence: AAGCAGTGGTATCAACGCAGAGTACATGGG; Type: regular 5'; Length: 30; Trimmed: 329053 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30 bp: 3
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	62965	177847.3	0	62965
+4	156	44461.8	0	156
+5	9	11115.5	0	9
+9	3	43.4	0	3
+10	4	10.9	1	4
+11	7	2.7	1	6 1
+12	10	0.7	1	8 2
+13	5	0.2	1	4 1
+14	9	0.0	1	5 4
+15	16	0.0	1	14 2
+16	28	0.0	1	25 3
+17	31	0.0	1	25 6
+18	33	0.0	1	28 5
+19	35	0.0	1	27 6 2
+20	52	0.0	2	46 5 1
+21	57	0.0	2	52 5
+22	108	0.0	2	99 8 1
+23	156	0.0	2	130 19 7
+24	156	0.0	2	136 12 8
+25	568	0.0	2	524 31 13
+26	630	0.0	2	537 72 21
+27	892	0.0	2	631 87 28 146
+28	3140	0.0	2	2277 208 508 147
+29	8225	0.0	2	5533 2011 416 265
+30	241413	0.0	3	220903 16599 2806 1105
+31	8299	0.0	3	813 6219 805 462
+32	646	0.0	3	2 16 443 185
+33	1382	0.0	3	0 0 0 1382
+34	7	0.0	3	0 0 0 7
+38	1	0.0	3	0 0 0 1
+40	2	0.0	3	2
+41	1	0.0	3	0 0 0 1
+43	3	0.0	3	3
+53	1	0.0	3	1
+59	2	0.0	3	2
+61	1	0.0	3	1
+[Fri Mar 19 13:12:27 2021]
+Finished job 14.
+7 of 23 steps (30%) done
+Select jobs to execute...
+
+[Fri Mar 19 13:12:28 2021]
+rule bowtie_align:
+    input: data/hairpin.1.bt2, output/fastqs/mix15_repair_R2_umi_trimmed.fastq.gz
+    output: output/bam/mix15_repair_haircut.bam
+    log: output/logs/bowtie2_align/mix15_repair
+    jobid: 7
+    wildcards: data=output, sample=mix15_repair
+    threads: 8
+    resources: all_threads=8
+
+
+        bowtie2           -x data/hairpin           --threads 8            --norc            output/fastqs/mix15_repair_R2_umi_trimmed.fastq.gz           | samtools view -bS           | samtools sort -@ 11           > output/bam/mix15_repair_haircut.bam  
+
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+11570483 reads; of these:
+  11570483 (100.00%) were unpaired; of these:
+    1245931 (10.77%) aligned 0 times
+    10316284 (89.16%) aligned exactly 1 time
+    8268 (0.07%) aligned >1 times
+89.23% overall alignment rate
+[bam_sort_core] merging from 0 files and 11 in-memory blocks...
+[Fri Mar 19 13:13:46 2021]
+Finished job 7.
+8 of 23 steps (35%) done
+Select jobs to execute...
+
+[Fri Mar 19 13:13:46 2021]
+rule bowtie_align:
+    input: data/hairpin.1.bt2, output/fastqs/mix60_repair_R2_umi_trimmed.fastq.gz
+    output: output/bam/mix60_repair_haircut.bam
+    log: output/logs/bowtie2_align/mix60_repair
+    jobid: 18
+    wildcards: data=output, sample=mix60_repair
+    threads: 8
+    resources: all_threads=8
+
+
+        bowtie2           -x data/hairpin           --threads 8            --norc            output/fastqs/mix60_repair_R2_umi_trimmed.fastq.gz           | samtools view -bS           | samtools sort -@ 11           > output/bam/mix60_repair_haircut.bam  
+
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+9572129 reads; of these:
+  9572129 (100.00%) were unpaired; of these:
+    1754161 (18.33%) aligned 0 times
+    7802858 (81.52%) aligned exactly 1 time
+    15110 (0.16%) aligned >1 times
+81.67% overall alignment rate
+[bam_sort_core] merging from 0 files and 11 in-memory blocks...
+[Fri Mar 19 13:14:53 2021]
+Finished job 18.
+9 of 23 steps (39%) done
+Select jobs to execute...
+
+[Fri Mar 19 13:14:54 2021]
+rule bowtie_align:
+    input: data/hairpin.1.bt2, output/fastqs/mix30_repair_R2_umi_trimmed.fastq.gz
+    output: output/bam/mix30_repair_haircut.bam
+    log: output/logs/bowtie2_align/mix30_repair
+    jobid: 13
+    wildcards: data=output, sample=mix30_repair
+    threads: 8
+    resources: all_threads=8
+
+
+        bowtie2           -x data/hairpin           --threads 8            --norc            output/fastqs/mix30_repair_R2_umi_trimmed.fastq.gz           | samtools view -bS           | samtools sort -@ 11           > output/bam/mix30_repair_haircut.bam  
+
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+11364626 reads; of these:
+  11364626 (100.00%) were unpaired; of these:
+    1394969 (12.27%) aligned 0 times
+    9956151 (87.61%) aligned exactly 1 time
+    13506 (0.12%) aligned >1 times
+87.73% overall alignment rate
+[bam_sort_core] merging from 0 files and 11 in-memory blocks...
+[Fri Mar 19 13:16:12 2021]
+Finished job 13.
+10 of 23 steps (43%) done
+Select jobs to execute...
+
+[Fri Mar 19 13:16:12 2021]
+rule append_tag:
+    input: output/bam/mix60_repair_haircut.bam
+    output: output/bam/mix60_repair_haircut_tagged.bam, output/bam/mix60_repair_haircut_tagged.bam.bai
+    log: output/logs/tag_sample/mix60_repair
+    jobid: 17
+    wildcards: data=output, sample=mix60_repair
+    resources: all_threads=1
+
+
+      src/tag_bam output/bam/mix60_repair_haircut.bam output/bam/mix60_repair_haircut_tagged.bam "_" 2 3
+      
+      samtools index output/bam/mix60_repair_haircut_tagged.bam
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+
+[Fri Mar 19 13:16:12 2021]
+rule append_tag:
+    input: output/bam/mix30_repair_haircut.bam
+    output: output/bam/mix30_repair_haircut_tagged.bam, output/bam/mix30_repair_haircut_tagged.bam.bai
+    log: output/logs/tag_sample/mix30_repair
+    jobid: 12
+    wildcards: data=output, sample=mix30_repair
+    resources: all_threads=1
+
+
+      src/tag_bam output/bam/mix30_repair_haircut.bam output/bam/mix30_repair_haircut_tagged.bam "_" 2 3
+      
+      samtools index output/bam/mix30_repair_haircut_tagged.bam
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+
+[Fri Mar 19 13:16:12 2021]
+rule append_tag:
+    input: output/bam/mix15_repair_haircut.bam
+    output: output/bam/mix15_repair_haircut_tagged.bam, output/bam/mix15_repair_haircut_tagged.bam.bai
+    log: output/logs/tag_sample/mix15_repair
+    jobid: 6
+    wildcards: data=output, sample=mix15_repair
+    resources: all_threads=1
+
+
+      src/tag_bam output/bam/mix15_repair_haircut.bam output/bam/mix15_repair_haircut_tagged.bam "_" 2 3
+      
+      samtools index output/bam/mix15_repair_haircut_tagged.bam
+      
+Activating conda environment: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+/bin/bash: line 1: src/tag_bam: No such file or directory
+/bin/bash: line 1: src/tag_bam: No such file or directory
+/bin/bash: line 1: src/tag_bam: No such file or directory
+[Fri Mar 19 13:16:13 2021]
+Error in rule append_tag:
+    jobid: 12
+    output: output/bam/mix30_repair_haircut_tagged.bam, output/bam/mix30_repair_haircut_tagged.bam.bai
+    log: output/logs/tag_sample/mix30_repair (check log file(s) for error message)
+    conda-env: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+    shell:
+        
+      src/tag_bam output/bam/mix30_repair_haircut.bam output/bam/mix30_repair_haircut_tagged.bam "_" 2 3
+      
+      samtools index output/bam/mix30_repair_haircut_tagged.bam
+      
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Mar 19 13:16:13 2021]
+Error in rule append_tag:
+[Fri Mar 19 13:16:13 2021]
+    jobid: 6
+Error in rule append_tag:
+    output: output/bam/mix15_repair_haircut_tagged.bam, output/bam/mix15_repair_haircut_tagged.bam.bai
+    jobid: 17
+    log: output/logs/tag_sample/mix15_repair (check log file(s) for error message)
+    output: output/bam/mix60_repair_haircut_tagged.bam, output/bam/mix60_repair_haircut_tagged.bam.bai
+    conda-env: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+    log: output/logs/tag_sample/mix60_repair (check log file(s) for error message)
+    shell:
+        
+      src/tag_bam output/bam/mix15_repair_haircut.bam output/bam/mix15_repair_haircut_tagged.bam "_" 2 3
+      
+      samtools index output/bam/mix15_repair_haircut_tagged.bam
+      
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    conda-env: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/conda/0655d97b905b29a74e82f367b2a7e5bd
+
+    shell:
+        
+      src/tag_bam output/bam/mix60_repair_haircut.bam output/bam/mix60_repair_haircut_tagged.bam "_" 2 3
+      
+      samtools index output/bam/mix60_repair_haircut_tagged.bam
+      
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /rumi/shams/abe/Projects/sc-haircut-net/haircut_pipeline/.snakemake/log/2021-03-19T125400.973239.snakemake.log
