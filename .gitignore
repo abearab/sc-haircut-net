@@ -3,6 +3,7 @@
 
 pipeline-repair/raw-data/
 pipeline-repair/output/
+pipeline-repair/src/htslib/
 
 *.DS_Store
 *.Rproj.user
