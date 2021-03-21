@@ -63,7 +63,7 @@ rule sort_by_cb:
       job_name = "{sample}.sort",
       memory = "select[mem>120] rusage[mem=120]",
     log:
-      "{data}logs/sort_sample/{sample}"
+      "{data}/logs/sort_sample/{sample}"
     threads: 24
     resources: all_threads=24
     conda: "../envs/alignment.yaml"
