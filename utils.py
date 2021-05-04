@@ -49,27 +49,27 @@ def cluster(adata):
     sc.tl.rank_genes_groups(adata, 'clusters', method='t-test') # wilcoxon
 
 
-def selected_hairpins(adata_m,adata_r,src='reanalyzed'): # or public
+def selected_hairpins(adata_m,adata_r,src='reanalyzed',out='adata'): # src -> or public; out -> df
     '''
     mean scaled count of U-45 and rG-44
     '''
     # Uracil_45
-    U = adata_r[:,adata_r.var_names.str.contains(r'Uracil[1-5]_45')].layers['scaled'].mean(axis=1)
+    U = adata_r[:,adata_r.var_names.str.contains(r'Uracil[1-5]_45')].layers['counts'].mean(axis=1)
     # riboG_44
-    rG = adata_r[:,adata_r.var_names.str.contains(r'riboG[1-5]_44')].layers['scaled'].mean(axis=1)    
+    rG = adata_r[:,adata_r.var_names.str.contains(r'riboG[1-5]_44')].layers['counts'].mean(axis=1)    
     cells = adata_r.obs.index.tolist()
     
     df = pd.DataFrame([np.array(U),np.array(rG)],columns=cells).T.rename(columns={0: "Uracil-45", 1: "riboG-44"})
-    
-    adata0= ad.AnnData(df)
-    adata = adata_m.T.concatenate(adata0.T).T
-    
-    adata.obs = adata_m.obs
-    adata.uns = adata_m.uns
-    adata.obsm = adata_m.obsm
-    adata.obsp = adata_m.obsp
-
-    return adata
+    if out == 'df': 
+        return df
+    elif out == 'adata':        
+        adata0= ad.AnnData(df)
+        adata = adata_m.T.concatenate(adata0.T).T
+        adata.obs = adata_m.obs
+        adata.uns = adata_m.uns
+        adata.obsm = adata_m.obsm
+        adata.obsp = adata_m.obsp
+        return adata
 
 
 def read_repair(PATH):
@@ -132,13 +132,10 @@ def plot_expriment(adata_m,adata_r):
     
     adata = selected_hairpins(adata_m,adata_r)
     
-    fig, axes = plt.subplots(2, 3, figsize=(15,10), gridspec_kw={'wspace':0.8})
-    ax1_dict = sc.pl.umap(adata_r,color='clusters', frameon=True, title = 'Clusters in repair space',ax=axes[0,0], show=False)
-    ax2_dict = sc.pl.umap(adata_r,color='repair', frameon=False, title = 'Labeled clusters',ax=axes[0,1], show=False,legend_loc = None)
-    ax3_dict = sc.pl.umap(adata_m,color='repair', title = 'mRNA experssion space',ax=axes[0,2], show=False,legend_loc = None)
-    ax4_dict = sc.pl.umap(adata, color=['Uracil-45-1'],ax=axes[1,0], show=False)
-    ax5_dict = sc.pl.umap(adata, color=['riboG-44-1'], ax=axes[1,1], show=False)
-    ax6_dict = sc.pl.dotplot(adata_m, marker_genes_dict, 'clusters', dendrogram=False,swap_axes=False,ax=axes[1,2], show=False)
+    fig, axes = plt.subplots(1, 3, figsize=(15,3), gridspec_kw={'wspace':0.8})
+    ax4_dict = sc.pl.umap(adata, color=['Uracil-45-1'],ax=axes[0], show=False)
+    ax5_dict = sc.pl.umap(adata, color=['riboG-44-1'], ax=axes[1], show=False)
+    ax6_dict = sc.pl.dotplot(adata_m, marker_genes_dict, 'clusters', dendrogram=False,swap_axes=False,ax=axes[2], show=False)
     
 
 def plot_rank_genes_heatmap(adata):
