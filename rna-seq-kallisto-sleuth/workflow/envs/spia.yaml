@@ -1,8 +1,0 @@
-channels:
-  - conda-forge
-  - bioconda
-dependencies:
-  - r-base =4.0
-  - bioconductor-spia =2.42
-  - bioconductor-graphite =1.36
-  - r-tidyverse =1.3
