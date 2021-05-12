@@ -1,0 +1,24 @@
+name: sc-analysis
+channels:
+  - bioconda
+  - r
+  - conda-forge
+dependencies:
+  - scanpy
+  - leidenalg
+  - r-seurat
+  - r-irkernel
+  - r-tidyverse
+  - r-devtools
+  - r-pheatmap
+  - bioconductor-singlecellexperiment
+  - bioconductor-qvalue
+  - bioconductor-multiassayexperiment
+  - bioconductor-scran
+  - bioconductor-complexheatmap
+  - bioconductor-deseq2
+  - bioconductor-zinbwave
+  - ipykernel
+  - pip
+  - pip:
+    - rpy2
