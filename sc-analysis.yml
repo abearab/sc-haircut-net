@@ -4,13 +4,6 @@ channels:
   - r
   - conda-forge
 dependencies:
-  - scanpy
-  - leidenalg
-  - r-seurat
-  - r-irkernel
-  - r-tidyverse
-  - r-devtools
-  - r-pheatmap
   - bioconductor-singlecellexperiment
   - bioconductor-qvalue
   - bioconductor-multiassayexperiment
@@ -18,6 +11,11 @@ dependencies:
   - bioconductor-complexheatmap
   - bioconductor-deseq2
   - bioconductor-zinbwave
+  - scanpy
+  - r-seurat
+  - r-tidyverse
+  - r-pheatmap
+  - leidenalg
   - ipykernel
   - pip
   - pip:
