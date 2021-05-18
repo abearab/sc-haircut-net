@@ -1,30 +1,17 @@
-- [x] Human genome alignment task
-- [ ] Count repair feautres using _kite_
-- [ ] Measure repair activity 
-- [ ] Preprocessing single cell re-analysis
-- [ ] Basic network reconstruction 
-- [ ] ...
+- [x] Download raw data
 
-
-
-# Download raw data
 I'm selecting SRA accession numbers and putting them into `SraAccList.txt` file. Then, I'm using `fastq-dump` command from SRA Toolkits library to download FASTQ file. 
 ```bash
 nohup cat SraAccList.txt | while read line; do fastq-dump --split-files --O raw-data $line; done &> raw-data.log&
 ```
 
-# Human genome sudo-alignment  
-For the main alignment task, I've used `kb-count.sh`(https://github.com/abearab/sc-haircut-net/blob/main/kb-count.sh) file at `rumi` server which is an active server in [Goodarzi Lab](https://goodarzilab.ucsf.edu/), UCSF. 
+- [ ] Run fastQC and multiQC: [pipeline-mrna](https://github.com/abearab/sc-haircut-net/blob/main/pipeline-mrna/)
+- [ ] mRNA alignment and count: [pipeline-mrna](https://github.com/abearab/sc-haircut-net/blob/main/pipeline-mrna/)
+- [ ] Hairpin alignment count:  [pipeline-repair](https://github.com/abearab/sc-haircut-net/tree/main/pipeline-repair) 
+- [x] Re-analysis and preprocessing mix experiment data
+- [x] Differential expression analysis task
+- [x] Pathway enrichment analysis 
+- [ ] Network analysis 
 
-# Repair feautres
-We aim to use [_kite_](https://github.com/pachterlab/kite) as part of [kallisto | bustools](https://www.kallistobus.tools/) for counting hairpin features.
-## Prepare hairpins sequence in `csv` format  
-[Here](https://github.com/hesselberthlab/sc-haircut/issues/3), I asked for the `hairpin.fa` file. Afterward, I need that in `.csv` format to continue with _kite_. Therefore, I'm using my `fatools` python module to convert fasta to csv.
-```bash
-python kite/fatools.py -i sc-haircut/data -m fa2csv -f hairpin.fa
-```
-## Build hairpin index 
-
-## Count hairpin features 
-
-# Measure repair activity 
+[comment]: <> (_____)
+[comment]: <> (`rumi` server is an active server in [Goodarzi Lab]&#40;https://goodarzilab.ucsf.edu/&#41;, UCSF.)
