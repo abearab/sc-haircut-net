@@ -123,25 +123,3 @@ def read_data(expriment,src='reanalyzed'): # or public
     adata_m.obs['repair'] = adata_r.obs.clusters
     
     return adata_m, adata_r 
-
-
-def plot_expriment(adata_m,adata_r):
-    
-    marker_genes_dict = {' ': ['UNG'], # ENSG00000076248.11
-                     '': ['RNASEH2C']} # ENSG00000172922.11'
-    
-    adata = selected_hairpins(adata_m,adata_r)
-    
-    fig, axes = plt.subplots(1, 3, figsize=(15,3), gridspec_kw={'wspace':0.8})
-    ax4_dict = sc.pl.umap(adata, color=['Uracil-45-1'],ax=axes[0], show=False)
-    ax5_dict = sc.pl.umap(adata, color=['riboG-44-1'], ax=axes[1], show=False)
-    ax6_dict = sc.pl.dotplot(adata_m, marker_genes_dict, 'clusters', dendrogram=False,swap_axes=False,ax=axes[2], show=False)
-    
-
-def plot_rank_genes_heatmap(adata):
-    sc.tl.dendrogram(adata,groupby='clusters')
-    pd.DataFrame(adata.uns['rank_genes_groups']['names']).head(5)
-    sc.pl.rank_genes_groups_dotplot(adata, n_genes=3)
-    sc.pl.rank_genes_groups_heatmap(adata, n_genes=3, 
-                                    use_raw=False, swap_axes=True, vmin=-3, vmax=3, 
-                                    cmap='bwr', layer='scaled')#, figsize=(10,7))

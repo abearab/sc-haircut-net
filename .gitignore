@@ -1,6 +1,7 @@
 *.snakemake/
 *.idea/
 *nohup.out
+*.rds
 
 pipeline-repair/raw-data/
 pipeline-repair/output/
