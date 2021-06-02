@@ -1,0 +1,464 @@
+%!PS-Adobe-3.0 EPSF-1.2
+%%Title: (delta_dU_30.txt_PAGE/SUMMARY/CSTF2T_K562_POSTAR_eCLIP.eps)
+%%LanguageLevel: 1
+%%Creator: PostScript::Simple perl module version 0.07
+%%CreationDate: Wed Jun  2 22:08:42 2021
+%%For: abe
+%%Orientation: Portrait
+%%BoundingBox: 0 0 1031 876
+%%EndComments
+%%BeginProlog
+/ll 1 def systemdict /languagelevel known {
+/ll languagelevel def } if
+%%BeginResource: PostScript::Simple
+/ux {72 mul 72.27 div} def
+/uy {72 mul 72.27 div} def
+/u {72 mul 72.27 div} def
+/STARTDIFFENC { mark } bind def
+/ENDDIFFENC { 
+
+% /NewEnc BaseEnc STARTDIFFENC number or glyphname ... ENDDIFFENC -
+	counttomark 2 add -1 roll 256 array copy
+	/TempEncode exch def
+	
+	% pointer for sequential encodings
+	/EncodePointer 0 def
+	{
+		% Get the bottom object
+		counttomark -1 roll
+		% Is it a mark?
+		dup type dup /marktype eq {
+			% End of encoding
+			pop pop exit
+		} {
+			/nametype eq {
+			% Insert the name at EncodePointer 
+
+			% and increment the pointer.
+			TempEncode EncodePointer 3 -1 roll put
+			/EncodePointer EncodePointer 1 add def
+			} {
+			% Set the EncodePointer to the number
+			/EncodePointer exch def
+			} ifelse
+		} ifelse
+	} loop	
+
+	TempEncode def
+} bind def
+
+% Define ISO Latin1 encoding if it doesnt exist
+/ISOLatin1Encoding where {
+%	(ISOLatin1 exists!) =
+	pop
+} {
+	(ISOLatin1 does not exist, creating...) =
+	/ISOLatin1Encoding StandardEncoding STARTDIFFENC
+		144 /dotlessi /grave /acute /circumflex /tilde 
+		/macron /breve /dotaccent /dieresis /.notdef /ring 
+		/cedilla /.notdef /hungarumlaut /ogonek /caron /space 
+		/exclamdown /cent /sterling /currency /yen /brokenbar 
+		/section /dieresis /copyright /ordfeminine 
+		/guillemotleft /logicalnot /hyphen /registered 
+		/macron /degree /plusminus /twosuperior 
+		/threesuperior /acute /mu /paragraph /periodcentered 
+		/cedilla /onesuperior /ordmasculine /guillemotright 
+		/onequarter /onehalf /threequarters /questiondown 
+		/Agrave /Aacute /Acircumflex /Atilde /Adieresis 
+		/Aring /AE /Ccedilla /Egrave /Eacute /Ecircumflex 
+		/Edieresis /Igrave /Iacute /Icircumflex /Idieresis 
+		/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde 
+		/Odieresis /multiply /Oslash /Ugrave /Uacute 
+		/Ucircumflex /Udieresis /Yacute /Thorn /germandbls 
+		/agrave /aacute /acircumflex /atilde /adieresis 
+		/aring /ae /ccedilla /egrave /eacute /ecircumflex 
+		/edieresis /igrave /iacute /icircumflex /idieresis 
+		/eth /ntilde /ograve /oacute /ocircumflex /otilde 
+		/odieresis /divide /oslash /ugrave /uacute 
+		/ucircumflex /udieresis /yacute /thorn /ydieresis
+	ENDDIFFENC
+} ifelse
+
+% Name: Re-encode Font
+% Description: Creates a new font using the named encoding. 
+
+/REENCODEFONT { % /Newfont NewEncoding /Oldfont
+	findfont dup length 4 add dict
+	begin
+		{ % forall
+			1 index /FID ne 
+			2 index /UniqueID ne and
+			2 index /XUID ne and
+			{ def } { pop pop } ifelse
+		} forall
+		/Encoding exch def
+		% defs for DPS
+		/BitmapWidths false def
+		/ExactSize 0 def
+		/InBetweenSize 0 def
+		/TransformedChar 0 def
+		currentdict
+	end
+	definefont pop
+} bind def
+
+% Reencode the std fonts: 
+/Courier-iso ISOLatin1Encoding /Courier REENCODEFONT
+/Courier-Bold-iso ISOLatin1Encoding /Courier-Bold REENCODEFONT
+/Courier-BoldOblique-iso ISOLatin1Encoding /Courier-BoldOblique REENCODEFONT
+/Courier-Oblique-iso ISOLatin1Encoding /Courier-Oblique REENCODEFONT
+/Helvetica-iso ISOLatin1Encoding /Helvetica REENCODEFONT
+/Helvetica-Bold-iso ISOLatin1Encoding /Helvetica-Bold REENCODEFONT
+/Helvetica-BoldOblique-iso ISOLatin1Encoding /Helvetica-BoldOblique REENCODEFONT
+/Helvetica-Oblique-iso ISOLatin1Encoding /Helvetica-Oblique REENCODEFONT
+/Times-Roman-iso ISOLatin1Encoding /Times-Roman REENCODEFONT
+/Times-Bold-iso ISOLatin1Encoding /Times-Bold REENCODEFONT
+/Times-BoldItalic-iso ISOLatin1Encoding /Times-BoldItalic REENCODEFONT
+/Times-Italic-iso ISOLatin1Encoding /Times-Italic REENCODEFONT
+/Symbol-iso ISOLatin1Encoding /Symbol REENCODEFONT
+%%EndResource
+%%EndProlog
+1 u setlinewidth
+0 0 0 setrgbcolor
+/Garamond-bold findfont 17 scalefont setfont
+newpath
+445 ux 440 uy moveto
+(CSTF2T_K562_POSTAR_eCLIP, CSTF2T_K562_POSTAR_eCLIP)   dup stringwidth pop neg 0 rmoveto show 
+/Garamond findfont 14 scalefont setfont
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 867 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 860 uy moveto
+(DROSHA_K562_POSTAR_eCLIP, DROSHA_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 847 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 840 uy moveto
+(LARP4_K562_POSTAR_eCLIP, LARP4_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 827 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 820 uy moveto
+(SLTM_K562_POSTAR_eCLIP, SLTM_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 807 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 800 uy moveto
+(CELF2_T_cell_POSTAR_CIMS, CELF2_T_cell_POSTAR_CIMS)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 787 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 780 uy moveto
+(XRN2_HepG2_POSTAR_eCLIP, XRN2_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 767 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 760 uy moveto
+(CPSF4_HEK293_POSTAR_Piranha_0.01, CPSF4_HEK293_POSTAR_Piranha_0.01)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 747 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 740 uy moveto
+(DGCR8_HepG2_POSTAR_eCLIP, DGCR8_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 727 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 720 uy moveto
+(SMNDC1_K562_POSTAR_eCLIP, SMNDC1_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 707 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 700 uy moveto
+(SFPQ_HepG2_POSTAR_eCLIP, SFPQ_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 687 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 680 uy moveto
+(AGGF1_K562_POSTAR_eCLIP, AGGF1_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 667 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 660 uy moveto
+(FKBP4_HepG2_POSTAR_eCLIP, FKBP4_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 647 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 640 uy moveto
+(TBRG4_K562_POSTAR_eCLIP, TBRG4_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 627 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 620 uy moveto
+(RBM27_K562_POSTAR_eCLIP, RBM27_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 607 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 600 uy moveto
+(PTBP1_K562_POSTAR_eCLIP, PTBP1_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 587 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 580 uy moveto
+(AKAP8L_K562_POSTAR_eCLIP, AKAP8L_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 567 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 560 uy moveto
+(METAP2_K562_POSTAR_eCLIP, METAP2_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 547 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 540 uy moveto
+(EIF4G2_K562_POSTAR_eCLIP, EIF4G2_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 527 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 520 uy moveto
+(EWSR1_K562_POSTAR_eCLIP, EWSR1_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 507 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 500 uy moveto
+(HNRNPM_K562_POSTAR_eCLIP, HNRNPM_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 487 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 480 uy moveto
+(EIF3B_HEK293T_POSTAR_PARalyzer, EIF3B_HEK293T_POSTAR_PARalyzer)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 467 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 460 uy moveto
+(DGCR8_HEK293T_POSTAR_CIMS, DGCR8_HEK293T_POSTAR_CIMS)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 447 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 440 uy moveto
+(MTPAP_K562_POSTAR_eCLIP, MTPAP_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 427 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 420 uy moveto
+(XPO5_HepG2_POSTAR_eCLIP, XPO5_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 407 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 400 uy moveto
+(HNRNPM_HepG2_POSTAR_eCLIP, HNRNPM_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 387 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 380 uy moveto
+(HNRNPUL1_HepG2_POSTAR_eCLIP, HNRNPUL1_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 367 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 360 uy moveto
+(AARS_K562_POSTAR_eCLIP, AARS_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 347 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 340 uy moveto
+(CSTF2T_HepG2_POSTAR_eCLIP, CSTF2T_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 327 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 320 uy moveto
+(NONO_K562_POSTAR_eCLIP, NONO_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 307 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 300 uy moveto
+(TAF15_K562_POSTAR_eCLIP, TAF15_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 287 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 280 uy moveto
+(XRN2_K562_POSTAR_eCLIP, XRN2_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 267 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 260 uy moveto
+(FTO_K562_POSTAR_eCLIP, FTO_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 247 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 240 uy moveto
+(XRCC6_K562_POSTAR_eCLIP, XRCC6_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 227 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 220 uy moveto
+(TARDBP_SH-SY5Y_POSTAR_Piranha_0.01, TARDBP_SH-SY5Y_POSTAR_Piranha_0.01)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 207 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 200 uy moveto
+(FUS_Brain_POSTAR_CIMS, FUS_Brain_POSTAR_CIMS)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 187 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 180 uy moveto
+(HNRNPC_HEK293_POSTAR_PARalyzer, HNRNPC_HEK293_POSTAR_PARalyzer)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 167 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 160 uy moveto
+(NCBP2_HepG2_POSTAR_eCLIP, NCBP2_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 147 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 140 uy moveto
+(RBFOX2_K562_POSTAR_eCLIP, RBFOX2_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 127 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 120 uy moveto
+(RBM47_MDA-MB-231_POSTAR_CIMS, RBM47_MDA-MB-231_POSTAR_CIMS)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 107 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 100 uy moveto
+(SMNDC1_HepG2_POSTAR_eCLIP, SMNDC1_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 87 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 80 uy moveto
+(RPS5_HepG2_POSTAR_eCLIP, RPS5_HepG2_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 67 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 60 uy moveto
+(CPSF6_K562_POSTAR_eCLIP, CPSF6_K562_POSTAR_eCLIP)   show stroke 
+0.8 0 0 setrgbcolor
+newpath
+452 ux 447 uy moveto
+495 ux 47 uy lineto stroke
+0 0 0 setrgbcolor
+newpath
+502 ux 40 uy moveto
+(DDX42_K562_POSTAR_eCLIP, DDX42_K562_POSTAR_eCLIP)   show stroke 
+%%EOF
