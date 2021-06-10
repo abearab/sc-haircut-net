@@ -1,4 +1,4 @@
-name: sc-analysis
+name: sc-net
 channels:
   - anaconda
   - bioconda
