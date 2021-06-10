@@ -1,5 +1,6 @@
 name: sc-analysis
 channels:
+  - anaconda
   - bioconda
   - r
   - conda-forge
@@ -10,13 +11,20 @@ dependencies:
   - bioconductor-scran
   - bioconductor-complexheatmap
   - bioconductor-deseq2
-  - bioconductor-zinbwave
   - scanpy
+  - pandas
+  - numpy
   - r-seurat
   - r-tidyverse
   - r-pheatmap
   - leidenalg
   - ipykernel
+  - scikit-learn
+  - cellrank
+  - cytoolz
   - pip
   - pip:
     - rpy2
+    - reactome2py
+    - stringdb
+    - pyscenic
