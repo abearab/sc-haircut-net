@@ -6,17 +6,9 @@ channels:
   - conda-forge
 dependencies:
   - bioconductor-singlecellexperiment
-  - bioconductor-qvalue
-  - bioconductor-multiassayexperiment
-  - bioconductor-scran
-  - bioconductor-complexheatmap
-  - bioconductor-deseq2
   - scanpy
   - pandas
   - numpy
-  - r-seurat
-  - r-tidyverse
-  - r-pheatmap
   - leidenalg
   - ipykernel
   - scikit-learn
