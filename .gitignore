@@ -6,6 +6,7 @@
 pipeline-repair/raw-data/
 pipeline-repair/output/
 pipeline-repair/src/htslib/
+SCENIC/resources/
 
 *.DS_Store
 *.Rproj.user
