@@ -1,0 +1,17 @@
+name: sc-net
+channels:
+  - anaconda
+  - bioconda
+  - conda-forge
+dependencies:
+  - python==3.7
+  - scanpy
+  - pandas
+  - numpy
+  - ipykernel
+  - scikit-learn
+  - cytoolz
+  - pip
+  - pip:
+    - stringdb
+    - pyscenic

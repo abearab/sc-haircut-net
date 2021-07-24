@@ -1,0 +1,22 @@
+name: sc-analysis
+channels:
+  - anaconda
+  - bioconda
+  - r
+  - conda-forge
+dependencies:
+  - bioconductor-singlecellexperiment
+  - scanpy
+  - pandas
+  - numpy
+  - leidenalg
+  - ipykernel
+  - scikit-learn
+  - cellrank
+  - cytoolz
+  - pip
+  - pip:
+    - rpy2
+    - reactome2py
+    - stringdb
+    - pyscenic
