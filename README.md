@@ -1,1 +1,1 @@
-[Thesis slides](https://github.com/abearab/sc-haircut-net/blob/main/thesis-slides-short.pdf)
+<embed src="https://abearab.github.io/sc-haircut-net/thesis-slides-short.pdf" width="100%" height="850px"/>
