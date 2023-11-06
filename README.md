@@ -1,1 +1,1 @@
-Coming soon!
+[Thesis slides](thesis-slides-short.pdf)
