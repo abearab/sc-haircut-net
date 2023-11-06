@@ -1,1 +1,1 @@
-<embed src="https://abearab.github.io/sc-haircut-net/thesis-slides-short.pdf" width="100%" height="850px"/>
+<object data="thesis-slides-short.pdf" width="1000" height="1000" type='application/pdf'></object>
